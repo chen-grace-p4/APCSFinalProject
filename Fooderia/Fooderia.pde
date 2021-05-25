@@ -17,16 +17,16 @@ void mousePressed() {
   //**make sure to distinguish toppings based on level
   
   //testing of changing screens below
-  if (mouseX < 100 && mouseY < 100) {
-    fooderia.changeScreen("cashier");  
-  }
-  else if (mouseX < 200 && mouseY < 100) {
-    fooderia.changeScreen("sauce");  
-  }
-  else if (mouseX < 300 && mouseY < 100) {
+  if (mouseX > width-100 && mouseY < 100) {
     fooderia.changeScreen("oven");  
   }
-  if (mouseX < 300 && mouseY <100) fooderia.checkScreen();  
+  else if (mouseX > width-200 && mouseY < 100) {
+    fooderia.changeScreen("sauce");  
+  }
+  else if (mouseX > width-300 && mouseY < 100) {
+    fooderia.changeScreen("cashier");  
+  }
+  if (mouseX > width-300 && mouseY <100) fooderia.checkScreen();  
   //testing of changing screens ends
 
 }
