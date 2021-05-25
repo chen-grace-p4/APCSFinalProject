@@ -49,6 +49,7 @@ public class Pizza implements Things {
   
   //returns toppingList
   ArrayList<String> getIngredients() {
+    return toppingList;
   }
   
 }
