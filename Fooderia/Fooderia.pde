@@ -1,5 +1,6 @@
 Game fooderia = new Game();
 Buttons screenButtons = new Buttons();
+Pizza pizza = new Pizza();
 
 //for testing purposes 
 int mousex, mousey;

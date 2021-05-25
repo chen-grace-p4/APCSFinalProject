@@ -38,6 +38,8 @@ public class Game {
       rect(230,170,100,100);
       fill(0);
       text("Pepperoni", 250, 200);
+      
+      pizza.show();
     }
     if (screen.equals("oven")) background(#fff0f4);
     screenButtons.show();

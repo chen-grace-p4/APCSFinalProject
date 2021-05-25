@@ -1,8 +1,12 @@
-public class Pizza implements Things {
+public class Pizza implements Things {  
   String getType() {
     return "Pizza";
   }
   void show() {
+    ellipseMode(CENTER);
+    noStroke();
+    fill(#ebdab9);
+    ellipse(height/2, width/2 + 50, 350, 350);
   }
   
   boolean sauceSelected;
