@@ -20,15 +20,7 @@ public class Game {
     if (screen.equals("cashier")) background(100, 0, 0);
     if (screen.equals("sauce")) background(0, 100, 0);
     if (screen.equals("oven")) background(0, 0, 100);
-    
-    //will change below to a show method of an object later
-    noStroke();
-    fill(255);
-    rect(0,0,100,100);
-    fill(200);
-    rect(100,0,100,100);
-    fill(150);
-    rect(200,0,100,100);
+    screenButtons.show();
   }
   
   void addMoney(double money) {

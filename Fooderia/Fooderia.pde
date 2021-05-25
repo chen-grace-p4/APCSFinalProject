@@ -1,19 +1,11 @@
 Game fooderia = new Game();
+Buttons screenButtons = new Buttons();
 
 void setup() {
   //testing of changing screens below
   size(800, 800);
   background(255); 
-  
-  //will change below to a show method of an object later
-  noStroke();
-  fill(255);
-  rect(0,0,100,100);
-  fill(200);
-  rect(100,0,100,100);
-  fill(150);
-  rect(200,0,100,100);
-  //testing of changing screens ends
+  screenButtons.show();
 }
 
 void draw() {
