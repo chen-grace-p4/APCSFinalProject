@@ -1,6 +1,10 @@
 Game fooderia = new Game();
 Buttons screenButtons = new Buttons();
 
+//for testing purposes 
+int mousex, mousey;
+//
+
 void setup() {
   //testing of changing screens below
   size(800, 800);
@@ -10,6 +14,11 @@ void setup() {
 
 void draw() {
   fooderia.checkScreen();
+  //TESTING PURPOSES
+  mousex = mouseX;
+  mousey = mouseY;
+  text(mousex + ", " + mousey, width-70, 125);
+  //
 }
 
 void mousePressed() {

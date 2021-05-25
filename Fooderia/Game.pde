@@ -18,7 +18,12 @@ public class Game {
   void checkScreen() {
     //basic testing of changing screen below, will add more for each screen later
     if (screen.equals("cashier")) background(#edfbff);
-    if (screen.equals("sauce")) background(#fffff5);
+    if (screen.equals("sauce")) {
+      background(#fffff5);
+      //sauce table
+      fill(200);
+      rect(0, height/5, width, height/2*1.2);
+    }
     if (screen.equals("oven")) background(#fff0f4);
     screenButtons.show();
   }
