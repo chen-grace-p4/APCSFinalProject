@@ -11,6 +11,10 @@ public class Pizza implements Things {
   
   ArrayList<String> toppingList;
   
+  Pizza() {
+    toppingList = new ArrayList<String>();
+  }
+  
   String getType() {
     return "Pizza";
   }
@@ -63,20 +67,19 @@ public class Pizza implements Things {
   //then set boolean to false and add to arraylist of toppings
   //if no topping boolean is true, then holdPizza()
   void dropTopping() {
-    sauceOn = false; cheeseOn = false; pepOn = false; olivesOn = false;
+    //sauceOn = false; cheeseOn = false; pepOn = false; olivesOn = false;
     if (sauceSelected) {
         sauceOn = true;
         sauceSelected = false;
-        //intialize list later***********
-        //toppingList.add("sauce");
+        toppingList.add("sauce");
     } else if (cheeseSelected) {
         cheeseOn = true;
         cheeseSelected = false;
-        //toppingList.add("cheese");
+        toppingList.add("cheese");
     } else if (pepSelected) {
         pepOn = true;
         pepSelected = false;
-        //toppingList.add("pepperoni");
+        toppingList.add("pepperoni");
     }
     if (sauceOn||cheeseOn||pepOn) show();
   }
