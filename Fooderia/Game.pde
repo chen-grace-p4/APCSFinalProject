@@ -23,6 +23,21 @@ public class Game {
       //sauce table
       fill(200);
       rect(0, height/5, width, height/2*1.2);
+      //tomato sauce
+      fill(#800505);
+      rect(10,170,100,100);
+      fill(255);
+      text("Tomato Sauce", 20, 200);
+      //cheese
+      fill(#f0e800);
+      rect(120,170,100,100);
+      fill(0);
+      text("Cheese", 140, 200);
+      //pepperoni
+      fill(#ff4d4d);
+      rect(230,170,100,100);
+      fill(0);
+      text("Pepperoni", 250, 200);
     }
     if (screen.equals("oven")) background(#fff0f4);
     screenButtons.show();
