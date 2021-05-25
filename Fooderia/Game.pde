@@ -11,6 +11,10 @@ public class Game {
     customerCounter = 0;
   }
   
+  String getScreen() {
+    return screen;
+  }
+  
   void changeScreen(String screenName) {
   // to change the background/which items are hidden or visible (call hide() method for each object) based on button pressed
     screen = screenName;
