@@ -28,6 +28,9 @@ public class Game {
     }
     if (screen.equals("sauce")) {
       background(#fffff5);
+      pizza.mainX = 400;
+      pizza.mainY = 450;
+      pizza.shrink = false;
       //sauce table
       fill(200);
       rect(0, height/5, width, height/2*1.2);
@@ -54,7 +57,16 @@ public class Game {
       
       pizza.show();
     }
-    if (screen.equals("oven")) background(#fff0f4);
+    if (screen.equals("oven")) {
+      background(#fff0f4);
+      //conveyor belt
+      fill(#dbdbdb);
+      rect(0, 300, 800, 200);
+      
+      pizza.toOven();
+      pizza.show();
+      oven.show();
+    }
     screenButtons.show();
   }
   

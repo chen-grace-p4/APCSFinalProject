@@ -11,6 +11,7 @@ public class Pizza implements Things {
   boolean pepOn;
   boolean olivesOn;
   
+  boolean shrink;
   boolean baked;
   
   ArrayList<String> toppingList;
@@ -30,18 +31,22 @@ public class Pizza implements Things {
     ellipseMode(CENTER);
     noStroke();
     fill(#ebdab9);
-    ellipse(mainX, mainY, 350, 350);
+    if (shrink) ellipse(mainX, mainY, 100, 100);
+    else ellipse(mainX, mainY, 350, 350);
+    
     if (sauceOn) {
       ellipseMode(CENTER);
       noStroke();
       fill(#800505);
-      ellipse(mainX, mainY, 300, 300);
+      if (shrink) ellipse(mainX, mainY, 80, 80);
+      else ellipse(mainX, mainY, 300, 300);
     }
     if (cheeseOn) {
       ellipseMode(CENTER);
       noStroke();
       fill(240, 232, 0, 200);
-      ellipse(mainX, mainY, 290, 290);
+      if (shrink) ellipse(mainX, mainY, 70, 70);
+      else ellipse(mainX, mainY, 290, 290);
       //BELOW BROKEN BECAUSE SHOW RUNS EVERY DRAW
       //int minX = width/2 - 150;
       //int maxX = width/2 + 150;
@@ -57,12 +62,24 @@ public class Pizza implements Things {
     }
     if (pepOn) {
       //TEMP PEPPERONI IN A GRID
-      for (int y = mainY - 100; y < mainY+117; y += 40) {
-        for (int x = mainX-100; x < mainX+102; x += 40) {
-          ellipseMode(CENTER);
-          noStroke();
-          fill(#ff4d4d);
-          ellipse(x, y, 30, 30);
+      if (shrink) {
+        for (int y = mainY - 20; y < mainY+30; y += 10) {
+          for (int x = mainX-20; x < mainX+30; x += 10) {
+            ellipseMode(CENTER);
+            noStroke();
+            fill(#ff4d4d);
+            ellipse(x, y, 6, 6);
+          }
+        }
+      }
+      else {
+        for (int y = mainY - 100; y < mainY+117; y += 40) {
+          for (int x = mainX-100; x < mainX+102; x += 40) {
+            ellipseMode(CENTER);
+            noStroke();
+            fill(#ff4d4d);
+            ellipse(x, y, 30, 30);
+          }
         }
       }
     }
@@ -132,6 +149,12 @@ public class Pizza implements Things {
   void bakedTopping() {
     baked = true;
   }
+  
+  void toOven() {
+    shrink = true;
+    mainX = 96;
+    mainY = 390;
+  }
 
   //moves pizza while on conveyor belt to oven
   //when it moves right enough so that the belt ends:
@@ -141,7 +164,7 @@ public class Pizza implements Things {
   //if getCustomerNum() < 12 then construct new customer with same stored place
   // else levelEnds()
   void move() {
-    //REQUIRES X AND Y INSTANCE VARIABLES + FIXED SHOW  
+      
   }
 
   boolean holding;

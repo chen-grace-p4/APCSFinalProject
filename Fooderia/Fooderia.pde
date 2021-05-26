@@ -3,6 +3,7 @@ Buttons screenButtons = new Buttons();
 Pizza pizza = new Pizza();
 Customer customerRight = new Customer("right");
 Customer customerLeft = new Customer("left");
+Oven oven = new Oven();
 
 //for testing purposes 
 int mousex, mousey;
