@@ -12,4 +12,8 @@ Our project will be a food-making game inspired by a combination of cooking feve
 
 5-24 (class + home) Grace C: Made basic blueprints for Notepad, Things, Pizza, and Game. Coded very basic prototype of changing screens with the use of the main Fooderia file and a Game object.
 
-5-25 (home) Grace C: Fixed basic layout/color for screen changing and made it more efficient by creating a Buttons class. Completed most methods in pizza object (and added appropriate code in Fooderia and Game class) so that there is a very basic pizza making station in the "sauce" screen. 
+5-24 (class+ home) Shriya A: Listed out the methods/ a brief description of their function for the main file to code later and tested out issues with having static vs non-static methods.
+
+5-25 (home) Grace C: Fixed basic layout/color for screen changing and made it more efficient by creating a Buttons class. Completed most methods in pizza object (and added appropriate code in Fooderia and Game class) so that there is a very basic pizza making station in the "sauce" screen.
+
+5-25 (home) Shriya A: Made the blueprint for the Customers Class; created the constructor and instance variables for said class along with some of the main methods such as those that return the variables, the show() method, move(), and customerComes() method. I added code for those methods to work in the main file under draw as well as in the Game class.
