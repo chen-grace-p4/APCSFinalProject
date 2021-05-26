@@ -42,6 +42,9 @@ void mousePressed() {
   if (fooderia.getScreen().equals("sauce")) {
     if (mouseX > 10 && mouseX < 110 && mouseY > 170 && mouseY < 270) {
       pizza.toppingSelected("sauce");
+    } 
+    else if (mouseX > 120 && mouseX < 220 && mouseY > 170 && mouseY < 270) {
+      pizza.toppingSelected("cheese");
     }
     int x = width/2;
     int y = height/2;

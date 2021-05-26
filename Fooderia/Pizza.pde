@@ -30,6 +30,24 @@ public class Pizza implements Things {
       fill(#800505);
       ellipse(width/2, height/2 + 50, 300, 300);
     }
+    if (cheeseOn) {
+      ellipseMode(CENTER);
+      noStroke();
+      fill(240, 232, 0, 200);
+      ellipse(width/2, height/2 + 50, 290, 290);
+      //BELOW BROKEN BECAUSE SHOW RUNS EVERY DRAW
+      //int minX = width/2 - 150;
+      //int maxX = width/2 + 150;
+      //int minY = height/2 - 150;
+      //int maxY = height/2 + 150;
+      //for (int i = 0; i < 100; i++) {
+      //  int randomX = (int) (Math.random() * (maxX-minX+1)+minX);
+      //  int randomY = (int) (Math.random() * (maxY-minY+1)+minY);
+      //  fill(#f0e800);
+      //  noStroke();
+      //  ellipse(randomX, randomY, 3, 3);
+      //}
+    }
   }
   
 //first makes all booleans false, attach topping to cursor, make toppingtype
