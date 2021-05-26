@@ -36,7 +36,7 @@ void draw() {
       }
   }
     if (customerLeft.moveIn()==true){
-      if (customerLeft.getX()>200){
+      if (customerLeft.getX()<200){
         customerLeft.move("right");
         
       }
@@ -66,6 +66,11 @@ void mousePressed() {
   if (mouseX > width-300 && mouseY <100) fooderia.checkScreen();  
   
   //toppings station/sauce screen
+  if (fooderia.getScreen().equals("cashier")) {
+     //JUST FOR TESTING PURPOSES
+     customerRight.customerLeaves(customerRight.getOrder());
+    } 
+    
   if (fooderia.getScreen().equals("sauce")) {
     if (mouseX > 10 && mouseX < 110 && mouseY > 170 && mouseY < 270) {
       pizza.toppingSelected("sauce");

@@ -5,7 +5,7 @@ public class Customer {
   String location;
   color c;
   int x, y;
-  boolean moveIn, moveOut;
+  boolean moveIn, moveOut, ordercorrect;
 
   Customer(String location) {
     c = 0;
@@ -23,44 +23,78 @@ public class Customer {
     order = menu[rand];
     this.location = location;
     customerComes(location);
+    println(order[0]);
   }
+
+  void show() {
+    fill(c);
+    ellipse(x, y, 155, 255);
+    text(order[0], x+100, y-150);
+  }
+
+  void move(String direction) {
+    if (direction.equals("right")) {
+      x+=2;
+    }
+    if (direction.equals("left")) {
+      x-=2;
+    }
+  }  
 
   void customerComes(String location) {
     moveIn = true;
   }
-  
-  boolean moveIn(){
+
+  void customerLeaves(ArrayList ingredients) {
+    ordercorrect = true;
+    for (int i = 1; i<order.length-1; i++) {
+      if (ingredients.indexOf(order[i])<0) {
+        ordercorrect = false;
+      }
+    }
+    for (int i = 0; i<ingredients.size(); i++) {
+      boolean ingredientcorrect = false;
+      for (int j = 1; j<order.length-1; j++) {
+        if (ingredients.get(i).equals(order[j])) {
+          ingredientcorrect = true;
+        }
+      }
+      if (ingredientcorrect == false) {
+        ordercorrect = false;
+      }
+    }
+    println(ordercorrect);
+  }
+  //getOrder() IS JUST FOR TESTING PURPOSES
+  ArrayList getOrder() {
+    ArrayList ans = new ArrayList();
+    for (int i = 1; i<order.length-1; i++) {
+      ans.add(order[i]);
+    }
+    return ans;
+  }
+
+  boolean moveIn() {
     return moveIn;
   }
-  
-  boolean moveOut(){
+
+  boolean moveOut() {
     return moveOut;
   }
-  
-  void stopMoving(){
+
+  void stopMoving() {
     moveIn = false;
     moveOut = false;
   } 
-  
-  
-  void move(String direction){
-    if (direction.equals("right")){
-    x+=2;
-    }
-    if (direction.equals("left")){
-    x-=2;
-    }
-  }  
-  
-  int getX(){
-  return x;
+
+
+
+
+  int getX() {
+    return x;
   }
-  
-  String getLocation(){
+
+  String getLocation() {
     return location;
-  }
-  void show() {
-    fill(c);
-    ellipse(x, y, 155, 255);
   }
 }
