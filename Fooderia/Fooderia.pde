@@ -46,6 +46,28 @@ void draw() {
   }
   
   //////////////////////////////////////////////////////////
+  
+   ///////////////////////////////////////////Code below is responsible for customers movingout:
+  if (customerRight.moveOut()==true){
+      if (customerRight.getX()<900){
+        customerRight.move("right");
+        
+      }
+      else{
+        customerRight.stopMoving();
+      }
+  }
+    if (customerLeft.moveOut()==true){
+      if (customerLeft.getX()>-100){
+        customerLeft.move("left");
+        
+      }
+      else{
+        customerLeft.stopMoving();
+      }
+  }
+  
+  //////////////////////////////////////////////////////////
  
   
 }
@@ -68,7 +90,12 @@ void mousePressed() {
   //toppings station/sauce screen
   if (fooderia.getScreen().equals("cashier")) {
      //JUST FOR TESTING PURPOSES
+     if (mouseX > 525 && mouseX < 675 && mouseY > 375 && mouseY < 625) {
      customerRight.customerLeaves(customerRight.getOrder());
+    } 
+    if (mouseX > 125 && mouseX < 275 && mouseY > 375 && mouseY < 625) {
+     customerLeft.customerLeaves(customerLeft.getOrder());
+    } 
     } 
     
   if (fooderia.getScreen().equals("sauce")) {

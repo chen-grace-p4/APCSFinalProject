@@ -28,8 +28,9 @@ public class Customer {
 
   void show() {
     fill(c);
-    ellipse(x, y, 155, 255);
-    text(order[0], x+100, y-150);
+    ellipse(x, y, 150, 250);
+    if (getLocation()=="right")text(order[0], x+100, y-150);
+    if (getLocation()=="left")text(order[0], x-100, y-150);
   }
 
   void move(String direction) {
@@ -42,10 +43,13 @@ public class Customer {
   }  
 
   void customerComes(String location) {
+    moveOut = false;
     moveIn = true;
   }
 
   void customerLeaves(ArrayList ingredients) {
+    //////////////////////// Code below checks if the order is correct:
+    
     ordercorrect = true;
     for (int i = 1; i<order.length-1; i++) {
       if (ingredients.indexOf(order[i])<0) {
@@ -64,6 +68,11 @@ public class Customer {
       }
     }
     println(ordercorrect);
+    /////////////////////////////////
+    moveIn = false;
+    moveOut = true;
+    
+    
   }
   //getOrder() IS JUST FOR TESTING PURPOSES
   ArrayList getOrder() {
