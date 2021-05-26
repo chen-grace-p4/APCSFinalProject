@@ -1,6 +1,8 @@
 Game fooderia = new Game();
 Buttons screenButtons = new Buttons();
 Pizza pizza = new Pizza();
+Customer customerRight = new Customer("right");
+Customer customerLeft = new Customer("left");
 
 //for testing purposes 
 int mousex, mousey;
@@ -11,6 +13,7 @@ void setup() {
   size(800, 800);
   background(255); 
   screenButtons.show();
+
 }
 
 void draw() {
@@ -21,6 +24,10 @@ void draw() {
   text(mousex + ", " + mousey, width-70, 125);
   //
   if (fooderia.getScreen().equals("sauce"))pizza.toppingDrag();
+  
+  
+ 
+  
 }
 
 void mousePressed() {
