@@ -25,7 +25,27 @@ void draw() {
   //
   if (fooderia.getScreen().equals("sauce"))pizza.toppingDrag();
   
+  ///////////////////////////////////////////Code below is responsible for customers coming in:
+  if (customerRight.moveIn()==true){
+      if (customerRight.getX()>600){
+        customerRight.move("left");
+        
+      }
+      else{
+        customerRight.stopMoving();
+      }
+  }
+    if (customerLeft.moveIn()==true){
+      if (customerLeft.getX()>200){
+        customerLeft.move("right");
+        
+      }
+      else{
+        customerLeft.stopMoving();
+      }
+  }
   
+  //////////////////////////////////////////////////////////
  
   
 }

@@ -25,5 +25,42 @@ public class Customer {
     customerComes(location);
   }
 
+  void customerComes(String location) {
+    moveIn = true;
+  }
   
+  boolean moveIn(){
+    return moveIn;
+  }
+  
+  boolean moveOut(){
+    return moveOut;
+  }
+  
+  void stopMoving(){
+    moveIn = false;
+    moveOut = false;
+  } 
+  
+  
+  void move(String direction){
+    if (direction.equals("right")){
+    x+=2;
+    }
+    if (direction.equals("left")){
+    x-=2;
+    }
+  }  
+  
+  int getX(){
+  return x;
+  }
+  
+  String getLocation(){
+    return location;
+  }
+  void show() {
+    fill(c);
+    ellipse(x, y, 155, 255);
+  }
 }
