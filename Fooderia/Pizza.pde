@@ -13,6 +13,7 @@ public class Pizza implements Things {
   
   boolean shrink;
   boolean baked;
+  boolean moving;
   
   ArrayList<String> toppingList;
   
@@ -150,12 +151,6 @@ public class Pizza implements Things {
     baked = true;
   }
   
-  void toOven() {
-    shrink = true;
-    mainX = 96;
-    mainY = 390;
-  }
-
   //moves pizza while on conveyor belt to oven
   //when it moves right enough so that the belt ends:
   //call changeScreen(Cashier)
@@ -164,7 +159,10 @@ public class Pizza implements Things {
   //if getCustomerNum() < 12 then construct new customer with same stored place
   // else levelEnds()
   void move() {
-      
+    if (mainX <= 700) {
+      moving = true;
+      mainX += 2;
+    }
   }
 
   boolean holding;

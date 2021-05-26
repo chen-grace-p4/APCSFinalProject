@@ -47,8 +47,13 @@ void draw() {
   }
   
   //////////////////////////////////////////////////////////
- 
-  
+  //for oven scene
+  if (fooderia.getScreen().equals("oven")) {
+    if (pizza.shrink) {
+      //SOME WAY TO PAUSE HERE? 
+      pizza.move();
+    }
+  }
 }
 
 void mousePressed() {
