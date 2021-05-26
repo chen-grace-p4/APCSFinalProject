@@ -45,6 +45,11 @@ public class Game {
       rect(230,170,100,100);
       fill(0);
       text("Pepperoni", 250, 200);
+      //restart button
+      fill(#ebdab9);
+      rect(10, 300, 100 ,300);
+      fill(0);
+      text("Restart Pizza", 20, 350);
       
       pizza.show();
     }
@@ -67,6 +72,10 @@ public class Game {
   
   int getCustomerNum() {
     return 0;
+  }
+  
+  void newPizza() {
+    pizza = new Pizza();
   }
   
   void levelEnds() {
