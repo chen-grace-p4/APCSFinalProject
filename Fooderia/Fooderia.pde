@@ -46,6 +46,9 @@ void mousePressed() {
     else if (mouseX > 120 && mouseX < 220 && mouseY > 170 && mouseY < 270) {
       pizza.toppingSelected("cheese");
     }
+    else if (mouseX > 230 && mouseX < 330 && mouseY > 170 && mouseY < 270) {
+      pizza.toppingSelected("pep");
+    }
     int x = width/2;
     int y = height/2;
     float inside = (mouseX - x)*(mouseX - x) + (mouseY - y)*(mouseY-y);

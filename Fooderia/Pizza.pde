@@ -20,6 +20,7 @@ public class Pizza implements Things {
   }
   
   void show() {
+    //MUST REMAKE USING X AND Y INSTANCE VARIABLES IN ORDER TO MOVE LATER
     ellipseMode(CENTER);
     noStroke();
     fill(#ebdab9);
@@ -48,7 +49,19 @@ public class Pizza implements Things {
       //  ellipse(randomX, randomY, 3, 3);
       //}
     }
+    if (pepOn) {
+      //TEMP PEPPERONI IN A GRID
+      for (int y = 373; y < 517; y += 40) {
+        for (int x = 300; x < 502; x += 40) {
+          ellipseMode(CENTER);
+          noStroke();
+          fill(#ff4d4d);
+          ellipse(x, y, 30, 30);
+        }
+      }
+    }
   }
+  
   
 //first makes all booleans false, attach topping to cursor, make toppingtype
 //selected = truse and attach that topping to the cursor
