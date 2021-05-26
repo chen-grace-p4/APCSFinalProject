@@ -48,7 +48,6 @@ void draw() {
   }
 
   //////////////////////////////////////////////////////////
-<<<<<<< HEAD
   //for oven scene
   if (fooderia.getScreen().equals("oven")) {
     if (pizza.shrink) {
@@ -56,7 +55,6 @@ void draw() {
       pizza.move();
     }
   }
-=======
 
    ///////////////////////////////////////////Code below is responsible for customers movingout:
   if (customerRight.moveOut()==true){
@@ -79,9 +77,6 @@ void draw() {
   }
 
   //////////////////////////////////////////////////////////
-
-
->>>>>>> 81f81f47bb335db612538d1ac1207b1b9a372fe8
 }
 
 void mousePressed() {
