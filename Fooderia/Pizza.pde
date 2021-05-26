@@ -9,6 +9,8 @@ public class Pizza implements Things {
   boolean pepOn;
   boolean olivesOn;
   
+  boolean baked;
+  
   ArrayList<String> toppingList;
   
   Pizza() {
@@ -59,6 +61,13 @@ public class Pizza implements Things {
           ellipse(x, y, 30, 30);
         }
       }
+    }
+    if (baked) {
+      //NOT TESTABLE YET
+      ellipseMode(CENTER);
+      noStroke();
+      fill(230, 246, 21, 40);
+      ellipse(width/2, height/2 + 50, 350, 350);
     }
   }
   
@@ -117,6 +126,7 @@ public class Pizza implements Things {
 
   //makes toppings and pizza darker after being put in the oven
   void bakedTopping() {
+    baked = true;
   }
 
   //moves pizza while on conveyor belt to oven
@@ -127,6 +137,7 @@ public class Pizza implements Things {
   //if getCustomerNum() < 12 then construct new customer with same stored place
   // else levelEnds()
   void move() {
+    //REQUIRES X AND Y INSTANCE VARIABLES + FIXED SHOW  
   }
 
   boolean holding;
@@ -134,6 +145,7 @@ public class Pizza implements Things {
   //if not holding, hold pizza and set holding true
   //hold refers to attach pizza and its toppingsto cursor
   void holdPizza() {
+    //REQUIRES X AND Y INSTANCE VARIABLES + FIXED SHOW  
   }
 
   //returns toppingList
