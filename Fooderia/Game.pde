@@ -24,6 +24,7 @@ public class Game {
     if (screen.equals("cashier")){
           background(#edfbff);
           customerRight.show();
+          customerLeft.show();
     }
     if (screen.equals("sauce")) {
       background(#fffff5);
