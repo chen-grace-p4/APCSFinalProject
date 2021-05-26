@@ -63,7 +63,6 @@ public class Game {
       pizza.show();
     }
     if (screen.equals("oven")) {
-      notepad.show();
       background(#fff0f4);
       //conveyor belt
       fill(#dbdbdb);
@@ -72,6 +71,7 @@ public class Game {
       pizza.shrink = true;
       pizza.show();
       oven.show();
+      notepad.show();
     }
     screenButtons.show();
   }
