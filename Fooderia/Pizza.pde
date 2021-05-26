@@ -1,4 +1,6 @@
 public class Pizza implements Things { 
+  int mainX, mainY;
+  
   boolean sauceSelected;
   boolean cheeseSelected;
   boolean pepSelected;
@@ -15,6 +17,8 @@ public class Pizza implements Things {
   
   Pizza() {
     toppingList = new ArrayList<String>();
+    mainX = 400;
+    mainY = 450;
   }
   
   String getType() {
@@ -26,18 +30,18 @@ public class Pizza implements Things {
     ellipseMode(CENTER);
     noStroke();
     fill(#ebdab9);
-    ellipse(width/2, height/2 + 50, 350, 350);
+    ellipse(mainX, mainY, 350, 350);
     if (sauceOn) {
       ellipseMode(CENTER);
       noStroke();
       fill(#800505);
-      ellipse(width/2, height/2 + 50, 300, 300);
+      ellipse(mainX, mainY, 300, 300);
     }
     if (cheeseOn) {
       ellipseMode(CENTER);
       noStroke();
       fill(240, 232, 0, 200);
-      ellipse(width/2, height/2 + 50, 290, 290);
+      ellipse(mainX, mainY, 290, 290);
       //BELOW BROKEN BECAUSE SHOW RUNS EVERY DRAW
       //int minX = width/2 - 150;
       //int maxX = width/2 + 150;
@@ -53,8 +57,8 @@ public class Pizza implements Things {
     }
     if (pepOn) {
       //TEMP PEPPERONI IN A GRID
-      for (int y = 373; y < 517; y += 40) {
-        for (int x = 300; x < 502; x += 40) {
+      for (int y = mainY - 100; y < mainY+117; y += 40) {
+        for (int x = mainX-100; x < mainX+102; x += 40) {
           ellipseMode(CENTER);
           noStroke();
           fill(#ff4d4d);
@@ -67,7 +71,7 @@ public class Pizza implements Things {
       ellipseMode(CENTER);
       noStroke();
       fill(230, 246, 21, 40);
-      ellipse(width/2, height/2 + 50, 350, 350);
+      ellipse(mainX, mainY, 350, 350);
     }
   }
   
