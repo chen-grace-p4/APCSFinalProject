@@ -17,3 +17,5 @@ Our project will be a food-making game inspired by a combination of cooking feve
 5-25 (home) Grace C: Fixed basic layout/color for screen changing and made it more efficient by creating a Buttons class. Completed most methods in pizza object (and added appropriate code in Fooderia and Game class) so that there is a very basic pizza making station in the "sauce" screen.
 
 5-25 (home) Shriya A: Made the blueprint for the Customers Class; created the constructor and instance variables for said class along with some of the main methods such as those that return the variables, the show() method, move(), and customerComes() method. I added code for those methods to work in the main file under draw as well as in the Game class.
+
+5-26 (class) Grace C: Completed move() method in Pizza, added other variables and methods in Pizza to make move() possible in oven screen, and modified methods in Game and Fooderia related to that. Created Oven object to complement move() method and cover pizza when it moves through it on oven screen. 
