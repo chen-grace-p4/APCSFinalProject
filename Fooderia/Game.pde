@@ -1,11 +1,11 @@
 public class Game {
-  ArrayList<Things> things;
+  //ArrayList<Things> things;
   String screen;
   double moneyEarned;
   int customerCounter;
   
   Game() {
-    things = new ArrayList<Things>();
+    //things = new ArrayList<Things>();
     screen = "cashier";
     moneyEarned = 0;
     customerCounter = 0;
