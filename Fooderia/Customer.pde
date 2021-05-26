@@ -6,6 +6,7 @@ public class Customer {
   color c;
   int x, y;
   boolean moveIn, moveOut, ordercorrect;
+  float price;
 
   Customer(String location) {
     c = 0;
@@ -19,8 +20,10 @@ public class Customer {
     }
     moveIn = false;
     moveOut = false;
+    selected = false;
     int rand = (int)(Math.random()*3);
     order = menu[rand];
+    price = (rand +1) * 1.5 +5;
     this.location = location;
     customerComes(location);
     println(order[0]);
@@ -29,8 +32,17 @@ public class Customer {
   void show() {
     fill(c);
     ellipse(x, y, 150, 250);
+    //Change font below: (needs to be in data directory)
+    /*PFont mono = createFont("andalemo.ttf", 0);
+    textFont(mono); */
+    if (moveOut){
+      if (getLocation()=="right")text("$" + price, x+100, y-150);
+    if (getLocation()=="left")text("$"+price, x-100, y-150);
+    }
+    else {
     if (getLocation()=="right")text(order[0], x+100, y-150);
     if (getLocation()=="left")text(order[0], x-100, y-150);
+    }
   }
 
   void move(String direction) {
@@ -49,7 +61,7 @@ public class Customer {
 
   void customerLeaves(ArrayList ingredients) {
     //////////////////////// Code below checks if the order is correct:
-    
+
     ordercorrect = true;
     for (int i = 1; i<order.length-1; i++) {
       if (ingredients.indexOf(order[i])<0) {
@@ -69,10 +81,14 @@ public class Customer {
     }
     println(ordercorrect);
     /////////////////////////////////
+    
+    if (!ordercorrect){
+      price = 0;
+    }
+    fooderia.addMoney(price);
+    
     moveIn = false;
     moveOut = true;
-    
-    
   }
   //getOrder() IS JUST FOR TESTING PURPOSES
   ArrayList getOrder() {
@@ -105,5 +121,16 @@ public class Customer {
 
   String getLocation() {
     return location;
+  }
+
+  boolean isSelected() {
+    return selected;
+  }
+  
+  void selectedTrue(){
+  selected = true;
+  }
+  void selectedFalse(){
+  selected = false;
   }
 }
