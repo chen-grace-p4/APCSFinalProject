@@ -127,10 +127,10 @@ public class Customer {
     return selected;
   }
   
-  //void selectedTrue(){
-  //selected = true;
-  //}
-  //void selectedFalse(){
-  //selected = false;
-  //}
+  void selectedTrue(){
+  selected = true;
+  }
+  void selectedFalse(){
+  selected = false;
+  }
 }
