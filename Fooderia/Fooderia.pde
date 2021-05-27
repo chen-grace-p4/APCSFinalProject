@@ -21,8 +21,10 @@ void setup() {
 void draw() {
   fooderia.checkScreen();
   //TESTING PURPOSES
-  mousex = mouseX;
-  mousey = mouseY;
+  //mousex = mouseX;
+  //mousey = mouseY;
+  mousex = pizza.mainX;
+  mousey = pizza.mainY;
   text(mousex + ", " + mousey, width-70, 125);
   //
   if (fooderia.getScreen().equals("sauce"))pizza.toppingDrag();
