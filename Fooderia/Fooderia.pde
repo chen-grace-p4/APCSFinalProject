@@ -56,6 +56,7 @@ void draw() {
       if (oven.startMove) pizza.move();
     //}
       oven.afterBake();
+      oven.light();
   }
 
    ///////////////////////////////////////////Code below is responsible for customers movingout:

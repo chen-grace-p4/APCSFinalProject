@@ -15,5 +15,12 @@ public class Oven {
       text("Give to customer", 650, 540);
     }
   }
+  
+  void light() {
+    fill(#f52222);
+    if(startMove) fill(#f5e722);
+    if (moveOn) fill(#23e019);
+    rect(222,507,10,20);
+  }
  
 }
