@@ -1,5 +1,7 @@
 public class Oven {
   boolean moveOn;
+  boolean startMove;
+  
   void show() {
     fill(#949494);
     rect(200, 250, 400, 300);
@@ -13,4 +15,5 @@ public class Oven {
       text("Give to customer", 650, 540);
     }
   }
+ 
 }

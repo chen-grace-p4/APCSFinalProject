@@ -23,7 +23,7 @@ public class Game {
         pizza.mainX = 702;
         pizza.mainY = 390;
       } else {
-        pizza.mainX = 60;
+        pizza.mainX = 100;
         pizza.mainY = 390;
       }
     }
@@ -77,6 +77,12 @@ public class Game {
       //conveyor belt
       fill(#dbdbdb);
       rect(0, 300, 800, 200);
+      //button to start oven
+      fill(#8fbaff);
+      rect(10,510,150,50);
+      fill(0);
+      text("Start Oven", 46, 540);
+      
 
       pizza.shrink = true;
       pizza.show();

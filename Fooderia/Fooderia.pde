@@ -21,10 +21,10 @@ void setup() {
 void draw() {
   fooderia.checkScreen();
   //TESTING PURPOSES
-  //mousex = mouseX;
-  //mousey = mouseY;
-  mousex = pizza.mainX;
-  mousey = pizza.mainY;
+  mousex = mouseX;
+  mousey = mouseY;
+  //mousex = pizza.mainX;
+  //mousey = pizza.mainY;
   text(mousex + ", " + mousey, width-70, 125);
   //
   if (fooderia.getScreen().equals("sauce"))pizza.toppingDrag();
@@ -53,7 +53,7 @@ void draw() {
   if (fooderia.getScreen().equals("oven")) {
     //if (pizza.shrink) {
       //SOME WAY TO PAUSE HERE?
-      pizza.move();
+      if (oven.startMove) pizza.move();
     //}
       oven.afterBake();
   }
@@ -149,5 +149,8 @@ void mousePressed() {
         pizza.next();
       }
     }
+    if (mouseX > 10 && mouseX < 160 && mouseY > 510 && mouseY < 560) {
+        oven.startMove = true;
+      }
   }
 }
