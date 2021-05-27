@@ -1,3 +1,4 @@
+//IMPORTANT MAKE IT SO THAT YOU CAN'T ADD TOPPINGS ON PIZZA AFTER IT IS BAKED
 public class Pizza implements Things { 
   int mainX, mainY;
   
@@ -208,17 +209,12 @@ public class Pizza implements Things {
     if (customerRight.selected) {
       println(toppingList);
       customerRight.customerLeaves(toppingList);
-      //if (fooderia.getCustomerNum() < 12) {
-      //  customerRight = new Customer("right");
-      //}
     }
     else if (customerLeft.selected) {
       println(toppingList);
       customerLeft.customerLeaves(toppingList);
-      //if (fooderia.getCustomerNum() < 12) {
-      //  customerLeft = new Customer("left");
-      //}
     }
+    fooderia.newPizza();
     
   }
 

@@ -40,7 +40,6 @@ void draw() {
     if (customerLeft.moveIn()==true){
       if (customerLeft.getX()<200){
         customerLeft.move("right");
-
       }
       else{
         customerLeft.stopMoving();
@@ -64,15 +63,23 @@ void draw() {
       }
       else{
         customerRight.stopMoving();
+        if (fooderia.getCustomerNum() < 12) {
+          println(fooderia.getCustomerNum()); //DEBUG
+          customerRight = new Customer("right");
+        }
       }
   }
     if (customerLeft.moveOut()==true){
       if (customerLeft.getX()>-100){
+        println(fooderia.getCustomerNum()); //DEBUG
         customerLeft.move("left");
 
       }
       else{
         customerLeft.stopMoving();
+        if (fooderia.getCustomerNum() < 12) {
+          customerLeft = new Customer("left");
+        }
       }
   }
 
