@@ -49,10 +49,11 @@ void draw() {
   //////////////////////////////////////////////////////////
   //for oven scene
   if (fooderia.getScreen().equals("oven")) {
-    if (pizza.shrink) {
+    //if (pizza.shrink) {
       //SOME WAY TO PAUSE HERE?
       pizza.move();
-    }
+    //}
+      oven.afterBake();
   }
 
    ///////////////////////////////////////////Code below is responsible for customers movingout:
@@ -136,5 +137,15 @@ void mousePressed() {
     float inside = (mouseX - x)*(mouseX - x) + (mouseY - y)*(mouseY-y);
     double dist = Math.sqrt(inside);
     if (dist < 175) pizza.dropTopping();
+  }
+  
+  if (fooderia.getScreen().equals("oven")) {
+    if (oven.moveOn) {
+      if (mouseX > 630 && mouseX < 780 && mouseY > 510 && mouseY < 560) {
+        fooderia.changeScreen("cashier");
+        oven = new Oven();
+        pizza.next();
+      }
+    }
   }
 }

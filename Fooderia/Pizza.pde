@@ -194,8 +194,9 @@ public class Pizza implements Things {
       if (mainX > 400) baked = true;
       mainX += 2;
     } else {
-      fooderia.changeScreen("cashier");
-      next();
+      //fooderia.changeScreen("cashier");
+      //next();
+      oven.moveOn = true;
     }
   }
   
@@ -214,7 +215,6 @@ public class Pizza implements Things {
       customerLeft.customerLeaves(toppingList);
     }
     fooderia.newPizza();
-    
   }
 
   boolean holding;
