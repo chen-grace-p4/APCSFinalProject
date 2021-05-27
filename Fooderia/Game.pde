@@ -98,7 +98,7 @@ public class Game {
   }
 
   int getCustomerNum() {
-    return 0;
+    return customerCounter;
   }
 
   void newPizza() {

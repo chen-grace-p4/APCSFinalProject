@@ -186,17 +186,39 @@ public class Pizza implements Things {
   }
   
   //moves pizza while on conveyor belt to oven
-  //when it moves right enough so that the belt ends:
-  //call changeScreen(Cashier)
-  //check which customer is selected, store the getPlace() for selected customer
-  //call customerLeaves(cust.getIngredients())
-  //if getCustomerNum() < 12 then construct new customer with same stored place
-  // else levelEnds()
+  //when it moves right enough so that the belt ends: call next()
+  
   void move() {
     if (mainX <= 700) {
       moving = true;
       mainX += 2;
+    } else {
+      fooderia.changeScreen("cashier");
+      next();
     }
+  }
+  
+  //call changeScreen(Cashier)
+  //check which customer is selected, store the getPlace() for selected customer
+  //call customerLeaves(getIngredients())
+  //if getCustomerNum() < 12 then construct new customer with same stored place
+  // else levelEnds()
+  void next() {
+    if (customerRight.selected) {
+      println(toppingList);
+      customerRight.customerLeaves(toppingList);
+      //if (fooderia.getCustomerNum() < 12) {
+      //  customerRight = new Customer("right");
+      //}
+    }
+    else if (customerLeft.selected) {
+      println(toppingList);
+      customerLeft.customerLeaves(toppingList);
+      //if (fooderia.getCustomerNum() < 12) {
+      //  customerLeft = new Customer("left");
+      //}
+    }
+    
   }
 
   boolean holding;
