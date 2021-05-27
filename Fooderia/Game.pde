@@ -114,6 +114,7 @@ public class Game {
 
   void newPizza() {
     pizza = new Pizza();
+    oven = new Oven();
   }
 
   void levelEnds() {
