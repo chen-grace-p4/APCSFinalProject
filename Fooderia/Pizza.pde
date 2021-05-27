@@ -191,6 +191,7 @@ public class Pizza implements Things {
   void move() {
     if (mainX <= 700) {
       moving = true;
+      if (mainX > 400) baked = true;
       mainX += 2;
     } else {
       fooderia.changeScreen("cashier");
