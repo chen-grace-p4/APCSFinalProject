@@ -1,4 +1,3 @@
-//IMPORTANT MAKE IT SO THAT YOU CAN'T ADD TOPPINGS ON PIZZA AFTER IT IS BAKED
 public class Pizza implements Things { 
   int mainX, mainY;
   
@@ -34,7 +33,7 @@ public class Pizza implements Things {
     noStroke();
     fill(#ebdab9);
     if (baked) fill(#f0c573);
-    if (shrink) ellipse(mainX, mainY, 100, 100);
+    if (shrink) ellipse(mainX, mainY, 200, 200);
     else ellipse(mainX, mainY, 350, 350);
     
     if (sauceOn) {
@@ -42,7 +41,7 @@ public class Pizza implements Things {
       noStroke();
       fill(#800505);
       if (baked) fill(#a31010);
-      if (shrink) ellipse(mainX, mainY, 80, 80);
+      if (shrink) ellipse(mainX, mainY, 170, 170);
       else ellipse(mainX, mainY, 300, 300);
     }
     if (cheeseOn) {
@@ -50,7 +49,7 @@ public class Pizza implements Things {
       noStroke();
       fill(#ffd829);
       if (baked) fill(#ffeb87);
-      if (shrink) ellipse(mainX, mainY, 70, 70);
+      if (shrink) ellipse(mainX, mainY, 160, 160);
       else ellipse(mainX, mainY, 290, 290);
       //BELOW BROKEN BECAUSE SHOW RUNS EVERY DRAW
       //int minX = width/2 - 150;
@@ -69,13 +68,13 @@ public class Pizza implements Things {
     if (pepOn) {
       //TEMP PEPPERONI IN A GRID
       if (shrink) {
-        for (int y = mainY - 20; y < mainY+30; y += 10) {
-          for (int x = mainX-20; x < mainX+30; x += 10) {
+        for (int y = mainY - 60; y < mainY+70; y += 20) {
+          for (int x = mainX- 60; x < mainX+70; x += 20) {
             ellipseMode(CENTER);
             noStroke();
             fill(#ff4d4d);
             if (baked) fill(#cc4141);
-            ellipse(x, y, 6, 6);
+            ellipse(x, y, 15, 15);
           }
         }
       }
@@ -95,13 +94,13 @@ public class Pizza implements Things {
     if (olivesOn) {
       //TEMP OLIVES IN A GRID
       if (shrink) {
-        for (int y = mainY - 20; y < mainY+30; y += 10) {
-          for (int x = mainX-20; x < mainX+30; x += 10) {
+        for (int y = mainY - 60; y < mainY+70; y += 20) {
+          for (int x = mainX- 60; x < mainX+70; x += 20) {
             ellipseMode(CENTER);
             noStroke();
             fill(#545454);
             if (baked) fill(#2e2e2e);
-            ellipse(x, y, 3, 3);
+            ellipse(x, y, 10, 10);
           }
         }
       }
@@ -164,19 +163,19 @@ public class Pizza implements Things {
     if (sauceSelected) {
         sauceOn = true;
         sauceSelected = false;
-        toppingList.add("Marinara Sauce");
+        if (!baked) toppingList.add("Marinara Sauce");
     } else if (cheeseSelected) {
         cheeseOn = true;
         cheeseSelected = false;
-        toppingList.add("Cheese");
+        if (!baked) toppingList.add("Cheese");
     } else if (pepSelected) {
         pepOn = true;
         pepSelected = false;
-        toppingList.add("Pepperoni");
+        if (!baked) toppingList.add("Pepperoni");
     } else if (olivesSelected) {
         olivesOn = true;
         olivesSelected = false;
-        toppingList.add("Olives");
+        if (!baked) toppingList.add("Olives");
     }
     if (sauceOn||cheeseOn||pepOn||olivesOn) show();
   }
