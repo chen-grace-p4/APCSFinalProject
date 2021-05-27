@@ -45,7 +45,7 @@ public class Notepad {
   //for (int i = 0; i<order.size(); i++){
   // if(order.size()>0){text(order.get(0), 30 + 10, 750);}
   //}
-   println(order.size());
+  // println(order.size());
   
   }
 }
