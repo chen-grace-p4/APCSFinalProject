@@ -57,6 +57,7 @@ public class Customer {
   void customerComes(String location) {
     moveOut = false;
     moveIn = true;
+    fooderia.addCustomer();
   }
 
   void customerLeaves(ArrayList ingredients) {

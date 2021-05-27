@@ -82,9 +82,11 @@ public class Game {
   }
 
   void addMoney(double money) {
+    moneyEarned += money;
   }
 
   void setMoney(double money) {
+    moneyEarned = money;
   }
 
   double getMoney() {
@@ -92,6 +94,7 @@ public class Game {
   }
 
   void addCustomer() {
+    customerCounter++;
   }
 
   int getCustomerNum() {
