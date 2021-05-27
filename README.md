@@ -18,6 +18,8 @@ Our project will be a food-making game inspired by a combination of cooking feve
 
 5-25 (home) Shriya A: Made the blueprint for the Customers Class; created the constructor and instance variables for said class along with some of the main methods such as those that return the variables, the show() method, move(), and customerComes() method. I added code for those methods to work in the main file under draw as well as in the Game class.
 
-5-26 (class + home) Grace C: Completed move() method in Pizza and created Oven in order to do that. Modified Fooderia and Customer to make it so move() leads to the customer, you're serving the pizza to, leaving (after giving money) and having new customers come in unless the customer limit per level is reached.
+5-26 (class + home) Grace C: Completed move() method in Pizza and created Oven in order to do that. Modified Fooderia and Customer to make it so move() makes the customer you're serving the pizza leave (after giving money) and have new customers come in unless the customer limit per level is reached.
 
 5-26(class) Shriya A: Completed the Customer class (which needed the selected methods as well as completing the CustomerLeaves method- which needed me to add code to the main file). I also started the Notepad class and added the constructor, instance variables, and part of a method.
+
+5-27 (home) Grace C: Added some details such as not counting uncooked toppings when evaluating pizza, some buttons to make the oven screen operate more naturally, and made it so the oven screen stays stable between screen switches (for every new pizza). 
