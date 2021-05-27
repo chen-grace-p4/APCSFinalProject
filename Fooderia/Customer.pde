@@ -5,7 +5,7 @@ public class Customer {
   String location;
   color c;
   int x, y;
-  boolean moveIn, moveOut, ordercorrect;
+  boolean ordercorrect, moveIn, moveOut;
   float price;
 
   Customer(String location) {
