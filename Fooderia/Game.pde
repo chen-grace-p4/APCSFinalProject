@@ -54,6 +54,11 @@ public class Game {
       rect(230, 170, 100, 100);
       fill(0);
       text("Pepperoni", 250, 200);
+      //olives
+      fill(#2e2e2e);
+      rect(340, 170, 100, 100);
+      fill(255);
+      text("Olives", 360, 200);
       //restart button
       fill(#ebdab9);
       rect(10, 300, 100, 300);

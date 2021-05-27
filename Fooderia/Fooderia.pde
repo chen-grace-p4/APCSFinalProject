@@ -95,14 +95,17 @@ void mousePressed() {
   if (mouseX > width-300 && mouseY <100) fooderia.checkScreen();
 
   //toppings station/sauce screen
-  if (fooderia.getScreen().equals("cashier")) {
-     //JUST FOR TESTING PURPOSES
-     if (mouseX > 525 && mouseX < 675 && mouseY > 375 && mouseY < 625) {
-     customerRight.customerLeaves(customerRight.getOrder());
-    }
-    if (mouseX > 125 && mouseX < 275 && mouseY > 375 && mouseY < 625) {
-     customerLeft.customerLeaves(customerLeft.getOrder());
-    }
+  if (fooderia.getScreen().equals("cashier")) { 
+       if (mouseX > 525 && mouseX < 675 && mouseY > 375 && mouseY < 625) {
+         //JUST FOR TESTING PURPOSES
+         //customerRight.customerLeaves(customerRight.getOrder());
+         notepad.takeOrder(customerRight);
+      }
+      if (mouseX > 125 && mouseX < 275 && mouseY > 375 && mouseY < 625) {
+        //JUST FOR TESTING PURPOSES
+         //customerLeft.customerLeaves(customerLeft.getOrder());
+         notepad.takeOrder(customerLeft);
+      }
     }
 
   if (fooderia.getScreen().equals("sauce")) {
@@ -114,6 +117,9 @@ void mousePressed() {
     }
     else if (mouseX > 230 && mouseX < 330 && mouseY > 170 && mouseY < 270) {
       pizza.toppingSelected("pep");
+    }
+    else if (mouseX > 340 && mouseX < 440 && mouseY > 170 && mouseY < 270) {
+      pizza.toppingSelected("olives");
     }
     else if (mouseX > 10 && mouseX < 110 && mouseY > 300 && mouseY < 600) {
       fooderia.newPizza();

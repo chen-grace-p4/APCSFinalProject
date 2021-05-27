@@ -7,19 +7,14 @@ public class Notepad {
   }
   
   void takeOrder(Customer customer){
-  customerRight.selectedFalse();
-  customerLeft.selectedFalse();
-  customer.selectedTrue();
-  order = customer.getOrder();
-  this.customer = customer;
+    customerRight.selectedFalse();
+    customerLeft.selectedFalse();
+    customer.selectedTrue();
+    order = customer.getOrder();
+    this.customer = customer;
   }
   //both customers selectedFalse(), custName.selectedTrue(), update notepad with
   //custName's order and call customer.changeSelected()
-  
-  //TEMPORARILY COMMENTED OUT FOR TESTING PURPOSES
-  //void takeOrder(Customer custName) {
-    
-  //}
   
   //clears notepad
   void deleteOrder() {

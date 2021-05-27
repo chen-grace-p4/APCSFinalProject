@@ -32,6 +32,7 @@ public class Pizza implements Things {
     ellipseMode(CENTER);
     noStroke();
     fill(#ebdab9);
+    if (baked) fill(#f0c573);
     if (shrink) ellipse(mainX, mainY, 100, 100);
     else ellipse(mainX, mainY, 350, 350);
     
@@ -39,13 +40,15 @@ public class Pizza implements Things {
       ellipseMode(CENTER);
       noStroke();
       fill(#800505);
+      if (baked) fill(#a31010);
       if (shrink) ellipse(mainX, mainY, 80, 80);
       else ellipse(mainX, mainY, 300, 300);
     }
     if (cheeseOn) {
       ellipseMode(CENTER);
       noStroke();
-      fill(240, 232, 0, 200);
+      fill(#ffd829);
+      if (baked) fill(#ffeb87);
       if (shrink) ellipse(mainX, mainY, 70, 70);
       else ellipse(mainX, mainY, 290, 290);
       //BELOW BROKEN BECAUSE SHOW RUNS EVERY DRAW
@@ -61,6 +64,7 @@ public class Pizza implements Things {
       //  ellipse(randomX, randomY, 3, 3);
       //}
     }
+      
     if (pepOn) {
       //TEMP PEPPERONI IN A GRID
       if (shrink) {
@@ -69,6 +73,7 @@ public class Pizza implements Things {
             ellipseMode(CENTER);
             noStroke();
             fill(#ff4d4d);
+            if (baked) fill(#cc4141);
             ellipse(x, y, 6, 6);
           }
         }
@@ -79,17 +84,37 @@ public class Pizza implements Things {
             ellipseMode(CENTER);
             noStroke();
             fill(#ff4d4d);
+            if (baked) fill(#cc4141);
             ellipse(x, y, 30, 30);
           }
         }
       }
     }
-    if (baked) {
-      //NOT TESTABLE YET
-      ellipseMode(CENTER);
-      noStroke();
-      fill(230, 246, 21, 40);
-      ellipse(mainX, mainY, 350, 350);
+    
+    if (olivesOn) {
+      //TEMP OLIVES IN A GRID
+      if (shrink) {
+        for (int y = mainY - 20; y < mainY+30; y += 10) {
+          for (int x = mainX-20; x < mainX+30; x += 10) {
+            ellipseMode(CENTER);
+            noStroke();
+            fill(#545454);
+            if (baked) fill(#2e2e2e);
+            ellipse(x, y, 3, 3);
+          }
+        }
+      }
+      else {
+        for (int y = mainY - 100; y < mainY+117; y += 40) {
+          for (int x = mainX-100; x < mainX+102; x += 40) {
+            ellipseMode(CENTER);
+            noStroke();
+            fill(#545454);
+            if (baked) fill(#2e2e2e);
+            ellipse(x, y, 20, 20);
+          }
+        }
+      }
     }
   }
   
@@ -103,6 +128,7 @@ public class Pizza implements Things {
     if (top.equals("sauce")) sauceSelected = true;
     if (top.equals("cheese")) cheeseSelected = true;
     if (top.equals("pep")) pepSelected = true;
+    if (top.equals("olives")) olivesSelected = true;
   }
   //called in draw() and only does something if one of them is true
   //one them can only be true if toppingSelected is called in click
@@ -111,15 +137,19 @@ public class Pizza implements Things {
       if (sauceSelected) {
         noStroke();
         fill(#800505);
-        ellipse(mouseX, mouseY, 10, 10);
+        ellipse(mouseX, mouseY, 20, 20);
       } else if (cheeseSelected) {
         noStroke();
         fill(#f0e800);
-        ellipse(mouseX, mouseY, 10, 10);
+        ellipse(mouseX, mouseY, 20, 20);
       } else if (pepSelected) {
         noStroke();
         fill(#ff4d4d);
-        ellipse(mouseX, mouseY, 10, 10);
+        ellipse(mouseX, mouseY, 20, 20);
+      } else if (olivesSelected) {
+        noStroke();
+        fill(#545454);
+        ellipse(mouseX, mouseY, 20, 20);
       }
     }
   }
@@ -133,17 +163,21 @@ public class Pizza implements Things {
     if (sauceSelected) {
         sauceOn = true;
         sauceSelected = false;
-        toppingList.add("sauce");
+        toppingList.add("Marinara Sauce");
     } else if (cheeseSelected) {
         cheeseOn = true;
         cheeseSelected = false;
-        toppingList.add("cheese");
+        toppingList.add("Cheese");
     } else if (pepSelected) {
         pepOn = true;
         pepSelected = false;
-        toppingList.add("pepperoni");
+        toppingList.add("Pepperoni");
+    } else if (olivesSelected) {
+        olivesOn = true;
+        olivesSelected = false;
+        toppingList.add("Olives");
     }
-    if (sauceOn||cheeseOn||pepOn) show();
+    if (sauceOn||cheeseOn||pepOn||olivesOn) show();
   }
 
   //makes toppings and pizza darker after being put in the oven
