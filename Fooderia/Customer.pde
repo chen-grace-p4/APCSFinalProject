@@ -11,11 +11,11 @@ public class Customer {
   Customer(String location) {
     c = 0;
     if (location.equals("right")) {
-      x = 900;
+      x = 1000;
       y = 500;
     }
     if (location.equals("left")) {
-      x = -100;
+      x = -200;
       y = 500;
     }
     moveIn = false;
@@ -36,11 +36,11 @@ public class Customer {
     /*PFont mono = createFont("andalemo.ttf", 0);
     textFont(mono); */
     if (moveOut){
-      if (getLocation()=="right")text("$" + price, x+100, y-150);
+      if (getLocation()=="right")text("$" + price, x+50, y-150);
     if (getLocation()=="left")text("$"+price, x-100, y-150);
     }
     else {
-    if (getLocation()=="right")text(order[0], x+100, y-150);
+    if (getLocation()=="right")text(order[0], x+50, y-150);
     if (getLocation()=="left")text(order[0], x-100, y-150);
     }
   }
@@ -86,7 +86,7 @@ public class Customer {
     println(ordercorrect);
     /////////////////////////////////
     
-    if (ordercorrect==false){
+    if (ordercorrect==false || pizza.baked==false){
       price = 0;
     }
     fooderia.addMoney(price);

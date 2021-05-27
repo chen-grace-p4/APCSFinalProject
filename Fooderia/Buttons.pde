@@ -1,5 +1,6 @@
 public class Buttons {
   void show() {
+    textSize(15);
     noStroke();
     //cashier
     fill(#c2e9ff);
