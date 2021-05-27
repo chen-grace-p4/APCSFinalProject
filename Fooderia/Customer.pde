@@ -1,6 +1,6 @@
 public class Customer {
   String [] order;
-  String[][] menu = {{"Cheese Pizza", "Marinara Sauce", "Cheese"}, {"Pepperoni Pizza", "Marinara Sauce", "Pepperoni"}, {"Olive Pizza", "Marinara Sauce", "Olives"}};
+  String[][] menu = {{"Cheese Pizza", "Marinara Sauce", "Cheese"}, {"Pepperoni Pizza", "Marinara Sauce","Cheese", "Pepperoni"}, {"Olive Pizza", "Marinara Sauce", "Cheese", "Olives"},{"Pepperoni and Olive Pizza", "Marinara Sauce","Cheese", "Pepperoni", "Olives"}};
   boolean selected;
   String location;
   color c;
@@ -21,7 +21,7 @@ public class Customer {
     moveIn = false;
     moveOut = false;
     selected = false;
-    int rand = (int)(Math.random()*3);
+    int rand = (int)(Math.random()*4);
     order = menu[rand];
     price = (rand +1) * 1.5 +5;
     this.location = location;
@@ -64,18 +64,21 @@ public class Customer {
     //////////////////////// Code below checks if the order is correct:
 
     ordercorrect = true;
-    for (int i = 1; i<order.length-1; i++) {
+
+    for (int i = 1; i<order.length; i++) {
       if (ingredients.indexOf(order[i])<0) {
         ordercorrect = false;
       }
     }
+
     for (int i = 0; i<ingredients.size(); i++) {
       boolean ingredientcorrect = false;
-      for (int j = 1; j<order.length-1; j++) {
+      for (int j = 1; j<order.length; j++) {
         if (ingredients.get(i).equals(order[j])) {
           ingredientcorrect = true;
         }
       }
+
       if (ingredientcorrect == false) {
         ordercorrect = false;
       }
@@ -83,7 +86,7 @@ public class Customer {
     println(ordercorrect);
     /////////////////////////////////
     
-    if (!ordercorrect){
+    if (ordercorrect==false){
       price = 0;
     }
     fooderia.addMoney(price);
