@@ -22,8 +22,18 @@ public class Customer {
     moveOut = false;
     selected = false;
     int rand = (int)(Math.random()*4);
+   
     order = menu[rand];
-    price = (rand +1) * 1.5 +5;
+    
+    if (rand >= 0){
+      price = 6.50; 
+    }
+    if (rand>=1){
+      price = 8.00;
+    }
+    if (rand>=3){
+      price = 10.50;
+    }
     this.location = location;
     customerComes(location);
     println(order[0]);
@@ -97,7 +107,7 @@ public class Customer {
   //getOrder() IS JUST FOR TESTING PURPOSES
   ArrayList getOrder() {
     ArrayList ans = new ArrayList();
-    for (int i = 1; i<order.length-1; i++) {
+    for (int i = 1; i<order.length; i++) {
       ans.add(order[i]);
     }
     return ans;
