@@ -122,10 +122,14 @@ void mousePressed() {
     if (!fooderia.lvlEnd && mouseX > 100 && mouseX < 200 && mouseY < 100) {
       fooderia.changeScreen("cashier");
     }
+    
+    //*****ADDITIONAL FEATURE?
+    //MAYBE MAKE IT SO THAT IF UR CLICKING THE LEVEL UR PLAYING RIGHT NOW, THE GAME ASKS IF U WANT TO 
+    //^^RESET THE DAY AND IF THE PLAYER CLICKS YES, THEN IT RESETS THE LEVEL FOR THE SAME DAY
+    
     //level 1 button
     if (mouseX > 120 && mouseX < 270 && mouseY > 120 && mouseY < 270) {
       //if a level is played but level is not 1 or if level is not being played and level = 0
-      //maybe add warning of some kind to reset game
       if (fooderia.level != 1) {
         fooderia.resetLevel();
         fooderia.level = 1;
