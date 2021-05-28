@@ -97,7 +97,7 @@ public class Customer {
   //getOrder() IS JUST FOR TESTING PURPOSES
   ArrayList getOrder() {
     ArrayList ans = new ArrayList();
-    for (int i = 1; i<order.length-1; i++) {
+    for (int i = 1; i<order.length; i++) {
       ans.add(order[i]);
     }
     return ans;

@@ -12,7 +12,6 @@ public class Notepad {
     customerLeft.selectedFalse();
     customer.selectedTrue();
     order = customer.getOrder();
-    
     this.customer = customer;
   }
   //both customers selectedFalse(), custName.selectedTrue(), update notepad with
@@ -42,9 +41,18 @@ public class Notepad {
   }
   textSize(30);
   text("Order" + (fooderia.customerCounter - 1) + ":", 50,700);
-  //for (int i = 0; i<order.size(); i++){
-  // if(order.size()>0){text(order.get(0), 30 + 10, 750);}
-  //}
+  if(order!=null){
+    int totalsize = 6;
+    for (int i = 0; i<order.size(); i++){
+      textSize(15);
+      
+      if(i>0){
+        text(order.get(i), totalsize, 750);
+      }
+      else{text(order.get(i), 60, 750);}
+      totalsize += (order.get(i).length()*15);
+    }
+  }
   // println(order.size());
   noStroke();
   }
