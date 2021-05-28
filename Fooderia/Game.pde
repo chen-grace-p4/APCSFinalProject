@@ -107,9 +107,9 @@ public class Game {
       text("Olives", 360, 200);
       //restart button
       fill(#ebdab9);
-      rect(10, 300, 100, 300);
+      rect(10, 544, 160, 60);
       fill(0);
-      text("Restart Pizza", 20, 350);
+      text("Restart Pizza", 30, 570);
       notepad.show();
       pizza.show();
     }

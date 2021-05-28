@@ -5,11 +5,23 @@ public class Pizza implements Things {
   boolean cheeseSelected;
   boolean pepSelected;
   boolean olivesSelected;
+  //unlocked day 2
+  boolean onionsSelected;
+  boolean pestoSauceSelected;
+  //unlocked day 3
+  boolean mushroSelected;
+  boolean alfredoSauceSelected; 
   
   boolean sauceOn;
   boolean cheeseOn;
   boolean pepOn;
   boolean olivesOn;
+  //unlocked day 2
+  boolean onionsOn;
+  boolean pestoSauceOn;
+  //unlocked day 3
+  boolean mushroOn;
+  boolean alfredoSauceOn; 
   
   boolean shrink;
   boolean baked;

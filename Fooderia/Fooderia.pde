@@ -201,7 +201,7 @@ void mousePressed() {
     else if (mouseX > 340 && mouseX < 440 && mouseY > 170 && mouseY < 270) {
       pizza.toppingSelected("olives");
     }
-    else if (mouseX > 10 && mouseX < 110 && mouseY > 300 && mouseY < 600) {
+    else if (mouseX > 10 && mouseX < 170 && mouseY > 544 && mouseY < 604) {
       fooderia.newPizza();
     }
     int x = width/2;
