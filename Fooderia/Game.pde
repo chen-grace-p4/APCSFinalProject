@@ -13,10 +13,15 @@ public class Game {
 
   Game() {
     //things = new ArrayList<Things>();
-    screen = "cashier"; //CHANGE TO MAIN MENU LATER ON
+    //screen = "cashier"; //CHANGE TO MAIN MENU LATER ON
+    screen = "selectLevels";
     moneyEarned = 0;
     customerCounter = 0;
-    level = 1;
+    //level = 1; //TEMPORARY
+    //
+    level = 0; //starts out as this in actual game
+    lvlEnd = true; //starts out as true in actual game
+    //IN ACTUAL GAME, when level becomes 1 after you select in the menu, lvlEnd = false
   }
 
   String getScreen() {
@@ -150,14 +155,18 @@ public class Game {
       rect(300,120,150,150);
       fill(0);
       textSize(30);
-      text("Level 2", 315, 195);
+      if (lvlTwoUnlocked) text("Level 2", 315, 195);
+      else text("Locked", 315, 195);
+      
       
       //level 3 box
       fill(200);
       rect(480,120,150,150);
       fill(0);
       textSize(30);
-      text("Level 3", 495, 195);
+      if (lvlThreeUnlocked) text("Level 3", 495, 195);
+      else text("Locked", 495, 195);
+      
       
       textSize(15);
     }
@@ -196,6 +205,7 @@ public class Game {
 
   void levelEnds() {
     //if moneyEarned >= some threshold for next level then set boolean for next level to true,
+    println("level end is called");
     lvlEnd = true;
     if (level == 1) {
       //  TEMPORARILY JUST GREATER THAN $1 FOR TESTING PURPOSES
@@ -213,6 +223,8 @@ public class Game {
     //set everything to 0 and reinitialize all classes
     moneyEarned = 0;
     customerCounter = 0;
+    level = 0;
+    customerThere = false;
     
     screenButtons = new Buttons();
     pizza = new Pizza();

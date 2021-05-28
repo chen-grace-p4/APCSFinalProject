@@ -106,7 +106,7 @@ void mousePressed() {
   //calls takeOrder(), changeScreen(), toppingSelected(String toppingType) in toppings class, dropTopping() in toppings class,
   //**make sure to distinguish toppings based on level
   //changing screens
-  //if (!fooderia.screen.equals("selectLevels") && !fooderia.screen.equals("menu")) {
+  if (!fooderia.screen.equals("selectLevels") && !fooderia.screen.equals("menu")) {
     if (mouseX > width-100 && mouseY < 100) {
       fooderia.changeScreen("oven");
     }
@@ -116,11 +116,45 @@ void mousePressed() {
     else if (mouseX > width-300 && mouseY < 100) {
       fooderia.changeScreen("cashier");
     }
-  //}
+  }
   
   if (fooderia.screen.equals("selectLevels")) {
     if (!fooderia.lvlEnd && mouseX > 100 && mouseX < 200 && mouseY < 100) {
       fooderia.changeScreen("cashier");
+    }
+    //level 1 button
+    if (mouseX > 120 && mouseX < 270 && mouseY > 120 && mouseY < 270) {
+      //if a level is played but level is not 1 or if level is not being played and level = 0
+      //maybe add warning of some kind to reset game
+      if (fooderia.level != 1) {
+        fooderia.resetLevel();
+        fooderia.level = 1;
+        fooderia.lvlEnd = false;
+        fooderia.changeScreen("cashier");
+      }
+    }
+    //level 2 button
+    if (mouseX > 300 && mouseX < 450 && mouseY > 120 && mouseY < 270) {
+      if (fooderia.lvlTwoUnlocked) {
+        if (fooderia.level != 2) {
+          fooderia.resetLevel();
+          fooderia.level = 2;
+          fooderia.lvlEnd = false;
+          fooderia.changeScreen("cashier");
+        }
+      }
+    }
+    
+    //level 3 button
+    if (mouseX > 480 && mouseX < 630 && mouseY > 120 && mouseY < 270) {
+      if (fooderia.lvlThreeUnlocked) {
+        if (fooderia.level != 3) {
+          fooderia.resetLevel();
+          fooderia.level = 3;
+          fooderia.lvlEnd = false;
+          fooderia.changeScreen("cashier");
+        }
+      }
     }
   }
   
