@@ -3,12 +3,17 @@ public class Game {
   String screen;
   double moneyEarned;
   int customerCounter;
+  
+  int level;
+  boolean lvlTwoUnlocked;
+  boolean lvlThreeUnlocked;
 
   Game() {
     //things = new ArrayList<Things>();
-    screen = "cashier";
+    screen = "cashier"; //CHANGE TO MAIN MENU LATER ON
     moneyEarned = 0;
     customerCounter = 0;
+    level = 1;
   }
 
   String getScreen() {
@@ -89,7 +94,20 @@ public class Game {
       oven.show();
       notepad.show();
     }
-    screenButtons.show();
+    
+    if (screen.equals("levelEnd")) {
+      
+    }
+    
+    if (screen.equals("selectLevels")) {
+      
+    }
+    
+    if (screen.equals("menu")) {
+      
+    }
+    
+    if (!screen.equals("selectLevels") && !screen.equals("menu")) screenButtons.show();
   }
 
   void addMoney(double money) {
@@ -118,8 +136,30 @@ public class Game {
   }
 
   void levelEnds() {
-    //clear arraylist of objects, show total moneyEarned,
     //if moneyEarned >= some threshold for next level then set boolean for next level to true,
-    //setMoney to 0, set customerCounter to 0
+    changeScreen("levelEnd");
+    if (level == 1) {
+      //  TEMPORARILY JUST GREATER THAN $1 FOR TESTING PURPOSES
+      if (moneyEarned > 1) lvlTwoUnlocked = true;
+    }
+    else if (level == 2) {
+      //  TEMPORARILY JUST GREATER THAN $1 FOR TESTING PURPOSES
+      if (moneyEarned > 1) lvlThreeUnlocked = true;
+    }
+  }
+  
+  //ACTIVATES AFTER USER IN LEVELENDS SCREEN CLICKS GO TO LEVELS BUTTON 
+  void resetLevel() {
+    changeScreen("selectLevels");
+    //set everything to 0 and reinitialize all classes
+    moneyEarned = 0;
+    customerCounter = 0;
+    
+    screenButtons = new Buttons();
+    pizza = new Pizza();
+    customerRight = new Customer("right");
+    customerLeft = new Customer("left");
+    oven = new Oven();
+    notepad = new Notepad();
   }
 }
