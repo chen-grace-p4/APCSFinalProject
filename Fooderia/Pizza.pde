@@ -10,7 +10,7 @@ public class Pizza implements Things {
   boolean pestoSauceSelected;
   //unlocked day 3
   boolean mushroSelected;
-  boolean alfredoSauceSelected; 
+  boolean buffSauceSelected; 
   
   boolean sauceOn;
   boolean cheeseOn;
@@ -21,7 +21,7 @@ public class Pizza implements Things {
   boolean pestoSauceOn;
   //unlocked day 3
   boolean mushroOn;
-  boolean alfredoSauceOn; 
+  boolean buffSauceOn; 
   
   boolean shrink;
   boolean baked;
@@ -52,6 +52,24 @@ public class Pizza implements Things {
       ellipseMode(CENTER);
       noStroke();
       fill(#800505);
+      if (baked) fill(#a31010);
+      if (shrink) ellipse(mainX, mainY, 170, 170);
+      else ellipse(mainX, mainY, 300, 300);
+    } 
+    // UNLOCKS DAY 2 
+    if (pestoSauceOn) {
+      ellipseMode(CENTER);
+      noStroke();
+      fill(#81b368);
+      if (baked) fill(#a31010);
+      if (shrink) ellipse(mainX, mainY, 170, 170);
+      else ellipse(mainX, mainY, 300, 300);
+    } 
+    //UNLOCKS DAY 3
+    if (buffSauceOn){
+      ellipseMode(CENTER);
+      noStroke();
+      fill(#ff7e33);
       if (baked) fill(#a31010);
       if (shrink) ellipse(mainX, mainY, 170, 170);
       else ellipse(mainX, mainY, 300, 300);
@@ -138,9 +156,11 @@ public class Pizza implements Things {
     cheeseSelected = false;
     pepSelected = false;
     if (top.equals("sauce")) sauceSelected = true;
-    if (top.equals("cheese")) cheeseSelected = true;
-    if (top.equals("pep")) pepSelected = true;
-    if (top.equals("olives")) olivesSelected = true;
+    else if (top.equals("cheese")) cheeseSelected = true;
+    else if (top.equals("pep")) pepSelected = true;
+    else if (top.equals("olives")) olivesSelected = true;
+    else if (top.equals("pesto")) pestoSauceSelected = true;
+    else if (top.equals("buffalo")) buffSauceSelected = true;
   }
   //called in draw() and only does something if one of them is true
   //one them can only be true if toppingSelected is called in click
@@ -161,6 +181,14 @@ public class Pizza implements Things {
       } else if (olivesSelected) {
         noStroke();
         fill(#545454);
+        ellipse(mouseX, mouseY, 20, 20);
+      } else if (pestoSauceSelected) {
+        noStroke();
+        fill(#81b368);
+        ellipse(mouseX, mouseY, 20, 20);
+      } else if (buffSauceSelected) {
+        noStroke();
+        fill(#ff7e33);
         ellipse(mouseX, mouseY, 20, 20);
       }
     }
@@ -188,8 +216,16 @@ public class Pizza implements Things {
         olivesOn = true;
         olivesSelected = false;
         if (!baked) toppingList.add("Olives");
+    } else if (pestoSauceSelected) {
+        pestoSauceOn = true;
+        pestoSauceSelected = false;
+        if (!baked) toppingList.add("Pesto Sauce");
+    } else if (buffSauceSelected) {
+        buffSauceOn = true;
+        buffSauceSelected = false;
+        if (!baked) toppingList.add("Buffalo Sauce");
     }
-    if (sauceOn||cheeseOn||pepOn||olivesOn) show();
+    //if (sauceOn||cheeseOn||pepOn||olivesOn) show();
   }
 
   //makes toppings and pizza darker after being put in the oven

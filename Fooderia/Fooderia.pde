@@ -204,6 +204,24 @@ void mousePressed() {
     else if (mouseX > 10 && mouseX < 170 && mouseY > 544 && mouseY < 604) {
       fooderia.newPizza();
     }
+    //if (fooderia.level >= 2) {
+      if (mouseX > 10 && mouseX < 110 && mouseY > 280 && mouseY < 380) {
+        pizza.toppingSelected("pesto");
+      }
+      if (mouseX > 450 && mouseX < 550 && mouseY > 170 && mouseY < 270) {
+        pizza.toppingSelected("onions");
+      }
+    //}
+      
+      //if (fooderia.level >= 3) {
+        if (mouseX > 10 && mouseX < 110 && mouseY > 390 && mouseY < 490) {
+          pizza.toppingSelected("buffalo");
+        }
+        if (mouseX > 560 && mouseX < 660 && mouseY > 170 && mouseY < 270) {
+          pizza.toppingSelected("mushrooms");
+        }
+      //}
+      
     int x = width/2;
     int y = height/2;
     float inside = (mouseX - x)*(mouseX - x) + (mouseY - y)*(mouseY-y);
