@@ -43,15 +43,23 @@ public class Game {
       customerRight.show();
       customerLeft.show();
       notepad.show();
+      //button to level select
+      fill(255);
+      rect(0,0,100,100);
+      fill(0);
+      text("Levels", 4, 50);
       if (lvlEnd) {
         rectMode(CENTER);
+        //window
         fill(255);
         stroke(0);
         rect(400, 400, 500, 300);
+        //text on window
         fill(0);
         textSize(35);
         text("Money Earned: $" + moneyEarned, 215, 321);
         
+        //button to level select
         fill(200);
         rect(400, 425, 300, 100);
         fill(0);
@@ -120,6 +128,38 @@ public class Game {
     
     if (screen.equals("selectLevels")) {
       background(255);
+      
+      //back button to cashier if level not ended
+      if (!lvlEnd) {
+        fill(10);
+        rect(100,0,100,100);
+        fill(255);
+        textSize(30);
+        text("Back", 104, 50);
+      }
+      
+      //level 1 box
+      fill(200);
+      rect(120,120,150,150);
+      fill(0);
+      textSize(30);
+      text("Level 1", 135, 195);
+      
+      //level 2 box
+      fill(200);
+      rect(300,120,150,150);
+      fill(0);
+      textSize(30);
+      text("Level 2", 315, 195);
+      
+      //level 3 box
+      fill(200);
+      rect(480,120,150,150);
+      fill(0);
+      textSize(30);
+      text("Level 3", 495, 195);
+      
+      textSize(15);
     }
     
     if (screen.equals("menu")) {
