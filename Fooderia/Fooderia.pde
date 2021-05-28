@@ -67,9 +67,15 @@ void draw() {
       }
       else{
         customerRight.stopMoving();
-        if (fooderia.getCustomerNum() < 12) {
+        //TEMP LESS THAN 1 FOR TESTING
+        if (fooderia.getCustomerNum() < 1) {
           println(fooderia.getCustomerNum()); //DEBUG
           customerRight = new Customer("right");
+        } else {
+          if (fooderia.customerThere == false) {
+            fooderia.customerThere = true;
+            fooderia.levelEnds();
+          }
         }
       }
   }
@@ -81,8 +87,14 @@ void draw() {
       }
       else{
         customerLeft.stopMoving();
-        if (fooderia.getCustomerNum() < 12) {
+        //TEMP LESS THAN 1 FOR TESTING
+        if (fooderia.getCustomerNum() < 1) {
           customerLeft = new Customer("left");
+        } else {
+          if (fooderia.customerThere == false) {
+            fooderia.customerThere = true;
+            fooderia.levelEnds();
+          }
         }
       }
   }
@@ -117,7 +129,13 @@ void mousePressed() {
          //customerLeft.customerLeaves(customerLeft.getOrder());
          notepad.takeOrder(customerLeft);
       }
-    }
+      
+      if (fooderia.lvlEnd) {
+        if (mouseX > 250 && mouseX < 550 && mouseY > 325 && mouseY < 525) {
+          fooderia.resetLevel();
+        }
+      }
+  }
 
   if (fooderia.getScreen().equals("sauce")) {
     if (mouseX > 10 && mouseX < 110 && mouseY > 170 && mouseY < 270) {

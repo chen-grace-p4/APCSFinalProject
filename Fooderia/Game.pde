@@ -4,7 +4,10 @@ public class Game {
   double moneyEarned;
   int customerCounter;
   
+  boolean customerThere;
+  
   int level;
+  boolean lvlEnd;
   boolean lvlTwoUnlocked;
   boolean lvlThreeUnlocked;
 
@@ -40,8 +43,28 @@ public class Game {
       customerRight.show();
       customerLeft.show();
       notepad.show();
+      if (lvlEnd) {
+        rectMode(CENTER);
+        fill(255);
+        stroke(0);
+        rect(400, 400, 500, 300);
+        fill(0);
+        textSize(35);
+        text("Money Earned: $" + moneyEarned, 215, 321);
+        
+        fill(200);
+        rect(400, 425, 300, 100);
+        fill(0);
+        textSize(25);
+        text("Go to Level Select", 289, 425);
+        
+        rectMode(CORNER);
+      }
     }
     if (screen.equals("sauce")) {
+      noStroke();
+      textSize(13);
+      
       background(#fffff5);
       pizza.mainX = 400;
       pizza.mainY = 450;
@@ -95,12 +118,8 @@ public class Game {
       notepad.show();
     }
     
-    if (screen.equals("levelEnd")) {
-      
-    }
-    
     if (screen.equals("selectLevels")) {
-      
+      background(255);
     }
     
     if (screen.equals("menu")) {
@@ -137,7 +156,7 @@ public class Game {
 
   void levelEnds() {
     //if moneyEarned >= some threshold for next level then set boolean for next level to true,
-    changeScreen("levelEnd");
+    lvlEnd = true;
     if (level == 1) {
       //  TEMPORARILY JUST GREATER THAN $1 FOR TESTING PURPOSES
       if (moneyEarned > 1) lvlTwoUnlocked = true;
