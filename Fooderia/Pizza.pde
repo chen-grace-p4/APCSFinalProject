@@ -161,6 +161,8 @@ public class Pizza implements Things {
     else if (top.equals("olives")) olivesSelected = true;
     else if (top.equals("pesto")) pestoSauceSelected = true;
     else if (top.equals("buffalo")) buffSauceSelected = true;
+    else if (top.equals("onions")) onionsSelected = true;
+    else if (top.equals("mushrooms")) mushroSelected = true;
   }
   //called in draw() and only does something if one of them is true
   //one them can only be true if toppingSelected is called in click
