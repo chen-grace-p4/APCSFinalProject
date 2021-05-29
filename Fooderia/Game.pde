@@ -52,7 +52,10 @@ public class Game {
       fill(255);
       rect(0,0,100,100);
       fill(0);
+      textSize(30);
       text("Levels", 4, 50);
+      textSize(15);
+      text("(Current: " + level + ")", 4, 75);
       if (lvlEnd) {
         rectMode(CENTER);
         //window
