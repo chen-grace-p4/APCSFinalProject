@@ -68,7 +68,7 @@ void draw() {
       else{
         customerRight.stopMoving();
         //TEMP LESS THAN 1 FOR TESTING
-        if (fooderia.getCustomerNum() < 1) {
+        if (fooderia.getCustomerNum() < 3) {
           println(fooderia.getCustomerNum()); //DEBUG
           customerRight = new Customer("right");
         } else {
@@ -88,7 +88,7 @@ void draw() {
       else{
         customerLeft.stopMoving();
         //TEMP LESS THAN 1 FOR TESTING
-        if (fooderia.getCustomerNum() < 1) {
+        if (fooderia.getCustomerNum() < 3) {
           customerLeft = new Customer("left");
         } else {
           if (fooderia.customerThere == false) {
@@ -131,6 +131,7 @@ void mousePressed() {
     if (mouseX > 120 && mouseX < 270 && mouseY > 120 && mouseY < 270) {
       //if a level is played but level is not 1 or if level is not being played and level = 0
       if (fooderia.level != 1) {
+        fooderia.level = 1;
         fooderia.resetLevel();
         fooderia.level = 1;
         fooderia.lvlEnd = false;
@@ -141,6 +142,7 @@ void mousePressed() {
     if (mouseX > 300 && mouseX < 450 && mouseY > 120 && mouseY < 270) {
       if (fooderia.lvlTwoUnlocked) {
         if (fooderia.level != 2) {
+          fooderia.level = 2;
           fooderia.resetLevel();
           fooderia.level = 2;
           fooderia.lvlEnd = false;
@@ -153,6 +155,7 @@ void mousePressed() {
     if (mouseX > 480 && mouseX < 630 && mouseY > 120 && mouseY < 270) {
       if (fooderia.lvlThreeUnlocked) {
         if (fooderia.level != 3) {
+          fooderia.level = 3;
           fooderia.resetLevel();
           fooderia.level = 3;
           fooderia.lvlEnd = false;
