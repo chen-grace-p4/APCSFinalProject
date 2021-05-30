@@ -263,13 +263,14 @@ public class Game {
     //set everything to 0 and reinitialize all classes
     moneyEarned = 0;
     customerCounter = 0;
+    customerRight = new Customer("right");
+    customerLeft = new Customer("left");
     level = 0;
     customerThere = false;
     
     screenButtons = new Buttons();
     pizza = new Pizza();
-    customerRight = new Customer("right");
-    customerLeft = new Customer("left");
+    
     oven = new Oven();
     notepad = new Notepad();
   }
