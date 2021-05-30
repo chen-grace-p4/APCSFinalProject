@@ -13,6 +13,7 @@ public class Oven {
       rect(630,510,150,50);
       fill(0);
       text("Give to customer", 650, 540);
+      notepad.deleteOrder();
     }
   }
   

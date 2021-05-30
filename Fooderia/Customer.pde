@@ -9,8 +9,8 @@ public class Customer {
     {"Pesto Pepperoni Pizza", "Pesto Sauce", "Cheese", "Pepperoni"}, 
     {"Pesto Olive Pizza", "Pesto Sauce", "Cheese", "Olives"}, 
     {"Pesto Mushroom Pizza", "Pesto Sauce", "Cheese", "Mushrooms"},
-    {"Pesto Mushroom and Olive Pizza", "Pesto Sauce", "Cheese", "Mushroom", "Olives"}, 
-    {"Pesto Pepperoni and Mushroom Pizza", "Pesto Sauce", "Cheese", "Pepperoni", "Mushroom"}, 
+    {"Pesto Mushroom and Olive Pizza", "Pesto Sauce", "Cheese", "Mushrooms", "Olives"}, 
+    {"Pesto Pepperoni and Mushroom Pizza", "Pesto Sauce", "Cheese", "Pepperoni", "Mushrooms"}, 
     {"Pesto Pepperoni and Olive Pizza", "Pesto Sauce", "Cheese", "Pepperoni", "Olives"}, 
     {"POM Pizza", "Marinara Sauce", "Cheese", "Pepperoni", "Olives", "Mushrooms"}, 
     {"Pesto POM Pizza", "Pesto Sauce", "Cheese", "Pepperoni", "Olives", "Mushrooms"},
@@ -36,11 +36,11 @@ public class Customer {
     {"Regular Deluxe Pizza", "Marinara Sauce", "Cheese", "Chicken", "Olives", "Mushrooms", "Pepperoni" }};
 
 
-
+  
   boolean selected;
   String location;
   color c;
-  int x, y, rand;
+  int x, y, rand, sec;
   boolean ordercorrect, moveIn, moveOut;
   float price;
 
@@ -54,6 +54,7 @@ public class Customer {
       x = -200;
       y = 500;
     }
+    sec = second()+45;
     moveIn = false;
     moveOut = false;
     selected = false;
@@ -130,12 +131,27 @@ public class Customer {
     //Change font below: (needs to be in data directory)
     /*PFont mono = createFont("andalemo.ttf", 0);
      textFont(mono); */
+    strokeWeight(5);
+    for (int i = 0; i <=100; i++){
+    stroke(color(255,25.5*i,0));
+    line(x+100,y-100, x+120, y-100);
+    }
+    strokeWeight(1);
+    stroke(0);
+    noFill();
+    rect(x+100,y-100,20,100);
     if (moveOut) {
       if (getLocation()=="right")text("$" + price, x+50, y-150);
       if (getLocation()=="left")text("$"+price, x-100, y-150);
     } else {
-      if (getLocation()=="right")text(order[0], x+50, y-150);
-      if (getLocation()=="left")text(order[0], x-100, y-150);
+      if (getLocation()=="right"){
+      text(order[0], x+50, y-150);
+      text(""+(sec- second()), x+50,y-200);
+      }
+      if (getLocation()=="left"){
+      text(order[0], x-100, y-150);
+      text(""+(sec- second()), x-100,y-200);
+      }
     }
   }
 

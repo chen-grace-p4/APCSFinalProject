@@ -19,7 +19,7 @@ public class Notepad {
   
   //clears notepad
   void deleteOrder() {
-    
+    order = null;
   }
   
   void show(){
@@ -56,4 +56,6 @@ public class Notepad {
   // println(order.size());
   noStroke();
   }
+  
+  
 }
