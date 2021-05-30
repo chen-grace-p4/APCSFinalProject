@@ -129,21 +129,21 @@ public class Game {
       fill(255);
       text("Olives", 360, 200);
       
-      //onions IF DAY 2 UNLOCKED
+      //mushroom IF DAY 2 UNLOCKED
       //if (level >= 2) {
       //}
-      fill(#eba9e2);
+      fill(#736246);
       rect(450, 170, 100, 100);
-      fill(0);
-      text("Onions", 470, 200);
+      fill(255);
+      text("Mushrooms", 470, 200);
       
-      //mushrooms IF DAY 3 UNLOCKED
+      //onions IF DAY 3 UNLOCKED
       //if (level >= 3) {
       //}
-      fill(#736246);
+      fill(#eba9e2);
       rect(560, 170, 100, 100);
-      fill(255);
-      text("Mushrooms", 580, 200);
+      fill(0);
+      text("Onions", 580, 200);
       
       //restart button
       fill(#ebdab9);

@@ -6,10 +6,10 @@ public class Pizza implements Things {
   boolean pepSelected;
   boolean olivesSelected;
   //unlocked day 2
-  boolean onionsSelected;
+  boolean mushroSelected;
   boolean pestoSauceSelected;
   //unlocked day 3
-  boolean mushroSelected;
+  boolean onionsSelected;
   boolean buffSauceSelected; 
   
   boolean sauceOn;
@@ -17,10 +17,10 @@ public class Pizza implements Things {
   boolean pepOn;
   boolean olivesOn;
   //unlocked day 2
-  boolean onionsOn;
+  boolean mushroOn;
   boolean pestoSauceOn;
   //unlocked day 3
-  boolean mushroOn;
+  boolean onionsOn;
   boolean buffSauceOn; 
   
   boolean shrink;
@@ -204,6 +204,9 @@ public class Pizza implements Things {
     //sauceOn = false; cheeseOn = false; pepOn = false; olivesOn = false;
     if (sauceSelected) {
         sauceOn = true;
+        pestoSauceOn = false;
+        buffSauceOn = false;
+        
         sauceSelected = false;
         if (!baked) toppingList.add("Marinara Sauce");
     } else if (cheeseSelected) {
@@ -220,10 +223,16 @@ public class Pizza implements Things {
         if (!baked) toppingList.add("Olives");
     } else if (pestoSauceSelected) {
         pestoSauceOn = true;
+        sauceOn = false;
+        buffSauceOn = false;
+        
         pestoSauceSelected = false;
         if (!baked) toppingList.add("Pesto Sauce");
     } else if (buffSauceSelected) {
         buffSauceOn = true;
+        sauceOn = false;
+        pestoSauceOn = false;
+        
         buffSauceSelected = false;
         if (!baked) toppingList.add("Buffalo Sauce");
     }
