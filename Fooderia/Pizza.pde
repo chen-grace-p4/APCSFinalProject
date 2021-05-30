@@ -61,7 +61,7 @@ public class Pizza implements Things {
       ellipseMode(CENTER);
       noStroke();
       fill(#81b368);
-      if (baked) fill(#a31010);
+      if (baked) fill(#95ba82);
       if (shrink) ellipse(mainX, mainY, 170, 170);
       else ellipse(mainX, mainY, 300, 300);
     } 
@@ -70,7 +70,7 @@ public class Pizza implements Things {
       ellipseMode(CENTER);
       noStroke();
       fill(#ff7e33);
-      if (baked) fill(#a31010);
+      if (baked) fill(#de651f);
       if (shrink) ellipse(mainX, mainY, 170, 170);
       else ellipse(mainX, mainY, 300, 300);
     }
@@ -154,9 +154,10 @@ public class Pizza implements Things {
             ellipseMode(CENTER);
             noStroke();
             fill(#736246);
-            if (baked) fill(#2e2e2e);
+            if (baked) fill(#695b45);
             ellipse(x, y, 10, 10);
             fill(#bda47b);
+            if (baked) fill(#c2a26d);
             rect(x-2.5, y, 5, 10); 
           }
         }
@@ -167,9 +168,10 @@ public class Pizza implements Things {
             ellipseMode(CENTER);
             noStroke();
             fill(#736246);
-            if (baked) fill(#2e2e2e);
+            if (baked) fill(#695b45);
             ellipse(x, y, 20, 20);
             fill(#bda47b);
+            if (baked) fill(#c2a26d);
             rect(x-5, y, 10, 20); 
           }
         }
@@ -182,8 +184,9 @@ public class Pizza implements Things {
           for (int x = mainX- 70; x < mainX+89; x += 20) {
             ellipseMode(CENTER);
             noStroke();
-            if (baked) fill(#2e2e2e);
+            
             fill(#dbbf8c);
+            if (baked) fill(#fae0b1);
             rectMode(CENTER);
             rect(x, y, 15, 5); 
             rectMode(CORNER);
@@ -195,8 +198,8 @@ public class Pizza implements Things {
           for (int x = mainX-120; x < mainX+140; x += 40) {
             ellipseMode(CENTER);
             noStroke();
-            if (baked) fill(#2e2e2e);
             fill(#dbbf8c);
+            if (baked) fill(#fae0b1);
             rectMode(CENTER);
             rect(x, y, 30, 10); 
             rectMode(CORNER);
