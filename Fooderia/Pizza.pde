@@ -177,6 +177,32 @@ public class Pizza implements Things {
     }
     
     if (chickenOn) {
+      if (shrink) {
+        for (int y = mainY - 55; y < mainY+75; y += 20) {
+          for (int x = mainX- 70; x < mainX+89; x += 20) {
+            ellipseMode(CENTER);
+            noStroke();
+            if (baked) fill(#2e2e2e);
+            fill(#dbbf8c);
+            rectMode(CENTER);
+            rect(x, y, 15, 5); 
+            rectMode(CORNER);
+          }
+        }
+      }
+      else {
+        for (int y = mainY - 90; y < mainY+107; y += 40) {
+          for (int x = mainX-120; x < mainX+140; x += 40) {
+            ellipseMode(CENTER);
+            noStroke();
+            if (baked) fill(#2e2e2e);
+            fill(#dbbf8c);
+            rectMode(CENTER);
+            rect(x, y, 30, 10); 
+            rectMode(CORNER);
+          }
+        }
+      }
     }
   }
   
