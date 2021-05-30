@@ -6,10 +6,10 @@ public class Pizza implements Things {
   boolean pepSelected;
   boolean olivesSelected;
   //unlocked day 2
-  boolean onionsSelected;
+  boolean mushroSelected;
   boolean pestoSauceSelected;
   //unlocked day 3
-  boolean mushroSelected;
+  boolean chickenSelected;
   boolean buffSauceSelected; 
   
   boolean sauceOn;
@@ -17,10 +17,10 @@ public class Pizza implements Things {
   boolean pepOn;
   boolean olivesOn;
   //unlocked day 2
-  boolean onionsOn;
+  boolean mushroOn;
   boolean pestoSauceOn;
   //unlocked day 3
-  boolean mushroOn;
+  boolean chickenOn;
   boolean buffSauceOn; 
   
   boolean shrink;
@@ -61,7 +61,7 @@ public class Pizza implements Things {
       ellipseMode(CENTER);
       noStroke();
       fill(#81b368);
-      if (baked) fill(#a31010);
+      if (baked) fill(#95ba82);
       if (shrink) ellipse(mainX, mainY, 170, 170);
       else ellipse(mainX, mainY, 300, 300);
     } 
@@ -70,7 +70,7 @@ public class Pizza implements Things {
       ellipseMode(CENTER);
       noStroke();
       fill(#ff7e33);
-      if (baked) fill(#a31010);
+      if (baked) fill(#de651f);
       if (shrink) ellipse(mainX, mainY, 170, 170);
       else ellipse(mainX, mainY, 300, 300);
     }
@@ -146,6 +146,67 @@ public class Pizza implements Things {
         }
       }
     }
+    
+    if (mushroOn) {
+      if (shrink) {
+        for (int y = mainY - 55; y < mainY+75; y += 20) {
+          for (int x = mainX- 70; x < mainX+89; x += 20) {
+            ellipseMode(CENTER);
+            noStroke();
+            fill(#736246);
+            if (baked) fill(#695b45);
+            ellipse(x, y, 10, 10);
+            fill(#bda47b);
+            if (baked) fill(#c2a26d);
+            rect(x-2.5, y, 5, 10); 
+          }
+        }
+      }
+      else {
+        for (int y = mainY - 90; y < mainY+107; y += 40) {
+          for (int x = mainX-120; x < mainX+140; x += 40) {
+            ellipseMode(CENTER);
+            noStroke();
+            fill(#736246);
+            if (baked) fill(#695b45);
+            ellipse(x, y, 20, 20);
+            fill(#bda47b);
+            if (baked) fill(#c2a26d);
+            rect(x-5, y, 10, 20); 
+          }
+        }
+      }
+    }
+    
+    if (chickenOn) {
+      if (shrink) {
+        for (int y = mainY - 55; y < mainY+75; y += 20) {
+          for (int x = mainX- 70; x < mainX+89; x += 20) {
+            ellipseMode(CENTER);
+            noStroke();
+            
+            fill(#dbbf8c);
+            if (baked) fill(#fae0b1);
+            rectMode(CENTER);
+            rect(x, y, 15, 5); 
+            rectMode(CORNER);
+          }
+        }
+      }
+      else {
+        for (int y = mainY - 90; y < mainY+107; y += 40) {
+          for (int x = mainX-120; x < mainX+140; x += 40) {
+            ellipseMode(CENTER);
+            noStroke();
+            fill(#dbbf8c);
+            if (baked) fill(#fae0b1);
+            rectMode(CENTER);
+            rect(x, y, 30, 10); 
+            rectMode(CORNER);
+          }
+        }
+      }
+    }
   }
   
   
@@ -161,7 +222,7 @@ public class Pizza implements Things {
     else if (top.equals("olives")) olivesSelected = true;
     else if (top.equals("pesto")) pestoSauceSelected = true;
     else if (top.equals("buffalo")) buffSauceSelected = true;
-    else if (top.equals("onions")) onionsSelected = true;
+    else if (top.equals("chicken")) chickenSelected = true;
     else if (top.equals("mushrooms")) mushroSelected = true;
   }
   //called in draw() and only does something if one of them is true
@@ -192,6 +253,14 @@ public class Pizza implements Things {
         noStroke();
         fill(#ff7e33);
         ellipse(mouseX, mouseY, 20, 20);
+      } else if (mushroSelected) {
+        noStroke();
+        fill(#736246);
+        ellipse(mouseX, mouseY, 20, 20);
+      } else if (chickenSelected) {
+        noStroke();
+        fill(#dbbf8c);
+        ellipse(mouseX, mouseY, 20, 20);
       }
     }
   }
@@ -204,6 +273,9 @@ public class Pizza implements Things {
     //sauceOn = false; cheeseOn = false; pepOn = false; olivesOn = false;
     if (sauceSelected) {
         sauceOn = true;
+        pestoSauceOn = false;
+        buffSauceOn = false;
+        
         sauceSelected = false;
         if (!baked) toppingList.add("Marinara Sauce");
     } else if (cheeseSelected) {
@@ -220,12 +292,26 @@ public class Pizza implements Things {
         if (!baked) toppingList.add("Olives");
     } else if (pestoSauceSelected) {
         pestoSauceOn = true;
+        sauceOn = false;
+        buffSauceOn = false;
+        
         pestoSauceSelected = false;
         if (!baked) toppingList.add("Pesto Sauce");
     } else if (buffSauceSelected) {
         buffSauceOn = true;
+        sauceOn = false;
+        pestoSauceOn = false;
+        
         buffSauceSelected = false;
         if (!baked) toppingList.add("Buffalo Sauce");
+    } else if (mushroSelected) {
+      mushroOn = true;
+      mushroSelected = false;
+      if (!baked) toppingList.add("Mushrooms");
+    } else if (chickenSelected) {
+      chickenOn = true;
+      chickenSelected = false;
+      if (!baked) toppingList.add("Chicken");
     }
     //if (sauceOn||cheeseOn||pepOn||olivesOn) show();
   }
@@ -246,6 +332,7 @@ public class Pizza implements Things {
     } else {
       //fooderia.changeScreen("cashier");
       //next();
+      moving = false;
       oven.moveOn = true;
     }
   }

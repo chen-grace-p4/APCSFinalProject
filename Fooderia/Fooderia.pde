@@ -108,13 +108,13 @@ void mousePressed() {
   //changing screens
   if (!fooderia.screen.equals("selectLevels") && !fooderia.screen.equals("menu")) {
     if (mouseX > width-100 && mouseY < 100) {
-      fooderia.changeScreen("oven");
+      if (pizza.moving != true) fooderia.changeScreen("oven");
     }
     else if (mouseX > width-200 && mouseY < 100) {
-      fooderia.changeScreen("sauce");
+      if (pizza.moving != true) fooderia.changeScreen("sauce");
     }
     else if (mouseX > width-300 && mouseY < 100) {
-      fooderia.changeScreen("cashier");
+      if (pizza.moving != true) fooderia.changeScreen("cashier");
     }
   }
   
@@ -207,23 +207,23 @@ void mousePressed() {
     else if (mouseX > 10 && mouseX < 170 && mouseY > 544 && mouseY < 604) {
       fooderia.newPizza();
     }
-    //if (fooderia.level >= 2) {
+    if (fooderia.level >= 2) {
       if (mouseX > 10 && mouseX < 110 && mouseY > 280 && mouseY < 380) {
         pizza.toppingSelected("pesto");
       }
       if (mouseX > 450 && mouseX < 550 && mouseY > 170 && mouseY < 270) {
-        pizza.toppingSelected("onions");
+        pizza.toppingSelected("mushrooms");
       }
-    //}
+    }
       
-      //if (fooderia.level >= 3) {
-        if (mouseX > 10 && mouseX < 110 && mouseY > 390 && mouseY < 490) {
-          pizza.toppingSelected("buffalo");
-        }
-        if (mouseX > 560 && mouseX < 660 && mouseY > 170 && mouseY < 270) {
-          pizza.toppingSelected("mushrooms");
-        }
-      //}
+    if (fooderia.level >= 3) {
+      if (mouseX > 10 && mouseX < 110 && mouseY > 390 && mouseY < 490) {
+        pizza.toppingSelected("buffalo");
+      }
+      if (mouseX > 560 && mouseX < 660 && mouseY > 170 && mouseY < 270) {
+        pizza.toppingSelected("chicken");
+      }
+    }
       
     int x = width/2;
     int y = height/2;
