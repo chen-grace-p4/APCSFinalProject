@@ -96,20 +96,20 @@ public class Game {
       text("Tomato Sauce", 20, 200);
       
       //pesto sauce IF DAY 2 UNLOCKED
-      //if (level >= 2) {
+      if (level >= 2) {
         fill(#81b368);
         rect(10, 280, 100, 100);
         fill(255);
         text("Pesto Sauce", 20, 310);
-      //}
+      }
       
       //buffalo sauce IF DAY 3 UNLOCKED
-      //if (level >= 3) {
+      if (level >= 3) {
         fill(#ff7e33);
         rect(10, 390, 100, 100);
         fill(255);
         text("Buffalo Sauce", 20, 420);
-      //}
+      }
       
       //cheese
       fill(#f0e800);
@@ -130,20 +130,20 @@ public class Game {
       text("Olives", 360, 200);
       
       //mushroom IF DAY 2 UNLOCKED
-      //if (level >= 2) {
-      //}
+      if (level >= 2) {
       fill(#736246);
       rect(450, 170, 100, 100);
       fill(255);
       text("Mushrooms", 470, 200);
+      }
       
       //chicken IF DAY 3 UNLOCKED
-      //if (level >= 3) {
-      //}
+      if (level >= 3) {
       fill(#dbbf8c);
       rect(560, 170, 100, 100);
       fill(0);
       text("Chicken", 580, 200);
+      }
       
       //restart button
       fill(#ebdab9);
