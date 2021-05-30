@@ -8,12 +8,12 @@ public class Customer {
     {"Pesto Cheese Pizza", "Pesto Sauce", "Cheese"}, 
     {"Pesto Pepperoni Pizza", "Pesto Sauce", "Cheese", "Pepperoni"}, 
     {"Pesto Olive Pizza", "Pesto Sauce", "Cheese", "Olives"}, 
-    {"Pesto Mushroom Pizza", "Pesto Sauce", "Cheese", "Mushrooms"},
+    {"Pesto Mushroom Pizza", "Pesto Sauce", "Cheese", "Mushrooms"}, 
     {"Pesto Mushroom and Olive Pizza", "Pesto Sauce", "Cheese", "Mushrooms", "Olives"}, 
     {"Pesto Pepperoni and Mushroom Pizza", "Pesto Sauce", "Cheese", "Pepperoni", "Mushrooms"}, 
     {"Pesto Pepperoni and Olive Pizza", "Pesto Sauce", "Cheese", "Pepperoni", "Olives"}, 
     {"POM Pizza", "Marinara Sauce", "Cheese", "Pepperoni", "Olives", "Mushrooms"}, 
-    {"Pesto POM Pizza", "Pesto Sauce", "Cheese", "Pepperoni", "Olives", "Mushrooms"},
+    {"Pesto POM Pizza", "Pesto Sauce", "Cheese", "Pepperoni", "Olives", "Mushrooms"}, 
 
     {"Buffalo Sauce Pizza", "Buffalo Sauce", "Cheese"}, 
     {"Buffalo Pepperoni Pizza", "Buffalo Sauce", "Cheese", "Pepperoni"}, 
@@ -36,14 +36,13 @@ public class Customer {
     {"Regular Deluxe Pizza", "Marinara Sauce", "Cheese", "Chicken", "Olives", "Mushrooms", "Pepperoni" }};
 
 
-  
+
   boolean selected;
   String location;
   color c;
-  int x, y, rand, sec;
+  int x, y, rand;
   boolean ordercorrect, moveIn, moveOut;
-  float price;
-
+  double price, sec, timeleft;
   Customer(String location) {
     c = 0;
     if (location.equals("right")) {
@@ -54,18 +53,18 @@ public class Customer {
       x = -200;
       y = 500;
     }
-    sec = second()+45;
+    sec = (millis()/1000)+45;
     moveIn = false;
     moveOut = false;
     selected = false;
     println("level is" + fooderia.level);
-    if (fooderia.level == 1){
+    if (fooderia.level == 1) {
       rand = (int)(Math.random()*4);
     }
-    if (fooderia.level == 2){
+    if (fooderia.level == 2) {
       rand = (int)(Math.random()*13);
     }
-    if (fooderia.level == 3){
+    if (fooderia.level == 3) {
       rand = (int)(Math.random()*32);
     }
 
@@ -95,31 +94,31 @@ public class Customer {
     if (rand>=12) {
       price = 10.00;
     }
-    if (rand>=13){
+    if (rand>=13) {
       price = 7.50;
     }
-    if (rand>=14){
-    price = 8.50;
+    if (rand>=14) {
+      price = 8.50;
     }
-    if (rand>=18){
-    price = 9.50;
+    if (rand>=18) {
+      price = 9.50;
     }
-    if (rand>=24){
-    price = 10.50;
+    if (rand>=24) {
+      price = 10.50;
     }
-    if (rand>=27){
-    price = 10.00;
+    if (rand>=27) {
+      price = 10.00;
     }
-    if (rand>=29){
-    price = 12.50;
+    if (rand>=29) {
+      price = 12.50;
     }
-    if (rand>=30){
-    price = 11.50;
+    if (rand>=30) {
+      price = 11.50;
     }
-    if (rand>=31){
-    price = 10.50;
+    if (rand>=31) {
+      price = 10.50;
     }
-    
+
     this.location = location;
     customerComes(location);
     println(order[0]);
@@ -128,29 +127,45 @@ public class Customer {
   void show() {
     fill(c);
     ellipse(x, y, 150, 250);
+    timeleft = (sec- millis()/1000);
+
+
     //Change font below: (needs to be in data directory)
     /*PFont mono = createFont("andalemo.ttf", 0);
      textFont(mono); */
     strokeWeight(5);
-    for (int i = 0; i <=100; i++){
-    stroke(color(255,25.5*i,0));
-    line(x+100,y-100, x+120, y-100);
+    for (int i = 0; i<((timeleft/sec)-.50)*20; i++) {
+      stroke(255-25.5*i, 250, 0);
+      line(x+100, y-50-5*i, x+120, y-50 - 5*i);
     }
-    strokeWeight(1);
+    if ((timeleft/sec)>.5) {
+      for (int i = 0; i <=10; i++) {
+        stroke(color(255, 25.5*i, 0));
+        line(x+100, y-5*i, x+120, y - 5*i);
+      }
+     }
+    else {
+      for (int i = 0; i <((timeleft/sec))*20; i++) {
+        stroke(color(255, 25.5*i, 0));
+        line(x+100, y-5*i, x+120, y - 5*i);
+      }
+    }
+
     stroke(0);
     noFill();
-    rect(x+100,y-100,20,100);
+    rect(x+100, y-100, 20, 100);
+    strokeWeight(1);
     if (moveOut) {
       if (getLocation()=="right")text("$" + price, x+50, y-150);
       if (getLocation()=="left")text("$"+price, x-100, y-150);
     } else {
-      if (getLocation()=="right"){
-      text(order[0], x+50, y-150);
-      text(""+(sec- second()), x+50,y-200);
+      if (getLocation()=="right") {
+        text(order[0], x+50, y-150);
+        text(""+(timeleft), x+50, y-200);
       }
-      if (getLocation()=="left"){
-      text(order[0], x-100, y-150);
-      text(""+(sec- second()), x-100,y-200);
+      if (getLocation()=="left") {
+        text(order[0], x-100, y-150);
+        text(""+(timeleft), x-100, y-200);
       }
     }
   }
@@ -199,6 +214,7 @@ public class Customer {
     if (ordercorrect==false || pizza.baked==false) {
       price = 0;
     }
+    price = price * (timeleft/sec);
     fooderia.addMoney(price);
 
     moveIn = false;
