@@ -9,7 +9,7 @@ public class Pizza implements Things {
   boolean mushroSelected;
   boolean pestoSauceSelected;
   //unlocked day 3
-  boolean onionsSelected;
+  boolean chickenSelected;
   boolean buffSauceSelected; 
   
   boolean sauceOn;
@@ -20,7 +20,7 @@ public class Pizza implements Things {
   boolean mushroOn;
   boolean pestoSauceOn;
   //unlocked day 3
-  boolean onionsOn;
+  boolean chickenOn;
   boolean buffSauceOn; 
   
   boolean shrink;
@@ -161,7 +161,7 @@ public class Pizza implements Things {
     else if (top.equals("olives")) olivesSelected = true;
     else if (top.equals("pesto")) pestoSauceSelected = true;
     else if (top.equals("buffalo")) buffSauceSelected = true;
-    else if (top.equals("onions")) onionsSelected = true;
+    else if (top.equals("chicken")) chickenSelected = true;
     else if (top.equals("mushrooms")) mushroSelected = true;
   }
   //called in draw() and only does something if one of them is true

@@ -137,13 +137,13 @@ public class Game {
       fill(255);
       text("Mushrooms", 470, 200);
       
-      //onions IF DAY 3 UNLOCKED
+      //chicken IF DAY 3 UNLOCKED
       //if (level >= 3) {
       //}
-      fill(#eba9e2);
+      fill(#bfa473);
       rect(560, 170, 100, 100);
       fill(0);
-      text("Onions", 580, 200);
+      text("Chicken", 580, 200);
       
       //restart button
       fill(#ebdab9);
