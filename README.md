@@ -23,3 +23,7 @@ Our project will be a food-making game inspired by a combination of cooking feve
 5-26(class) Shriya A: Completed the Customer class (which needed the selected methods as well as completing the CustomerLeaves method- which needed me to add code to the main file). I also started the Notepad class and added the constructor, instance variables, and part of a method.
 
 5-27 (home) Grace C: Added some details such as not counting uncooked toppings when evaluating pizza, some buttons to make the oven screen operate more naturally, and made it so the oven screen stays stable between screen switches (for every new pizza). Completed the levels screen and added appropriate buttons + popups at the end of each day to go to the levels screen; there are now unlockable levels and the game starts at the levels screen.
+
+5-28 (class+home) Grace C: Completed pesto and buffalo sauces, worked on adding onions and mushrooms as toppings, and modified some minor details to the levels button.
+
+5-29 (home) Grace C: Changed onions to chicken, modified some displays for toppings to match changes made in Customer class, completed chicken and mushroom toppings. Fixed some bugs including restricting screen change while oven is in use, how multiple sauces are displayed on the pizza, and added back limits for toppings so that new ones unluck every level.
