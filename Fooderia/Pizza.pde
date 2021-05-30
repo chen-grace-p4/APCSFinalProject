@@ -146,6 +146,38 @@ public class Pizza implements Things {
         }
       }
     }
+    
+    if (mushroOn) {
+      if (shrink) {
+        for (int y = mainY - 55; y < mainY+75; y += 20) {
+          for (int x = mainX- 70; x < mainX+89; x += 20) {
+            ellipseMode(CENTER);
+            noStroke();
+            fill(#736246);
+            if (baked) fill(#2e2e2e);
+            ellipse(x, y, 10, 10);
+            fill(#bda47b);
+            rect(x-2.5, y, 5, 10); 
+          }
+        }
+      }
+      else {
+        for (int y = mainY - 90; y < mainY+107; y += 40) {
+          for (int x = mainX-120; x < mainX+140; x += 40) {
+            ellipseMode(CENTER);
+            noStroke();
+            fill(#736246);
+            if (baked) fill(#2e2e2e);
+            ellipse(x, y, 20, 20);
+            fill(#bda47b);
+            rect(x-5, y, 10, 20); 
+          }
+        }
+      }
+    }
+    
+    if (chickenOn) {
+    }
   }
   
   
@@ -192,6 +224,14 @@ public class Pizza implements Things {
         noStroke();
         fill(#ff7e33);
         ellipse(mouseX, mouseY, 20, 20);
+      } else if (mushroSelected) {
+        noStroke();
+        fill(#736246);
+        ellipse(mouseX, mouseY, 20, 20);
+      } else if (chickenSelected) {
+        noStroke();
+        fill(#dbbf8c);
+        ellipse(mouseX, mouseY, 20, 20);
       }
     }
   }
@@ -235,6 +275,14 @@ public class Pizza implements Things {
         
         buffSauceSelected = false;
         if (!baked) toppingList.add("Buffalo Sauce");
+    } else if (mushroSelected) {
+      mushroOn = true;
+      mushroSelected = false;
+      if (!baked) toppingList.add("Mushrooms");
+    } else if (chickenSelected) {
+      chickenOn = true;
+      chickenSelected = false;
+      if (!baked) toppingList.add("Chicken");
     }
     //if (sauceOn||cheeseOn||pepOn||olivesOn) show();
   }
@@ -255,6 +303,7 @@ public class Pizza implements Things {
     } else {
       //fooderia.changeScreen("cashier");
       //next();
+      moving = false;
       oven.moveOn = true;
     }
   }

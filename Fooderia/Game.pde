@@ -140,7 +140,7 @@ public class Game {
       //chicken IF DAY 3 UNLOCKED
       //if (level >= 3) {
       //}
-      fill(#bfa473);
+      fill(#dbbf8c);
       rect(560, 170, 100, 100);
       fill(0);
       text("Chicken", 580, 200);
