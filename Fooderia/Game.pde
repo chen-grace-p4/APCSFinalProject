@@ -14,7 +14,8 @@ public class Game {
   Game() {
     //things = new ArrayList<Things>();
     //screen = "cashier"; //CHANGE TO MAIN MENU LATER ON
-    screen = "selectLevels";
+    //screen = "selectLevels";
+    screen = "mainMenu";
     moneyEarned = 0;
     customerCounter = 0;
     //level = 1; //TEMPORARY
@@ -43,6 +44,60 @@ public class Game {
   }
   void checkScreen() {
     //basic testing of changing screen below, will add more for each screen later
+    if (screen.equals("mainMenu")) {
+      //sky
+      background(#b8eaff);
+      //grass
+      rectMode(CORNER);
+      noStroke();
+      fill(#11701e);
+      rect(0, 600, 800, 200);
+      //store
+      fill(#bf8136);
+      rect(200, 300, 400, 300);
+      //store sign
+      fill(#f7e188);
+      rect(220, 320, 360, 100);
+      fill(#fad541);
+      rect(230, 330, 340, 80);
+      
+      textSize(70);
+      fill(#6e4e25);
+      text("Fooderia", 250, 390);
+      //store windows
+      fill(#ededed);
+      rect(220, 460, 100, 100);
+      rect(480, 460, 100, 100);
+      //door
+      fill(#785007);
+      rect(350, 460, 105, 140);
+      
+      //griya
+      fill(#6e4e25);
+      textSize(200);
+      text("Griya's", 90, 200);
+      
+      //normal mode
+      fill(#38c4ff);
+      rect(40, 630, 340, 140);
+      fill(#7dd8ff);
+      rect(50, 640, 320, 120);
+      
+      fill(#004d6e);
+      textSize(45);
+      text("Normal Mode", 60, 700);
+      
+      
+      //master mode
+      fill(#38c4ff);
+      rect(420, 630, 340, 140);
+      fill(#7dd8ff);
+      rect(430, 640, 320, 120);
+      
+      fill(#004d6e);
+      textSize(45);
+      text("Master Mode", 440, 700);
+    }
     if (screen.equals("cashier")) {
       background(#edfbff);
       customerRight.show();
@@ -211,11 +266,7 @@ public class Game {
       textSize(15);
     }
     
-    if (screen.equals("menu")) {
-      
-    }
-    
-    if (!screen.equals("selectLevels") && !screen.equals("menu")) screenButtons.show();
+    if (!screen.equals("selectLevels") && !screen.equals("mainMenu")) screenButtons.show();
   }
 
   void addMoney(double money) {

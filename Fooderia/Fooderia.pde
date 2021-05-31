@@ -25,6 +25,8 @@ void draw() {
   mousey = mouseY;
   //mousex = pizza.mainX;
   //mousey = pizza.mainY;
+  textSize(15);
+  fill(0);
   text(mousex + ", " + mousey, width-70, 125);
   //
   if (fooderia.getScreen().equals("sauce"))pizza.toppingDrag();
@@ -106,7 +108,7 @@ void mousePressed() {
   //calls takeOrder(), changeScreen(), toppingSelected(String toppingType) in toppings class, dropTopping() in toppings class,
   //**make sure to distinguish toppings based on level
   //changing screens
-  if (!fooderia.screen.equals("selectLevels") && !fooderia.screen.equals("menu")) {
+  if (!fooderia.screen.equals("selectLevels") && !fooderia.screen.equals("mainMenu")) {
     if (mouseX > width-100 && mouseY < 100) {
       if (pizza.moving != true) fooderia.changeScreen("oven");
     }
@@ -115,6 +117,17 @@ void mousePressed() {
     }
     else if (mouseX > width-300 && mouseY < 100) {
       if (pizza.moving != true) fooderia.changeScreen("cashier");
+    }
+  }
+  
+  if (fooderia.screen.equals("mainMenu")) {
+    if (mouseX > 40 && mouseX < 380 && mouseY > 630 && mouseY < 770) {
+      fooderia.changeScreen("selectLevels");
+    } 
+    if (mouseX > 420 && mouseX < 760 && mouseY > 630 && mouseY < 770) {
+      fooderia.lvlTwoUnlocked = true;
+      fooderia.lvlThreeUnlocked = true;
+      fooderia.changeScreen("selectLevels");
     }
   }
   
