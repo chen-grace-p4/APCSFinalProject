@@ -33,3 +33,5 @@ Our project will be a food-making game inspired by a combination of cooking feve
 5-29 (home) Grace C: Changed onions to chicken, modified some displays for toppings to match changes made in Customer class, completed chicken and mushroom toppings. Fixed some bugs including restricting screen change while oven is in use, how multiple sauces are displayed on the pizza, and added back limits for toppings so that new ones unluck every level.
 
 5-29(home) Shriya A: I finished adding the orders to the menu and started working on the timer feature. I figured out how to keep track of and display the time. I also created a color gradient rectangle that goes down based off the time and altered the end price on how much time was left.
+
+5-31(home) Grace C: Added menu screen and appropriate buttons to normal mode (start from level 1 and others are unlocked) and master mode (all levels unlocked). Also added reset current level and reset progress buttons that appear in the appropriate mode and situation on the levels screen.
