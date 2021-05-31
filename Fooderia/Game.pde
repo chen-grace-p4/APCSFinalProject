@@ -10,12 +10,16 @@ public class Game {
   boolean lvlEnd;
   boolean lvlTwoUnlocked;
   boolean lvlThreeUnlocked;
+  
+  boolean masterClicked;
+  String mode;
 
   Game() {
     //things = new ArrayList<Things>();
     //screen = "cashier"; //CHANGE TO MAIN MENU LATER ON
     //screen = "selectLevels";
     screen = "mainMenu";
+    mode = "normal";
     moneyEarned = 0;
     customerCounter = 0;
     //level = 1; //TEMPORARY
@@ -97,6 +101,8 @@ public class Game {
       fill(#004d6e);
       textSize(45);
       text("Master Mode", 440, 700);
+      textSize(16);
+      text("**Resets Normal Mode Progress**", 450, 730);
     }
     if (screen.equals("cashier")) {
       background(#edfbff);
@@ -228,6 +234,39 @@ public class Game {
     
     if (screen.equals("selectLevels")) {
       background(255);
+      
+      //button to menu
+      fill(#38c4ff);
+      rect(600, 20, 150, 80);
+      fill(#7dd8ff);
+      rect(610, 30, 130, 60);
+      
+      fill(#004d6e);
+      textSize(45);
+      text("Menu", 615, 75);
+      
+      //reset progress button
+      if (mode.equals("normal")) {
+        fill(#e33434);
+        rect(400, 20, 150, 80);
+        
+        fill(#5e0909);
+        textSize(25);
+        text("Reset", 440, 55);
+        text("Progress", 425, 85);
+      }
+      
+      //reset level itself button
+      if (!lvlEnd) {
+        fill(#ffbb00);
+        rect(200, 20, 150, 80);
+        
+        fill(#a36f14);
+        textSize(20);
+        text("Reset", 240, 55);
+        text("Current Level", 215, 85);
+      }
+      
       
       //back button to cashier if level not ended
       if (!lvlEnd) {

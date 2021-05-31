@@ -121,12 +121,25 @@ void mousePressed() {
   }
   
   if (fooderia.screen.equals("mainMenu")) {
+    boolean prevTwo = fooderia.lvlTwoUnlocked;
+    boolean prevThree = fooderia.lvlThreeUnlocked;
     if (mouseX > 40 && mouseX < 380 && mouseY > 630 && mouseY < 770) {
+      if (fooderia.masterClicked) {
+        fooderia.lvlTwoUnlocked = false;
+        fooderia.lvlThreeUnlocked = false;
+        fooderia.masterClicked = false;
+      } else {
+        fooderia.lvlTwoUnlocked = prevTwo;
+        fooderia.lvlThreeUnlocked = prevThree;
+      }
+      fooderia.mode = "normal";
       fooderia.changeScreen("selectLevels");
     } 
     if (mouseX > 420 && mouseX < 760 && mouseY > 630 && mouseY < 770) {
       fooderia.lvlTwoUnlocked = true;
       fooderia.lvlThreeUnlocked = true;
+      fooderia.masterClicked = true;
+      fooderia.mode = "master";
       fooderia.changeScreen("selectLevels");
     }
   }
@@ -136,6 +149,23 @@ void mousePressed() {
       fooderia.changeScreen("cashier");
     }
     
+    //to menu
+    if (mouseX > 600 && mouseX < 750 && mouseY > 20 && mouseY < 100) {
+      fooderia.changeScreen("mainMenu");
+    }
+    //to reset progress
+    if (fooderia.mode.equals("normal")) {
+      if (mouseX > 400 && mouseX < 550 && mouseY > 20 && mouseY < 100) {
+        fooderia.lvlTwoUnlocked = false;
+        fooderia.lvlThreeUnlocked = false;
+      }
+    }
+    //to reset current level
+    if (!fooderia.lvlEnd && mouseX > 200 && mouseX < 350 && mouseY > 20 && mouseY < 100) {
+        int currentLvl = fooderia.level;
+        fooderia.resetLevel();
+        fooderia.level = currentLvl;
+    }
     //*****ADDITIONAL FEATURE?
     //MAYBE MAKE IT SO THAT IF UR CLICKING THE LEVEL UR PLAYING RIGHT NOW, THE GAME ASKS IF U WANT TO 
     //^^RESET THE DAY AND IF THE PLAYER CLICKS YES, THEN IT RESETS THE LEVEL FOR THE SAME DAY
