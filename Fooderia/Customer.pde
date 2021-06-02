@@ -145,7 +145,7 @@ public class Customer {
     /*PFont mono = createFont("andalemo.ttf", 0);
      textFont(mono); */
     strokeWeight(5);
-    for (int i = 0; i<((timeleft/sec)-.50)*20; i++) {
+    for (int i = 0; i<((timeleft/45)-.50)*20; i++) {
       stroke(255-25.5*i, 250, 0);
       line(x+100, y-50-5*i, x+120, y-50 - 5*i);
     }
@@ -156,7 +156,7 @@ public class Customer {
       }
      }
     else {
-      for (int i = 0; i <((timeleft/sec))*20; i++) {
+      for (int i = 0; i <((timeleft/45))*20; i++) {
         stroke(color(255, 25.5*i, 0));
         line(x+100, y-5*i, x+120, y - 5*i);
       }
