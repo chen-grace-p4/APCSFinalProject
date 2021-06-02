@@ -47,8 +47,8 @@ public class Customer {
   String custLetter;
   Customer(String location) {
     //RANDOMIZE LETTER FOR IMAGE HERE
-    String[] letters = {"A", "B", "C"};
-    int rand = (int) (Math.random()*3);
+    String[] letters = {"A", "B", "C", "D", "E"};
+    int rand = (int) (Math.random()*5);
     custLetter = letters[rand];
     
     c = 0;
