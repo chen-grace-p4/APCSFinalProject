@@ -37,3 +37,5 @@ Our project will be a food-making game inspired by a combination of cooking feve
 5-29(home) Shriya A: I finished adding the orders to the menu and started working on the timer feature. I figured out how to keep track of and display the time. I also created a color gradient rectangle that goes down based off the time and altered the end price on how much time was left.
 
 5-31(home) Grace C: Added menu screen and appropriate buttons to normal mode (start from level 1 and others are unlocked) and master mode (all levels unlocked). Also added reset current level and reset progress buttons that appear in the appropriate mode and situation on the levels screen.
+
+6-2(class) Shriya A: I fixed the timer class- the display for the timer was not going down at a proper rate and got messed up if there was a gap between opening the game and clicking on the level. I also rounded the prices to two decimal places and coded the customer to leave if the timer ran out.
