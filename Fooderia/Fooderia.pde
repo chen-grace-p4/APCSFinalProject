@@ -61,6 +61,15 @@ void draw() {
       oven.light();
   }
 
+
+    ////////// Customer leaves if timer has run out:
+    ArrayList temp = new ArrayList();
+    if (customerRight.timeleft <1){
+    customerRight.customerLeaves(temp);
+    }
+    if (customerLeft.timeleft<1){
+    customerLeft.customerLeaves(temp);
+    }
    ///////////////////////////////////////////Code below is responsible for customers movingout:
   if (customerRight.moveOut()==true){
       if (customerRight.getX()<900){
