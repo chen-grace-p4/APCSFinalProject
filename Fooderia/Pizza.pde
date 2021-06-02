@@ -96,28 +96,17 @@ public class Pizza implements Things {
     }
       
     if (pepOn) {
-      //TEMP PEPPERONI IN A GRID
       if (shrink) {
-        for (int y = mainY - 60; y < mainY+70; y += 20) {
-          for (int x = mainX- 60; x < mainX+70; x += 20) {
-            ellipseMode(CENTER);
-            noStroke();
-            fill(#ff4d4d);
-            if (baked) fill(#cc4141);
-            ellipse(x, y, 15, 15);
-          }
-        }
+        PImage pep = loadImage("pepperoni.png");
+        if (baked) pep = loadImage("bakedpep.png");
+        imageMode(CENTER);
+        image(pep, mainX, mainY, 190, 190);
       }
       else {
-        for (int y = mainY - 100; y < mainY+117; y += 40) {
-          for (int x = mainX-100; x < mainX+102; x += 40) {
-            ellipseMode(CENTER);
-            noStroke();
-            fill(#ff4d4d);
-            if (baked) fill(#cc4141);
-            ellipse(x, y, 30, 30);
-          }
-        }
+        PImage pep = loadImage("pepperoni.png");
+        if (baked) pep = loadImage("bakedpep.png");
+        imageMode(CENTER);
+        image(pep, mainX, mainY, 340, 340);
       }
     }
     
