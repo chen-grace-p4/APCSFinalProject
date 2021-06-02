@@ -154,6 +154,7 @@ void mousePressed() {
   }
   
   if (fooderia.screen.equals("selectLevels")) {
+    //back button
     if (!fooderia.lvlEnd && mouseX > 100 && mouseX < 200 && mouseY < 100) {
       fooderia.changeScreen("cashier");
     }
@@ -171,9 +172,9 @@ void mousePressed() {
     }
     //to reset current level
     if (!fooderia.lvlEnd && mouseX > 200 && mouseX < 350 && mouseY > 20 && mouseY < 100) {
-        int currentLvl = fooderia.level;
+        //int currentLvl = fooderia.level;
         fooderia.resetLevel();
-        fooderia.level = currentLvl;
+        //fooderia.level = currentLvl;
     }
     //*****ADDITIONAL FEATURE?
     //MAYBE MAKE IT SO THAT IF UR CLICKING THE LEVEL UR PLAYING RIGHT NOW, THE GAME ASKS IF U WANT TO 
