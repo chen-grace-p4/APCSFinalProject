@@ -39,3 +39,5 @@ Our project will be a food-making game inspired by a combination of cooking feve
 5-31(home) Grace C: Added menu screen and appropriate buttons to normal mode (start from level 1 and others are unlocked) and master mode (all levels unlocked). Also added reset current level and reset progress buttons that appear in the appropriate mode and situation on the levels screen.
 
 6-2(class) Shriya A: I fixed the timer class- the display for the timer was not going down at a proper rate and got messed up if there was a gap between opening the game and clicking on the level. I also rounded the prices to two decimal places and coded the customer to leave if the timer ran out.
+
+6-2(class) Grace C: Added sprites for pepperoni and for customers. Fixed reset current level button.
