@@ -226,6 +226,7 @@ public class Customer {
       price = 0;
     }
     price = price * (timeleft/sec);
+    price = Math.round(price*100)/100;
     fooderia.addMoney(price);
 
     moveIn = false;
