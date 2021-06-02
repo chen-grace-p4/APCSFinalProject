@@ -43,7 +43,14 @@ public class Customer {
   int x, y, rand;
   boolean ordercorrect, moveIn, moveOut;
   double price, sec, timeleft;
+  
+  String custLetter;
   Customer(String location) {
+    //RANDOMIZE LETTER FOR IMAGE HERE
+    String[] letters = {"A", "B", "C"};
+    int rand = (int) (Math.random()*3);
+    custLetter = letters[rand];
+    
     c = 0;
     if (location.equals("right")) {
       x = 1000;
@@ -126,7 +133,11 @@ public class Customer {
 
   void show() {
     fill(c);
-    ellipse(x, y, 150, 250);
+    String custImage = "cust" + custLetter + ".png";
+    PImage cust = loadImage(custImage);
+    imageMode(CENTER);
+    image(cust, x, y);
+    //ellipse(x, y, 150, 250);
     timeleft = (sec- millis()/1000);
 
 
