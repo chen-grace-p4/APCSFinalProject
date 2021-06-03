@@ -45,11 +45,14 @@ public class Customer {
   double price, sec, timeleft;
   
   String custLetter;
+  PImage cust;
   Customer(String location) {
     //RANDOMIZE LETTER FOR IMAGE HERE
     String[] letters = {"A", "B", "C", "D", "E"};
     int rand = (int) (Math.random()*5);
     custLetter = letters[rand];
+    String custImage = "cust" + custLetter + ".png";
+    cust = loadImage(custImage);
     
     c = 0;
     if (location.equals("right")) {
@@ -133,8 +136,6 @@ public class Customer {
 
   void show() {
     fill(c);
-    String custImage = "cust" + custLetter + ".png";
-    PImage cust = loadImage(custImage);
     imageMode(CENTER);
     image(cust, x, y);
     //ellipse(x, y, 150, 250);

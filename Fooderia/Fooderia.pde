@@ -1,8 +1,8 @@
 Game fooderia = new Game();
 Buttons screenButtons = new Buttons();
-Pizza pizza = new Pizza();
-Customer customerRight = new Customer("right");
-Customer customerLeft = new Customer("left");
+Pizza pizza;
+Customer customerRight;
+Customer customerLeft;
 Oven oven = new Oven();
 Notepad notepad = new Notepad();
 
@@ -15,7 +15,10 @@ void setup() {
   size(800, 800);
   background(255);
   screenButtons.show();
-
+  
+  customerRight = new Customer("right");
+  customerLeft = new Customer("left");
+  pizza = new Pizza();
 }
 
 void draw() {

@@ -1,5 +1,6 @@
 public class Pizza implements Things { 
   int mainX, mainY;
+  PImage pep;
   
   boolean sauceSelected;
   boolean cheeseSelected;
@@ -33,6 +34,9 @@ public class Pizza implements Things {
     toppingList = new ArrayList<String>();
     mainX = 400;
     mainY = 450;
+    
+    pep = loadImage("pepperoni.png");
+    if (baked) pep = loadImage("bakedpep.png");
   }
   
   String getType() {
@@ -97,13 +101,11 @@ public class Pizza implements Things {
       
     if (pepOn) {
       if (shrink) {
-        PImage pep = loadImage("pepperoni.png");
         if (baked) pep = loadImage("bakedpep.png");
         imageMode(CENTER);
         image(pep, mainX, mainY, 190, 190);
       }
       else {
-        PImage pep = loadImage("pepperoni.png");
         if (baked) pep = loadImage("bakedpep.png");
         imageMode(CENTER);
         image(pep, mainX, mainY, 340, 340);
