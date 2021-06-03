@@ -148,6 +148,7 @@ void mousePressed() {
       fooderia.changeScreen("selectLevels");
     } 
     if (mouseX > 420 && mouseX < 760 && mouseY > 630 && mouseY < 770) {
+      fooderia.resetLevel();
       fooderia.lvlTwoUnlocked = true;
       fooderia.lvlThreeUnlocked = true;
       fooderia.masterClicked = true;
