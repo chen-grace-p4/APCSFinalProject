@@ -226,8 +226,8 @@ public class Customer {
     if (ordercorrect==false || pizza.baked==false) {
       price = 0;
     }
-    price = price * (timeleft/sec);
-    price = Math.round(price*100)/100;
+    price = price * (timeleft/totalTime);
+    price = (double)Math.round(price*100) /100;
     fooderia.addMoney(price);
 
     moveIn = false;
