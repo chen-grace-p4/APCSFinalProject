@@ -126,6 +126,7 @@ public class Game {
         //text on window
         fill(0);
         textSize(35);
+        moneyEarned = (double) Math.round(moneyEarned*100)/100;
         text("Money Earned: $" + moneyEarned, 215, 321);
         
         //button to level select
@@ -305,7 +306,7 @@ public class Game {
       textSize(15);
     }
     
-    if (!screen.equals("selectLevels") && !screen.equals("mainMenu")) screenButtons.show();
+    if (!lvlEnd && !screen.equals("selectLevels") && !screen.equals("mainMenu")) screenButtons.show();
   }
 
   void addMoney(double money) {

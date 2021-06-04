@@ -131,7 +131,7 @@ void mousePressed() {
   //calls takeOrder(), changeScreen(), toppingSelected(String toppingType) in toppings class, dropTopping() in toppings class,
   //**make sure to distinguish toppings based on level
   //changing screens
-  if (!fooderia.screen.equals("selectLevels") && !fooderia.screen.equals("mainMenu")) {
+  if (!fooderia.lvlEnd && !fooderia.screen.equals("selectLevels") && !fooderia.screen.equals("mainMenu")) {
     if (mouseX > width-100 && mouseY < 100) {
       if (pizza.moving != true) fooderia.changeScreen("oven");
     } else if (mouseX > width-200 && mouseY < 100) {
@@ -287,8 +287,8 @@ void mousePressed() {
       }
     }
 
-    int x = width/2;
-    int y = height/2;
+    int x = 400;
+    int y = 450;
     float inside = (mouseX - x)*(mouseX - x) + (mouseY - y)*(mouseY-y);
     double dist = Math.sqrt(inside);
     if (dist < 175) pizza.dropTopping();
