@@ -1,6 +1,9 @@
 public class Pizza implements Things { 
   int mainX, mainY;
   PImage pep;
+  PImage bakedpep;
+  PImage olives;
+  PImage bakedolives;
   
   boolean sauceSelected;
   boolean cheeseSelected;
@@ -36,7 +39,9 @@ public class Pizza implements Things {
     mainY = 450;
     
     pep = loadImage("pepperoni.png");
-    if (baked) pep = loadImage("bakedpep.png");
+    olives = loadImage("olives.png");
+    bakedpep = loadImage("bakedpep.png");
+    bakedolives = loadImage("bakedolives.png");
   }
   
   String getType() {
@@ -85,56 +90,48 @@ public class Pizza implements Things {
       if (baked) fill(#ffeb87);
       if (shrink) ellipse(mainX, mainY, 160, 160);
       else ellipse(mainX, mainY, 290, 290);
-      //BELOW BROKEN BECAUSE SHOW RUNS EVERY DRAW
-      //int minX = width/2 - 150;
-      //int maxX = width/2 + 150;
-      //int minY = height/2 - 150;
-      //int maxY = height/2 + 150;
-      //for (int i = 0; i < 100; i++) {
-      //  int randomX = (int) (Math.random() * (maxX-minX+1)+minX);
-      //  int randomY = (int) (Math.random() * (maxY-minY+1)+minY);
-      //  fill(#f0e800);
-      //  noStroke();
-      //  ellipse(randomX, randomY, 3, 3);
-      //}
     }
       
     if (pepOn) {
       if (shrink) {
-        if (baked) pep = loadImage("bakedpep.png");
-        imageMode(CENTER);
-        image(pep, mainX, mainY, 190, 190);
+        if (baked) {
+          imageMode(CENTER);
+          image(bakedpep, mainX, mainY, 190, 190);
+        } else {
+          imageMode(CENTER);
+          image(pep, mainX, mainY, 190, 190);
+        }
       }
       else {
-        if (baked) pep = loadImage("bakedpep.png");
-        imageMode(CENTER);
-        image(pep, mainX, mainY, 340, 340);
+        if (baked) {
+          imageMode(CENTER);
+          image(bakedpep, mainX, mainY, 340, 340);
+        } else {
+          imageMode(CENTER);
+          image(pep, mainX, mainY, 340, 340);
+        }
       }
     }
     
     if (olivesOn) {
-      //TEMP OLIVES IN A GRID
       if (shrink) {
-        for (int y = mainY - 60; y < mainY+70; y += 20) {
-          for (int x = mainX- 60; x < mainX+70; x += 20) {
-            ellipseMode(CENTER);
-            noStroke();
-            fill(#545454);
-            if (baked) fill(#2e2e2e);
-            ellipse(x, y, 10, 10);
-          }
+        if (baked) {
+          imageMode(CENTER);
+          image(bakedolives, mainX, mainY, 190, 190);
+        } else {
+          imageMode(CENTER);
+          image(olives, mainX, mainY, 190, 190);
         }
       }
       else {
-        for (int y = mainY - 100; y < mainY+117; y += 40) {
-          for (int x = mainX-100; x < mainX+102; x += 40) {
-            ellipseMode(CENTER);
-            noStroke();
-            fill(#545454);
-            if (baked) fill(#2e2e2e);
-            ellipse(x, y, 20, 20);
-          }
+        if (baked) {
+          imageMode(CENTER);
+          image(bakedolives, mainX, mainY, 340, 340);
+        } else {
+          imageMode(CENTER);
+          image(olives, mainX, mainY, 340, 340);
         }
+
       }
     }
     
