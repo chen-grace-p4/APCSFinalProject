@@ -40,7 +40,7 @@ public class Customer {
   boolean selected;
   String location;
   color c;
-  int x, y, rand;
+  int x, y, rand, leavingTime;
   boolean ordercorrect, moveIn, moveOut;
   double price, sec, timeleft, totalTime;
   
@@ -53,7 +53,7 @@ public class Customer {
     custLetter = letters[rand];
     String custImage = "cust" + custLetter + ".png";
     cust = loadImage(custImage);
-    
+    leavingTime = 1000;
     c = 0;
     if (location.equals("right")) {
       x = 1000;
@@ -63,13 +63,12 @@ public class Customer {
       x = -200;
       y = 500;
     }
-    totalTime = (int)(Math.random()*10) + 2;
+    totalTime = (int)(Math.random()*30) + 60;
     sec = (millis()/1000)+totalTime;
     moveIn = false;
     moveOut = false;
     selected = false;
-    println("level is" + fooderia.level);
-    if (fooderia.level == 1) {
+        if (fooderia.level == 1) {
       rand = (int)(Math.random()*4);
     }
     if (fooderia.level == 2) {
@@ -80,7 +79,7 @@ public class Customer {
     }
 
     order = menu[rand];
-    println(rand);
+    //println(rand);
     if (rand >= 0) {
       price = 6.50;
     }
@@ -132,7 +131,7 @@ public class Customer {
 
     this.location = location;
     customerComes(location);
-    println(order[0]);
+    //println(order[0]);
   }
 
   void show() {
@@ -140,7 +139,7 @@ public class Customer {
     imageMode(CENTER);
     image(cust, x, y);
     //ellipse(x, y, 150, 250);
-    timeleft = (sec- millis()/1000);
+    //timeleft = (sec- millis()/1000);
 
 
     //Change font below: (needs to be in data directory)
@@ -221,7 +220,7 @@ public class Customer {
         ordercorrect = false;
       }
     }
-    println(ordercorrect);
+    //println(ordercorrect);
     /////////////////////////////////
 
     if (ordercorrect==false || pizza.baked==false) {

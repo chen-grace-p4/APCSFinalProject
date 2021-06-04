@@ -34,6 +34,8 @@ void draw() {
   //
   if (fooderia.getScreen().equals("sauce"))pizza.toppingDrag();
 
+  customerRight.timeleft = (customerRight.sec- millis()/1000);
+  customerLeft.timeleft = (customerLeft.sec- millis()/1000);
   ///////////////////////////////////////////Code below is responsible for customers coming in:
   if (customerRight.moveIn()==true) {
     if (customerRight.getX()>600) {
@@ -65,13 +67,26 @@ void draw() {
   ////////// Customer leaves if timer has run out:
   ArrayList temp = new ArrayList();
   if (customerRight.timeleft <0) {
-    customerRight.customerLeaves(temp);
+    customerRight.customerLeaves(temp);   
+    if (customerRight.leavingTime>0) {
+      fill(255, 105, 97);
+      rect(100, 0, 400, 100);
+      fill(255, 255, 255);
+      textSize(20);
+      text("Customer on the right has gone", 120, 40);
+      customerRight.leavingTime --;
+    }
     if (customerRight.selected==true) {
       notepad.deleteOrder();
     }
   }
   if (customerLeft.timeleft<0) {
     customerLeft.customerLeaves(temp);
+    fill(255, 105, 97);
+    rect(100, 0, 400, 100);
+    fill(255, 255, 255);
+    textSize(20);
+    text("Customer on the left has gone", 120, 70);
     if (customerLeft.selected==true) {
       notepad.deleteOrder();
     }
@@ -83,7 +98,7 @@ void draw() {
     } else {
       customerRight.stopMoving();
       //TEMP LESS THAN 1 FOR TESTING
-      if (fooderia.getCustomerNum() < 3) {
+      if (fooderia.getCustomerNum() < 10) {
         println(fooderia.getCustomerNum()); //DEBUG
         customerRight = new Customer("right");
       } else {
@@ -101,7 +116,7 @@ void draw() {
     } else {
       customerLeft.stopMoving();
       //TEMP LESS THAN 1 FOR TESTING
-      if (fooderia.getCustomerNum() < 3) {
+      if (fooderia.getCustomerNum() < 10) {
         customerLeft = new Customer("left");
       } else {
         if (fooderia.customerThere == false) {
