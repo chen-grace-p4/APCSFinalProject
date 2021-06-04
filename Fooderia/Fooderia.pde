@@ -96,7 +96,7 @@ void draw() {
       customerRight.move("right");
     } else {
       customerRight.stopMoving();
-      if (fooderia.getCustomerNum() < 10) {
+      if (fooderia.getCustomerNum() < 2) {
         //println(fooderia.getCustomerNum()); //DEBUG
         customerRight = new Customer("right");
       } else {
@@ -116,7 +116,7 @@ void draw() {
       customerLeft.move("left");
     } else {
       customerLeft.stopMoving();
-      if (fooderia.getCustomerNum() < 10) {
+      if (fooderia.getCustomerNum() < 2) {
         customerLeft = new Customer("left");
       } else {
         if (fooderia.customerThere == false) {
@@ -259,57 +259,65 @@ void mousePressed() {
     if (fooderia.lvlEnd) {
       if (mouseX > 250 && mouseX < 550 && mouseY > 325 && mouseY < 525) {
         fooderia.resetLevel();
+        fooderia.changeScreen("selectLevels");
       }
     }
   }
 
   if (fooderia.getScreen().equals("sauce")) {
-    if (mouseX > 10 && mouseX < 110 && mouseY > 170 && mouseY < 270) {
-      pizza.toppingSelected("sauce");
-    } else if (mouseX > 120 && mouseX < 220 && mouseY > 170 && mouseY < 270) {
-      pizza.toppingSelected("cheese");
-    } else if (mouseX > 230 && mouseX < 330 && mouseY > 170 && mouseY < 270) {
-      pizza.toppingSelected("pep");
-    } else if (mouseX > 340 && mouseX < 440 && mouseY > 170 && mouseY < 270) {
-      pizza.toppingSelected("olives");
-    } else if (mouseX > 10 && mouseX < 170 && mouseY > 544 && mouseY < 604) {
-      fooderia.newPizza();
+    if (fooderia.lvlEnd) {
+      if (mouseX > 250 && mouseX < 550 && mouseY > 325 && mouseY < 525) {
+        fooderia.resetLevel();
+        fooderia.changeScreen("selectLevels");
+      }
+    } else {
+      if (mouseX > 10 && mouseX < 110 && mouseY > 170 && mouseY < 270) {
+         pizza.toppingSelected("sauce");
+      } else if (mouseX > 120 && mouseX < 220 && mouseY > 170 && mouseY < 270) {
+        pizza.toppingSelected("cheese");
+      } else if (mouseX > 230 && mouseX < 330 && mouseY > 170 && mouseY < 270) {
+        pizza.toppingSelected("pep");
+      } else if (mouseX > 340 && mouseX < 440 && mouseY > 170 && mouseY < 270) {
+        pizza.toppingSelected("olives");
+      } else if (fooderia.level >= 2 && mouseX > 10 && mouseX < 110 && mouseY > 280 && mouseY < 380) {
+          pizza.toppingSelected("pesto");
+      } else if (fooderia.level >= 2 && mouseX > 450 && mouseX < 550 && mouseY > 170 && mouseY < 270) {
+          pizza.toppingSelected("mushrooms");
+      } else if (fooderia.level >= 3 && mouseX > 10 && mouseX < 110 && mouseY > 390 && mouseY < 490) {
+          pizza.toppingSelected("buffalo");
+      } else if (fooderia.level >= 3 && mouseX > 560 && mouseX < 660 && mouseY > 170 && mouseY < 270) {
+          pizza.toppingSelected("chicken");
+      } else if (mouseX > 10 && mouseX < 170 && mouseY > 544 && mouseY < 604) {
+        fooderia.newPizza();
+      }
+      
+  
+      int x = 400;
+      int y = 450;
+      float inside = (mouseX - x)*(mouseX - x) + (mouseY - y)*(mouseY-y);
+      double dist = Math.sqrt(inside);
+      if (dist < 175) pizza.dropTopping();
     }
-    if (fooderia.level >= 2) {
-      if (mouseX > 10 && mouseX < 110 && mouseY > 280 && mouseY < 380) {
-        pizza.toppingSelected("pesto");
-      }
-      if (mouseX > 450 && mouseX < 550 && mouseY > 170 && mouseY < 270) {
-        pizza.toppingSelected("mushrooms");
-      }
-    }
-
-    if (fooderia.level >= 3) {
-      if (mouseX > 10 && mouseX < 110 && mouseY > 390 && mouseY < 490) {
-        pizza.toppingSelected("buffalo");
-      }
-      if (mouseX > 560 && mouseX < 660 && mouseY > 170 && mouseY < 270) {
-        pizza.toppingSelected("chicken");
-      }
-    }
-
-    int x = 400;
-    int y = 450;
-    float inside = (mouseX - x)*(mouseX - x) + (mouseY - y)*(mouseY-y);
-    double dist = Math.sqrt(inside);
-    if (dist < 175) pizza.dropTopping();
   }
 
   if (fooderia.getScreen().equals("oven")) {
-    if (oven.moveOn) {
-      if (mouseX > 630 && mouseX < 780 && mouseY > 510 && mouseY < 560) {
-        fooderia.changeScreen("cashier");
-        oven = new Oven();
-        pizza.next();
+    if (fooderia.lvlEnd) {
+      if (mouseX > 250 && mouseX < 550 && mouseY > 325 && mouseY < 525) {
+        fooderia.resetLevel();
+        fooderia.changeScreen("selectLevels");
+      }
+    } else {
+      if (oven.moveOn) {
+        if (mouseX > 630 && mouseX < 780 && mouseY > 510 && mouseY < 560) {
+          fooderia.changeScreen("cashier");
+          oven = new Oven();
+          pizza.next();
+        }
+      }
+      if (mouseX > 10 && mouseX < 160 && mouseY > 510 && mouseY < 560) {
+        oven.startMove = true;
       }
     }
-    if (mouseX > 10 && mouseX < 160 && mouseY > 510 && mouseY < 560) {
-      oven.startMove = true;
-    }
+    
   }
 }

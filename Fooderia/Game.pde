@@ -214,6 +214,28 @@ public class Game {
       text("Restart Pizza", 30, 570);
       notepad.show();
       pizza.show();
+      
+      if (lvlEnd) {
+        rectMode(CENTER);
+        //window
+        fill(255);
+        stroke(0);
+        rect(400, 400, 500, 300);
+        //text on window
+        fill(0);
+        textSize(35);
+        moneyEarned = (double) Math.round(moneyEarned*100)/100;
+        text("Money Earned: $" + moneyEarned, 215, 321);
+        
+        //button to level select
+        fill(200);
+        rect(400, 425, 300, 100);
+        fill(0);
+        textSize(25);
+        text("Go to Level Select", 289, 425);
+        
+        rectMode(CORNER);
+      }
     }
     if (screen.equals("oven")) {
       background(#fff0f4);
@@ -231,6 +253,28 @@ public class Game {
       pizza.show();
       oven.show();
       notepad.show();
+      
+      if (lvlEnd) {
+        rectMode(CENTER);
+        //window
+        fill(255);
+        stroke(0);
+        rect(400, 400, 500, 300);
+        //text on window
+        fill(0);
+        textSize(35);
+        moneyEarned = (double) Math.round(moneyEarned*100)/100;
+        text("Money Earned: $" + moneyEarned, 215, 321);
+        
+        //button to level select
+        fill(200);
+        rect(400, 425, 300, 100);
+        fill(0);
+        textSize(25);
+        text("Go to Level Select", 289, 425);
+        
+        rectMode(CORNER);
+      }
     }
     
     if (screen.equals("selectLevels")) {
@@ -350,7 +394,6 @@ public class Game {
   
   //ACTIVATES AFTER USER IN LEVELENDS SCREEN CLICKS GO TO LEVELS BUTTON 
   void resetLevel() {
-    changeScreen("selectLevels");
     //set everything to 0 and reinitialize all classes
     moneyEarned = 0;
     customerCounter = 0;
