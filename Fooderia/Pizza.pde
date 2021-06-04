@@ -86,8 +86,8 @@ public class Pizza implements Things {
     if (cheeseOn) {
       ellipseMode(CENTER);
       noStroke();
-      fill(#ffd829);
-      if (baked) fill(#ffeb87);
+      fill(#ffeb87);
+      if (baked) fill(#ffd829);
       if (shrink) ellipse(mainX, mainY, 160, 160);
       else ellipse(mainX, mainY, 290, 290);
     }
