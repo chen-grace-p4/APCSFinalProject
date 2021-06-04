@@ -172,8 +172,8 @@ public class Customer {
       if (getLocation()=="left")text("$"+price, x-100, y-150);
     } else {
       if (getLocation()=="right") {
-        text(order[0], x+50, y-150);
-        text(""+(timeleft), x+50, y-200);
+        text(order[0], x-50, y-150);
+        text(""+(timeleft), x-50, y-200);
       }
       if (getLocation()=="left") {
         text(order[0], x-100, y-150);

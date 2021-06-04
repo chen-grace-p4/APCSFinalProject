@@ -65,7 +65,7 @@ void draw() {
 
   ////////// Customer leaves if timer has run out:
   ArrayList temp = new ArrayList();
-  if (customerRight.timeleft <0) {
+  if (customerRight.timeleft <0 && !fooderia.lvlEnd) {
     customerRight.customerLeaves(temp);   
     if (customerRight.leavingTime>0) {
       fill(255, 105, 97);
@@ -79,7 +79,7 @@ void draw() {
       notepad.deleteOrder();
     }
   }
-  if (customerLeft.timeleft<0) {
+  if (customerLeft.timeleft<0 && !fooderia.lvlEnd) {
     customerLeft.customerLeaves(temp);
     fill(255, 105, 97);
     rect(100, 0, 400, 100);
