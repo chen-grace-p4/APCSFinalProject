@@ -306,7 +306,7 @@ public class Game {
       textSize(15);
     }
     
-    if (!screen.equals("selectLevels") && !screen.equals("mainMenu")) screenButtons.show();
+    if (!lvlEnd && !screen.equals("selectLevels") && !screen.equals("mainMenu")) screenButtons.show();
   }
 
   void addMoney(double money) {
