@@ -288,10 +288,10 @@ void mousePressed() {
     }
 
     int x = 400;
-    int y = 400;
+    int y = 450;
     float inside = (mouseX - x)*(mouseX - x) + (mouseY - y)*(mouseY-y);
     double dist = Math.sqrt(inside);
-    if (dist < 140) pizza.dropTopping();
+    if (dist < 175) pizza.dropTopping();
   }
 
   if (fooderia.getScreen().equals("oven")) {
