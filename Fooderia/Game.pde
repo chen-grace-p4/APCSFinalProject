@@ -339,11 +339,11 @@ public class Game {
     lvlEnd = true;
     if (level == 1) {
       //  TEMPORARILY JUST GREATER THAN $1 FOR TESTING PURPOSES
-      if (moneyEarned >= 40) lvlTwoUnlocked = true;
+      if (moneyEarned >= 35) lvlTwoUnlocked = true;
     }
     else if (level == 2) {
       //  TEMPORARILY JUST GREATER THAN $1 FOR TESTING PURPOSES
-      if (moneyEarned >= 45) lvlThreeUnlocked = true;
+      if (moneyEarned >= 40) lvlThreeUnlocked = true;
     }
   }
   
