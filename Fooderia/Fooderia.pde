@@ -15,7 +15,7 @@ void setup() {
   size(800, 800);
   background(255);
   screenButtons.show();
-  
+
   customerRight = new Customer("right");
   customerLeft = new Customer("left");
   pizza = new Pizza();
@@ -35,82 +35,81 @@ void draw() {
   if (fooderia.getScreen().equals("sauce"))pizza.toppingDrag();
 
   ///////////////////////////////////////////Code below is responsible for customers coming in:
-  if (customerRight.moveIn()==true){
-      if (customerRight.getX()>600){
-        customerRight.move("left");
-
-      }
-      else{
-        customerRight.stopMoving();
-      }
+  if (customerRight.moveIn()==true) {
+    if (customerRight.getX()>600) {
+      customerRight.move("left");
+    } else {
+      customerRight.stopMoving();
+    }
   }
-    if (customerLeft.moveIn()==true){
-      if (customerLeft.getX()<200){
-        customerLeft.move("right");
-      }
-      else{
-        customerLeft.stopMoving();
-      }
+  if (customerLeft.moveIn()==true) {
+    if (customerLeft.getX()<200) {
+      customerLeft.move("right");
+    } else {
+      customerLeft.stopMoving();
+    }
   }
 
   //////////////////////////////////////////////////////////
   //for oven scene
   if (fooderia.getScreen().equals("oven")) {
     //if (pizza.shrink) {
-      //SOME WAY TO PAUSE HERE?
-      if (oven.startMove) pizza.move();
+    //SOME WAY TO PAUSE HERE?
+    if (oven.startMove) pizza.move();
     //}
-      oven.afterBake();
-      oven.light();
+    oven.afterBake();
+    oven.light();
   }
 
 
-    ////////// Customer leaves if timer has run out:
-    ArrayList temp = new ArrayList();
-    if (customerRight.timeleft <1){
+  ////////// Customer leaves if timer has run out:
+  ArrayList temp = new ArrayList();
+  if (customerRight.timeleft <0) {
     customerRight.customerLeaves(temp);
+    if (customerRight.selected==true) {
+      notepad.deleteOrder();
     }
-    if (customerLeft.timeleft<1){
-    customerLeft.customerLeaves(temp);
-    }
-   ///////////////////////////////////////////Code below is responsible for customers movingout:
-  if (customerRight.moveOut()==true){
-      if (customerRight.getX()<900){
-        customerRight.move("right");
-
-      }
-      else{
-        customerRight.stopMoving();
-        //TEMP LESS THAN 1 FOR TESTING
-        if (fooderia.getCustomerNum() < 3) {
-          println(fooderia.getCustomerNum()); //DEBUG
-          customerRight = new Customer("right");
-        } else {
-          if (fooderia.customerThere == false) {
-            fooderia.customerThere = true;
-            fooderia.levelEnds();
-          }
-        }
-      }
   }
-    if (customerLeft.moveOut()==true){
-      if (customerLeft.getX()>-100){
+  if (customerLeft.timeleft<0) {
+    customerLeft.customerLeaves(temp);
+    if (customerLeft.selected==true) {
+      notepad.deleteOrder();
+    }
+  }
+  ///////////////////////////////////////////Code below is responsible for customers movingout:
+  if (customerRight.moveOut()==true) {
+    if (customerRight.getX()<900) {
+      customerRight.move("right");
+    } else {
+      customerRight.stopMoving();
+      //TEMP LESS THAN 1 FOR TESTING
+      if (fooderia.getCustomerNum() < 3) {
         println(fooderia.getCustomerNum()); //DEBUG
-        customerLeft.move("left");
-
-      }
-      else{
-        customerLeft.stopMoving();
-        //TEMP LESS THAN 1 FOR TESTING
-        if (fooderia.getCustomerNum() < 3) {
-          customerLeft = new Customer("left");
-        } else {
-          if (fooderia.customerThere == false) {
-            fooderia.customerThere = true;
-            fooderia.levelEnds();
-          }
+        customerRight = new Customer("right");
+      } else {
+        if (fooderia.customerThere == false) {
+          fooderia.customerThere = true;
+          fooderia.levelEnds();
         }
       }
+    }
+  }
+  if (customerLeft.moveOut()==true) {
+    if (customerLeft.getX()>-100) {
+      println(fooderia.getCustomerNum()); //DEBUG
+      customerLeft.move("left");
+    } else {
+      customerLeft.stopMoving();
+      //TEMP LESS THAN 1 FOR TESTING
+      if (fooderia.getCustomerNum() < 3) {
+        customerLeft = new Customer("left");
+      } else {
+        if (fooderia.customerThere == false) {
+          fooderia.customerThere = true;
+          fooderia.levelEnds();
+        }
+      }
+    }
   }
 
   //////////////////////////////////////////////////////////
@@ -123,15 +122,13 @@ void mousePressed() {
   if (!fooderia.screen.equals("selectLevels") && !fooderia.screen.equals("mainMenu")) {
     if (mouseX > width-100 && mouseY < 100) {
       if (pizza.moving != true) fooderia.changeScreen("oven");
-    }
-    else if (mouseX > width-200 && mouseY < 100) {
+    } else if (mouseX > width-200 && mouseY < 100) {
       if (pizza.moving != true) fooderia.changeScreen("sauce");
-    }
-    else if (mouseX > width-300 && mouseY < 100) {
+    } else if (mouseX > width-300 && mouseY < 100) {
       if (pizza.moving != true) fooderia.changeScreen("cashier");
     }
   }
-  
+
   if (fooderia.screen.equals("mainMenu")) {
     boolean prevTwo = fooderia.lvlTwoUnlocked;
     boolean prevThree = fooderia.lvlThreeUnlocked;
@@ -156,13 +153,13 @@ void mousePressed() {
       fooderia.changeScreen("selectLevels");
     }
   }
-  
+
   if (fooderia.screen.equals("selectLevels")) {
     //back button
     if (!fooderia.lvlEnd && mouseX > 100 && mouseX < 200 && mouseY < 100) {
       fooderia.changeScreen("cashier");
     }
-    
+
     //to menu
     if (mouseX > 600 && mouseX < 750 && mouseY > 20 && mouseY < 100) {
       fooderia.changeScreen("mainMenu");
@@ -176,14 +173,14 @@ void mousePressed() {
     }
     //to reset current level
     if (!fooderia.lvlEnd && mouseX > 200 && mouseX < 350 && mouseY > 20 && mouseY < 100) {
-        //int currentLvl = fooderia.level;
-        fooderia.resetLevel();
-        //fooderia.level = currentLvl;
+      //int currentLvl = fooderia.level;
+      fooderia.resetLevel();
+      //fooderia.level = currentLvl;
     }
     //*****ADDITIONAL FEATURE?
     //MAYBE MAKE IT SO THAT IF UR CLICKING THE LEVEL UR PLAYING RIGHT NOW, THE GAME ASKS IF U WANT TO 
     //^^RESET THE DAY AND IF THE PLAYER CLICKS YES, THEN IT RESETS THE LEVEL FOR THE SAME DAY
-    
+
     //level 1 button
     if (mouseX > 120 && mouseX < 270 && mouseY > 120 && mouseY < 270) {
       //if a level is played but level is not 1 or if level is not being played and level = 0
@@ -207,7 +204,7 @@ void mousePressed() {
         }
       }
     }
-    
+
     //level 3 button
     if (mouseX > 480 && mouseX < 630 && mouseY > 120 && mouseY < 270) {
       if (fooderia.lvlThreeUnlocked) {
@@ -221,47 +218,43 @@ void mousePressed() {
       }
     }
   }
-  
-  
+
+
   if (mouseX > width-300 && mouseY <100) fooderia.checkScreen();
 
   //toppings station/sauce screen
   if (fooderia.getScreen().equals("cashier")) { 
-       if (mouseX > 525 && mouseX < 675 && mouseY > 375 && mouseY < 625) {
-         //JUST FOR TESTING PURPOSES
-         //customerRight.customerLeaves(customerRight.getOrder());
-         notepad.takeOrder(customerRight);
+    if (mouseX > 525 && mouseX < 675 && mouseY > 375 && mouseY < 625) {
+      //JUST FOR TESTING PURPOSES
+      //customerRight.customerLeaves(customerRight.getOrder());
+      notepad.takeOrder(customerRight);
+    }
+    if (mouseX > 125 && mouseX < 275 && mouseY > 375 && mouseY < 625) {
+      //JUST FOR TESTING PURPOSES
+      //customerLeft.customerLeaves(customerLeft.getOrder());
+      notepad.takeOrder(customerLeft);
+    }
+    if (mouseX < 100 && mouseY < 100) {
+      fooderia.changeScreen("selectLevels");
+    }
+
+    if (fooderia.lvlEnd) {
+      if (mouseX > 250 && mouseX < 550 && mouseY > 325 && mouseY < 525) {
+        fooderia.resetLevel();
       }
-      if (mouseX > 125 && mouseX < 275 && mouseY > 375 && mouseY < 625) {
-        //JUST FOR TESTING PURPOSES
-         //customerLeft.customerLeaves(customerLeft.getOrder());
-         notepad.takeOrder(customerLeft);
-      }
-      if (mouseX < 100 && mouseY < 100) {
-        fooderia.changeScreen("selectLevels");
-      }
-      
-      if (fooderia.lvlEnd) {
-        if (mouseX > 250 && mouseX < 550 && mouseY > 325 && mouseY < 525) {
-          fooderia.resetLevel();
-        }
-      }
+    }
   }
 
   if (fooderia.getScreen().equals("sauce")) {
     if (mouseX > 10 && mouseX < 110 && mouseY > 170 && mouseY < 270) {
       pizza.toppingSelected("sauce");
-    }
-    else if (mouseX > 120 && mouseX < 220 && mouseY > 170 && mouseY < 270) {
+    } else if (mouseX > 120 && mouseX < 220 && mouseY > 170 && mouseY < 270) {
       pizza.toppingSelected("cheese");
-    }
-    else if (mouseX > 230 && mouseX < 330 && mouseY > 170 && mouseY < 270) {
+    } else if (mouseX > 230 && mouseX < 330 && mouseY > 170 && mouseY < 270) {
       pizza.toppingSelected("pep");
-    }
-    else if (mouseX > 340 && mouseX < 440 && mouseY > 170 && mouseY < 270) {
+    } else if (mouseX > 340 && mouseX < 440 && mouseY > 170 && mouseY < 270) {
       pizza.toppingSelected("olives");
-    }
-    else if (mouseX > 10 && mouseX < 170 && mouseY > 544 && mouseY < 604) {
+    } else if (mouseX > 10 && mouseX < 170 && mouseY > 544 && mouseY < 604) {
       fooderia.newPizza();
     }
     if (fooderia.level >= 2) {
@@ -272,7 +265,7 @@ void mousePressed() {
         pizza.toppingSelected("mushrooms");
       }
     }
-      
+
     if (fooderia.level >= 3) {
       if (mouseX > 10 && mouseX < 110 && mouseY > 390 && mouseY < 490) {
         pizza.toppingSelected("buffalo");
@@ -281,14 +274,14 @@ void mousePressed() {
         pizza.toppingSelected("chicken");
       }
     }
-      
+
     int x = width/2;
     int y = height/2;
     float inside = (mouseX - x)*(mouseX - x) + (mouseY - y)*(mouseY-y);
     double dist = Math.sqrt(inside);
     if (dist < 175) pizza.dropTopping();
   }
-  
+
   if (fooderia.getScreen().equals("oven")) {
     if (oven.moveOn) {
       if (mouseX > 630 && mouseX < 780 && mouseY > 510 && mouseY < 560) {
@@ -298,7 +291,7 @@ void mousePressed() {
       }
     }
     if (mouseX > 10 && mouseX < 160 && mouseY > 510 && mouseY < 560) {
-        oven.startMove = true;
-      }
+      oven.startMove = true;
+    }
   }
 }
