@@ -197,6 +197,11 @@ public class Pizza implements Things {
     sauceSelected = false;
     cheeseSelected = false;
     pepSelected = false;
+    olivesSelected = false;
+    pestoSauceSelected = false;
+    buffSauceSelected = false;
+    chickenSelected = false;
+    mushroSelected = false;
     if (top.equals("sauce")) sauceSelected = true;
     else if (top.equals("cheese")) cheeseSelected = true;
     else if (top.equals("pep")) pepSelected = true;
