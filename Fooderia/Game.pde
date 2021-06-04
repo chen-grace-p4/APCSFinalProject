@@ -235,7 +235,7 @@ public class Game {
     
     if (screen.equals("selectLevels")) {
       background(255);
-      
+      noStroke();
       //button to menu
       fill(#38c4ff);
       rect(600, 20, 150, 80);
