@@ -335,15 +335,15 @@ public class Game {
 
   void levelEnds() {
     //if moneyEarned >= some threshold for next level then set boolean for next level to true,
-    println("level end is called");
+    //println("level end is called");
     lvlEnd = true;
     if (level == 1) {
       //  TEMPORARILY JUST GREATER THAN $1 FOR TESTING PURPOSES
-      if (moneyEarned > 1) lvlTwoUnlocked = true;
+      if (moneyEarned >= 20) lvlTwoUnlocked = true;
     }
     else if (level == 2) {
       //  TEMPORARILY JUST GREATER THAN $1 FOR TESTING PURPOSES
-      if (moneyEarned > 1) lvlThreeUnlocked = true;
+      if (moneyEarned >= 25) lvlThreeUnlocked = true;
     }
   }
   

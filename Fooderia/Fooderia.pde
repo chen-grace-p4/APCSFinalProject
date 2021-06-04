@@ -7,11 +7,10 @@ Oven oven = new Oven();
 Notepad notepad = new Notepad();
 
 //for testing purposes
-int mousex, mousey;
+//int mousex, mousey;
 //
 
 void setup() {
-  //testing of changing screens below
   size(800, 800);
   background(255);
   screenButtons.show();
@@ -24,13 +23,13 @@ void setup() {
 void draw() {
   fooderia.checkScreen();
   //TESTING PURPOSES
-  mousex = mouseX;
-  mousey = mouseY;
+  //mousex = mouseX;
+  //mousey = mouseY;
   //mousex = pizza.mainX;
   //mousey = pizza.mainY;
-  textSize(15);
-  fill(0);
-  text(mousex + ", " + mousey, width-70, 125);
+  //textSize(15);
+  //fill(0);
+  //text(mousex + ", " + mousey, width-70, 125);
   //
   if (fooderia.getScreen().equals("sauce"))pizza.toppingDrag();
 
@@ -97,9 +96,8 @@ void draw() {
       customerRight.move("right");
     } else {
       customerRight.stopMoving();
-      //TEMP LESS THAN 1 FOR TESTING
-      if (fooderia.getCustomerNum() < 10) {
-        println(fooderia.getCustomerNum()); //DEBUG
+      if (fooderia.getCustomerNum() < 11) {
+        //println(fooderia.getCustomerNum()); //DEBUG
         customerRight = new Customer("right");
       } else {
         if (fooderia.customerThere == false) {
@@ -111,12 +109,11 @@ void draw() {
   }
   if (customerLeft.moveOut()==true) {
     if (customerLeft.getX()>-100) {
-      println(fooderia.getCustomerNum()); //DEBUG
+      //println(fooderia.getCustomerNum()); //DEBUG
       customerLeft.move("left");
     } else {
       customerLeft.stopMoving();
-      //TEMP LESS THAN 1 FOR TESTING
-      if (fooderia.getCustomerNum() < 10) {
+      if (fooderia.getCustomerNum() < 11) {
         customerLeft = new Customer("left");
       } else {
         if (fooderia.customerThere == false) {

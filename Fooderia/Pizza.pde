@@ -335,11 +335,11 @@ public class Pizza implements Things {
   // else levelEnds()
   void next() {
     if (customerRight.selected) {
-      println(toppingList);
+      //println(toppingList);
       customerRight.customerLeaves(toppingList);
     }
     else if (customerLeft.selected) {
-      println(toppingList);
+      //println(toppingList);
       customerLeft.customerLeaves(toppingList);
     }
     fooderia.newPizza();
