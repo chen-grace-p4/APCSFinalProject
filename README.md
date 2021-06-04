@@ -41,3 +41,5 @@ Our project will be a food-making game inspired by a combination of cooking feve
 6-2(class) Shriya A: I fixed the timer class- the display for the timer was not going down at a proper rate and got messed up if there was a gap between opening the game and clicking on the level. I also rounded the prices to two decimal places and coded the customer to leave if the timer ran out.
 
 6-2(class) Grace C: Added sprites for pepperoni and for customers. Fixed reset current level button.
+
+6-3(home) Shriya A: Finished the timer class- fixed it since it was only running when on the cashier screen. Also randomized the wait times for the customers. Deleted the orders from the notepad if they belonged to customers that left after timer ran out and also displayed that the timer ran out. 
