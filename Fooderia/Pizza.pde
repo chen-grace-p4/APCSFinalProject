@@ -2,8 +2,12 @@ public class Pizza implements Things {
   int mainX, mainY;
   PImage pep;
   PImage bakedpep;
+  
   PImage olives;
   PImage bakedolives;
+  
+  PImage mushrooms;
+  PImage bakedmushrooms;
   
   boolean sauceSelected;
   boolean cheeseSelected;
@@ -40,8 +44,10 @@ public class Pizza implements Things {
     
     pep = loadImage("pepperoni.png");
     olives = loadImage("olives.png");
+    mushrooms = loadImage("mushrooms.png");
     bakedpep = loadImage("bakedpep.png");
     bakedolives = loadImage("bakedolives.png");
+    bakedmushrooms = loadImage("bakedmushrooms.png");
   }
   
   String getType() {
@@ -137,31 +143,21 @@ public class Pizza implements Things {
     
     if (mushroOn) {
       if (shrink) {
-        for (int y = mainY - 55; y < mainY+75; y += 20) {
-          for (int x = mainX- 70; x < mainX+89; x += 20) {
-            ellipseMode(CENTER);
-            noStroke();
-            fill(#736246);
-            if (baked) fill(#695b45);
-            ellipse(x, y, 10, 10);
-            fill(#bda47b);
-            if (baked) fill(#c2a26d);
-            rect(x-2.5, y, 5, 10); 
-          }
+        if (baked) {
+          imageMode(CENTER);
+          image(bakedmushrooms, mainX, mainY, 190, 190);
+        } else {
+          imageMode(CENTER);
+          image(mushrooms, mainX, mainY, 190, 190);
         }
       }
       else {
-        for (int y = mainY - 90; y < mainY+107; y += 40) {
-          for (int x = mainX-120; x < mainX+140; x += 40) {
-            ellipseMode(CENTER);
-            noStroke();
-            fill(#736246);
-            if (baked) fill(#695b45);
-            ellipse(x, y, 20, 20);
-            fill(#bda47b);
-            if (baked) fill(#c2a26d);
-            rect(x-5, y, 10, 20); 
-          }
+        if (baked) {
+          imageMode(CENTER);
+          image(bakedmushrooms, mainX, mainY, 340, 340);
+        } else {
+          imageMode(CENTER);
+          image(mushrooms, mainX, mainY, 340, 340);
         }
       }
     }
