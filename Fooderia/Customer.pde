@@ -135,78 +135,81 @@ public class Customer {
   }
 
   void show() {
-    fill(c);
-    imageMode(CENTER);
-    image(cust, x, y);
-    //ellipse(x, y, 150, 250);
-    //timeleft = (sec- millis()/1000);
-
-
-    //Change font below: (needs to be in data directory)
-    /*PFont mono = createFont("andalemo.ttf", 0);
-     textFont(mono); */
-   if (location.equals("right")){
-    strokeWeight(5);
-    for (int i = 0; i<((timeleft/totalTime)-.50)*20; i++) {
-      stroke(255-25.5*i, 250, 0);
-      line(x+100, y-50-5*i, x+120, y-50 - 5*i);
-    }
-    if ((timeleft/totalTime)>.5) {
-      for (int i = 0; i <=10; i++) {
-        stroke(color(255, 25.5*i, 0));
-        line(x+100, y-5*i, x+120, y - 5*i);
+    if (!fooderia.lvlEnd) {
+      fill(c);
+      imageMode(CENTER);
+      image(cust, x, y);
+      //ellipse(x, y, 150, 250);
+      //timeleft = (sec- millis()/1000);
+  
+  
+      //Change font below: (needs to be in data directory)
+      /*PFont mono = createFont("andalemo.ttf", 0);
+       textFont(mono); */
+     if (location.equals("right")){
+      strokeWeight(5);
+      for (int i = 0; i<((timeleft/totalTime)-.50)*20; i++) {
+        stroke(255-25.5*i, 250, 0);
+        line(x+100, y-50-5*i, x+120, y-50 - 5*i);
       }
+      if ((timeleft/totalTime)>.5) {
+        for (int i = 0; i <=10; i++) {
+          stroke(color(255, 25.5*i, 0));
+          line(x+100, y-5*i, x+120, y - 5*i);
+        }
+       }
+      else {
+        for (int i = 0; i <((timeleft/totalTime))*20; i++) {
+          stroke(color(255, 25.5*i, 0));
+          line(x+100, y-5*i, x+120, y - 5*i);
+        }
+      }
+      stroke(0);
+      noFill();
+      rect(x+100, y-100, 20, 100);
+      strokeWeight(1);
      }
-    else {
-      for (int i = 0; i <((timeleft/totalTime))*20; i++) {
-        stroke(color(255, 25.5*i, 0));
-        line(x+100, y-5*i, x+120, y - 5*i);
+     
+     if (location.equals("left")){
+     strokeWeight(5);
+      for (int i = 0; i<((timeleft/totalTime)-.50)*20; i++) {
+        stroke(255-25.5*i, 250, 0);
+        line(x-120, y-50-5*i, x-100, y-50 - 5*i);
       }
-    }
-    stroke(0);
-    noFill();
-    rect(x+100, y-100, 20, 100);
-    strokeWeight(1);
-   }
-   
-   if (location.equals("left")){
-   strokeWeight(5);
-    for (int i = 0; i<((timeleft/totalTime)-.50)*20; i++) {
-      stroke(255-25.5*i, 250, 0);
-      line(x-120, y-50-5*i, x-100, y-50 - 5*i);
-    }
-    if ((timeleft/totalTime)>.5) {
-      for (int i = 0; i <=10; i++) {
-        stroke(color(255, 25.5*i, 0));
-        line(x-120, y-5*i, x-100, y - 5*i);
+      if ((timeleft/totalTime)>.5) {
+        for (int i = 0; i <=10; i++) {
+          stroke(color(255, 25.5*i, 0));
+          line(x-120, y-5*i, x-100, y - 5*i);
+        }
+       }
+      else {
+        for (int i = 0; i <((timeleft/totalTime))*20; i++) {
+          stroke(color(255, 25.5*i, 0));
+          line(x-120, y-5*i, x-100, y - 5*i);
+        }
       }
+      stroke(0);
+      noFill();
+      rect(x-120, y-100, 20, 100);
+      strokeWeight(1);
      }
-    else {
-      for (int i = 0; i <((timeleft/totalTime))*20; i++) {
-        stroke(color(255, 25.5*i, 0));
-        line(x-120, y-5*i, x-100, y - 5*i);
+  
+      
+      if (moveOut) {
+        if (getLocation()=="right")text("$" + price, x+50, y-150);
+        if (getLocation()=="left")text("$"+price, x-100, y-150);
+      } else {
+        if (getLocation()=="right") {
+          text(order[0], x-50, y-150);
+          text(""+(timeleft), x-50, y-200);
+        }
+        if (getLocation()=="left") {
+          text(order[0], x-100, y-150);
+          text(""+(timeleft), x-100, y-200);
+        }
       }
     }
-    stroke(0);
-    noFill();
-    rect(x-120, y-100, 20, 100);
-    strokeWeight(1);
-   }
-
     
-    if (moveOut) {
-      if (getLocation()=="right")text("$" + price, x+50, y-150);
-      if (getLocation()=="left")text("$"+price, x-100, y-150);
-    } else {
-      if (getLocation()=="right") {
-        text(order[0], x-50, y-150);
-        text(""+(timeleft), x-50, y-200);
-      }
-      if (getLocation()=="left") {
-        text(order[0], x-100, y-150);
-        text(""+(timeleft), x-100, y-200);
-      }
-    }
   }
 
   void move(String direction) {
