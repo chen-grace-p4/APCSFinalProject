@@ -287,8 +287,8 @@ void mousePressed() {
       }
     }
 
-    int x = width/2;
-    int y = height/2;
+    int x = 400;
+    int y = 400;
     float inside = (mouseX - x)*(mouseX - x) + (mouseY - y)*(mouseY-y);
     double dist = Math.sqrt(inside);
     if (dist < 175) pizza.dropTopping();
