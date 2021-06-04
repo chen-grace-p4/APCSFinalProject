@@ -42,4 +42,6 @@ Our project will be a food-making game inspired by a combination of cooking feve
 
 6-2(class) Grace C: Added sprites for pepperoni and for customers. Fixed reset current level button.
 
-6-3(home) Shriya A: Finished the timer class- fixed it since it was only running when on the cashier screen. Also randomized the wait times for the customers. Deleted the orders from the notepad if they belonged to customers that left after timer ran out and also displayed that the timer ran out. 
+6-3(home) Shriya A: Finished the timer class- fixed it since it was only running when on the cashier screen. Also randomized the wait times for the customers. Deleted the orders from the notepad if they belonged to customers that left after timer ran out and also displayed that the timer ran out.
+
+6-3(home) Grace C: Deleted all things for the sole purpose of testing, fixed money needed to be earned to advance to next level, completed all sprites, and other small finishing touches. Also fixed dropping toppings on the pizza.
