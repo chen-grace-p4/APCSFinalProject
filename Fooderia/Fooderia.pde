@@ -187,13 +187,16 @@ void mousePressed() {
       if (mouseX > 400 && mouseX < 550 && mouseY > 20 && mouseY < 100) {
         fooderia.lvlTwoUnlocked = false;
         fooderia.lvlThreeUnlocked = false;
+        
+        fooderia.lvlEnd = true;
+        fooderia.resetLevel();
       }
     }
     //to reset current level
     if (!fooderia.lvlEnd && mouseX > 200 && mouseX < 350 && mouseY > 20 && mouseY < 100) {
-      //int currentLvl = fooderia.level;
+      int currentLvl = fooderia.level;
       fooderia.resetLevel();
-      //fooderia.level = currentLvl;
+      fooderia.level = currentLvl;
     }
     //*****ADDITIONAL FEATURE?
     //MAYBE MAKE IT SO THAT IF UR CLICKING THE LEVEL UR PLAYING RIGHT NOW, THE GAME ASKS IF U WANT TO 
