@@ -150,7 +150,7 @@ public class Customer {
       stroke(255-25.5*i, 250, 0);
       line(x+100, y-50-5*i, x+120, y-50 - 5*i);
     }
-    if ((timeleft/sec)>.5) {
+    if ((timeleft/totalTime)>.5) {
       for (int i = 0; i <=10; i++) {
         stroke(color(255, 25.5*i, 0));
         line(x+100, y-5*i, x+120, y - 5*i);
