@@ -11,6 +11,9 @@ public class Game {
   boolean lvlTwoUnlocked;
   boolean lvlThreeUnlocked;
   
+  boolean firstUnlockTwo;
+  boolean firstUnlockThree;
+  
   boolean masterClicked;
   String mode;
 
@@ -136,6 +139,29 @@ public class Game {
         textSize(25);
         text("Go to Level Select", 289, 425);
         
+        //alert for level unlocked ONLY WHEN MODE IS NORMAL
+        //only shows if level wasn't unlocked before
+        if (level == 1 && firstUnlockTwo) {
+          //greater than 35
+          if (moneyEarned >= 35) {
+            fill(255, 0, 0);
+            text("**Level Two Unlocked**", 260, 525);
+          } else {
+            fill(255, 0, 0);
+            text("Earn $35 or more to unlock Level Two", 175, 525);
+          }
+        }
+        else if (level == 2 && firstUnlockThree) {
+          //greater than 40
+          if (moneyEarned >= 40) {
+            fill(255, 0, 0);
+            text("**Level Three Unlocked**", 250, 525);
+          } else {
+            fill(255, 0, 0);
+            text("Earn $40 or more to unlock Level Three", 165, 525);
+          }
+        }
+        
         rectMode(CORNER);
       }
     }
@@ -234,6 +260,29 @@ public class Game {
         textSize(25);
         text("Go to Level Select", 289, 425);
         
+        //alert for level unlocked ONLY WHEN MODE IS NORMAL
+        //only shows if level wasn't unlocked before
+        if (level == 1 && firstUnlockTwo) {
+          //greater than 35
+          if (moneyEarned >= 35) {
+            fill(255, 0, 0);
+            text("**Level Two Unlocked**", 260, 525);
+          } else {
+            fill(255, 0, 0);
+            text("Earn $35 or more to unlock Level Two", 175, 525);
+          }
+        }
+        else if (level == 2 && firstUnlockThree) {
+          //greater than 40
+          if (moneyEarned >= 40) {
+            fill(255, 0, 0);
+            text("**Level Three Unlocked**", 250, 525);
+          } else {
+            fill(255, 0, 0);
+            text("Earn $40 or more to unlock Level Three", 165, 525);
+          }
+        }
+        
         rectMode(CORNER);
       }
     }
@@ -272,6 +321,29 @@ public class Game {
         fill(0);
         textSize(25);
         text("Go to Level Select", 289, 425);
+        
+        //alert for level unlocked ONLY WHEN MODE IS NORMAL
+        //only shows if level wasn't unlocked before
+        if (level == 1 && firstUnlockTwo) {
+          //greater than 35
+          if (moneyEarned >= 35) {
+            fill(255, 0, 0);
+            text("**Level Two Unlocked**", 260, 525);
+          } else {
+            fill(255, 0, 0);
+            text("Earn $35 or more to unlock Level Two", 175, 525);
+          }
+        }
+        else if (level == 2 && firstUnlockThree) {
+          //greater than 40
+          if (moneyEarned >= 40) {
+            fill(255, 0, 0);
+            text("**Level Three Unlocked**", 250, 525);
+          } else {
+            fill(255, 0, 0);
+            text("Earn $40 or more to unlock Level Three", 165, 525);
+          }
+        }
         
         rectMode(CORNER);
       }
@@ -383,12 +455,22 @@ public class Game {
     //println("level end is called");
     lvlEnd = true;
     if (level == 1) {
-      //  TEMPORARILY JUST GREATER THAN $1 FOR TESTING PURPOSES
-      if (moneyEarned >= 35) lvlTwoUnlocked = true;
+      //  SHOULD BE >=35
+      if (!lvlTwoUnlocked) {
+        firstUnlockTwo = true;
+        if (moneyEarned >= 35) lvlTwoUnlocked = true;
+      } else {
+        firstUnlockTwo = false;
+      }
     }
     else if (level == 2) {
-      //  TEMPORARILY JUST GREATER THAN $1 FOR TESTING PURPOSES
-      if (moneyEarned >= 40) lvlThreeUnlocked = true;
+      //  SHOULD BE >=40
+      if (!lvlThreeUnlocked) {
+        firstUnlockThree = true;
+        if (moneyEarned >= 40) lvlThreeUnlocked = true;
+      } else {
+        firstUnlockThree = false;
+      }
     }
   }
   
