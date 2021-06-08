@@ -185,7 +185,7 @@ void mousePressed() {
 
   if (fooderia.screen.equals("selectLevels")) {
     //back button
-    if (!fooderia.lvlEnd && mouseX > 100 && mouseX < 200 && mouseY < 100) {
+    if (!fooderia.lvlEnd && mouseX < 100 && mouseY > 100 && mouseY < 200) {
       fooderia.changeScreen("cashier");
     }
 

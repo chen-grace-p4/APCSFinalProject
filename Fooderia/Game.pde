@@ -412,10 +412,10 @@ public class Game {
       //back button to cashier if level not ended
       if (!lvlEnd) {
         fill(10);
-        rect(100,0,100,100);
+        rect(0,100,100,100);
         fill(255);
         textSize(30);
-        text("Back", 104, 50);
+        text("Back", 4, 150);
       }
       
       //level 1 box
