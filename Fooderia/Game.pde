@@ -16,7 +16,9 @@ public class Game {
   
   boolean masterClicked;
   String mode;
-
+  
+  boolean help;
+  
   Game() {
     //things = new ArrayList<Things>();
     //screen = "cashier"; //CHANGE TO MAIN MENU LATER ON
@@ -106,20 +108,42 @@ public class Game {
       text("Master Mode", 440, 700);
       textSize(16);
       text("**Resets Normal Mode Progress**", 450, 730);
+      
+      //help button
+      fill(200);
+      rect(10, 460, 180, 100);
+      fill(100);
+      rect(20, 470, 160, 80);
+      fill(255);
+      textSize(30);
+      text("Tutorial", 40, 520);
     }
     if (screen.equals("cashier")) {
       background(#edfbff);
       customerRight.show();
       customerLeft.show();
       notepad.show();
+      
       //button to level select
       fill(255);
+      stroke(0);
       rect(0,0,100,100);
       fill(0);
       textSize(30);
       text("Levels", 4, 50);
       textSize(15);
       text("(Current: " + level + ")", 4, 75);
+      noStroke();
+      
+      //tutorial help
+      fill(200);
+      rect(110, 0, 180, 100);
+      fill(100);
+      rect(120, 10, 160, 80);
+      fill(255);
+      textSize(30);
+      text("Tutorial", 140, 60);
+      
       if (lvlEnd) {
         rectMode(CENTER);
         //window
@@ -423,6 +447,22 @@ public class Game {
     }
     
     if (!lvlEnd && !screen.equals("selectLevels") && !screen.equals("mainMenu")) screenButtons.show();
+    
+    //tutorial instructions 
+    if (help) {
+      fill(255);
+      stroke(0);
+      rect(120, 210, 550, 400);
+      
+      //X button
+      fill(255, 0, 0);
+      noStroke();
+      rect(130, 220, 30, 30);
+      fill(0);
+      textSize(30);
+      text("X", 135, 245);
+    }
+    
   }
 
   void addMoney(double money) {

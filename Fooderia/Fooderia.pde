@@ -146,6 +146,13 @@ void mousePressed() {
       if (pizza.moving != true) fooderia.changeScreen("cashier");
     }
   }
+  
+  if (fooderia.help) {
+    //X button
+    if (mouseX > 130 && mouseX < 160 && mouseY > 220 && mouseY < 250) {
+      fooderia.help = false;
+    }
+  }
 
   if (fooderia.screen.equals("mainMenu")) {
     boolean prevTwo = fooderia.lvlTwoUnlocked;
@@ -169,6 +176,10 @@ void mousePressed() {
       fooderia.masterClicked = true;
       fooderia.mode = "master";
       fooderia.changeScreen("selectLevels");
+    }
+    //tutorial button
+    if (mouseX > 10 && mouseX < 190 && mouseY > 460 && mouseY < 560) {
+      fooderia.help = true;
     }
   }
 
@@ -257,6 +268,10 @@ void mousePressed() {
     }
     if (mouseX < 100 && mouseY < 100) {
       fooderia.changeScreen("selectLevels");
+    }
+    
+    if (mouseX > 110 && mouseX < 290 && mouseY < 100) {
+      fooderia.help = true;
     }
 
     if (fooderia.lvlEnd) {
