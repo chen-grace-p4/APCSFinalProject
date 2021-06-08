@@ -7,7 +7,7 @@ Oven oven = new Oven();
 Notepad notepad = new Notepad();
 
 //for testing purposes
-//int mousex, mousey;
+int mousex, mousey;
 //
 
 void setup() {
@@ -23,13 +23,13 @@ void setup() {
 void draw() {
   fooderia.checkScreen();
   //TESTING PURPOSES
-  //mousex = mouseX;
-  //mousey = mouseY;
+  mousex = mouseX;
+  mousey = mouseY;
   //mousex = pizza.mainX;
   //mousey = pizza.mainY;
-  //textSize(15);
-  //fill(0);
-  //text(mousex + ", " + mousey, width-70, 125);
+  textSize(15);
+  fill(0);
+  text(mousex + ", " + mousey, width-70, 125);
   //
   if (fooderia.getScreen().equals("sauce"))pizza.toppingDrag();
 
