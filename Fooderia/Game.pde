@@ -461,6 +461,22 @@ public class Game {
       fill(0);
       textSize(30);
       text("X", 135, 245);
+      
+      //instructions
+      textSize(20);
+      text("1. Click on a customer to take their order.", 170, 270);
+      text("The order's ingredients now appear on your notepad.", 150, 290);
+      text("2. Go to the sauce screen to make your pizza.", 170, 320);
+      text("Just click and drag, you can restart if you mess up.", 150, 340);
+      text("3. Go to the oven screen to bake the pizza.", 170, 370);
+      text("There will be a button to give the pizza once it's", 150, 390);
+      text("finished baking.", 150, 410);
+      textSize(25);
+      text("Tips", 150, 450);
+      textSize(20);
+      text("- Customers will leave if you take too long!", 170, 470);
+      text("- Earn more money by making orders faster.", 170, 490);
+      text("- Bake only after you place all toppings", 170, 510);
     }
     
   }
