@@ -162,6 +162,9 @@ void mousePressed() {
         fooderia.lvlTwoUnlocked = false;
         fooderia.lvlThreeUnlocked = false;
         fooderia.masterClicked = false;
+        
+        fooderia.lvlEnd = true;
+        fooderia.resetLevel();
       } else {
         fooderia.lvlTwoUnlocked = prevTwo;
         fooderia.lvlThreeUnlocked = prevThree;
@@ -170,7 +173,9 @@ void mousePressed() {
       fooderia.changeScreen("selectLevels");
     } 
     if (mouseX > 420 && mouseX < 760 && mouseY > 630 && mouseY < 770) {
+      fooderia.lvlEnd = true;
       fooderia.resetLevel();
+      
       fooderia.lvlTwoUnlocked = true;
       fooderia.lvlThreeUnlocked = true;
       fooderia.masterClicked = true;
