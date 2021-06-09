@@ -374,7 +374,7 @@ public class Game {
     }
     
     if (screen.equals("selectLevels")) {
-      background(255);
+      background(#dbf5ff);
       noStroke();
       //button to menu
       fill(#38c4ff);
@@ -420,27 +420,27 @@ public class Game {
       
       //level 1 box
       fill(200);
-      rect(120,120,150,150);
+      rect(120,300,150,150);
       fill(0);
       textSize(30);
-      text("Level 1", 135, 195);
+      text("Level 1", 138, 380);
       
       //level 2 box
       fill(200);
-      rect(300,120,150,150);
+      rect(310,300,150,150);
       fill(0);
       textSize(30);
-      if (lvlTwoUnlocked) text("Level 2", 315, 195);
-      else text("Locked", 315, 195);
+      if (lvlTwoUnlocked) text("Level 2", 328, 380);
+      else text("Locked", 328, 380);
       
       
       //level 3 box
       fill(200);
-      rect(480,120,150,150);
+      rect(500,300,150,150);
       fill(0);
       textSize(30);
-      if (lvlThreeUnlocked) text("Level 3", 495, 195);
-      else text("Locked", 495, 195);
+      if (lvlThreeUnlocked) text("Level 3", 518, 380);
+      else text("Locked", 518, 380);
       
       
       textSize(15);

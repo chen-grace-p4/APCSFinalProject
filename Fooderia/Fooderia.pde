@@ -219,7 +219,7 @@ void mousePressed() {
     //^^RESET THE DAY AND IF THE PLAYER CLICKS YES, THEN IT RESETS THE LEVEL FOR THE SAME DAY
 
     //level 1 button
-    if (mouseX > 120 && mouseX < 270 && mouseY > 120 && mouseY < 270) {
+    if (mouseX > 120 && mouseX < 270 && mouseY > 300 && mouseY < 450) {
       //if a level is played but level is not 1 or if level is not being played and level = 0
       if (fooderia.level != 1) {
         fooderia.level = 1;
@@ -230,7 +230,7 @@ void mousePressed() {
       }
     }
     //level 2 button
-    if (mouseX > 300 && mouseX < 450 && mouseY > 120 && mouseY < 270) {
+    if (mouseX > 310 && mouseX < 460 && mouseY > 300 && mouseY < 450) {
       if (fooderia.lvlTwoUnlocked) {
         if (fooderia.level != 2) {
           fooderia.level = 2;
@@ -243,7 +243,7 @@ void mousePressed() {
     }
 
     //level 3 button
-    if (mouseX > 480 && mouseX < 630 && mouseY > 120 && mouseY < 270) {
+    if (mouseX > 500 && mouseX < 650 && mouseY > 300 && mouseY < 450) {
       if (fooderia.lvlThreeUnlocked) {
         if (fooderia.level != 3) {
           fooderia.level = 3;
