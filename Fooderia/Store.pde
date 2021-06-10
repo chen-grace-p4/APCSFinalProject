@@ -27,6 +27,7 @@ public class Store {
     //flowerBought = true;
     //cactusUse = true;
     //flowerUse = true;
+    catBought = true;
     /////////////////////////////////////////
   }
   
@@ -81,7 +82,9 @@ public class Store {
     fill(0);
     textSize(20);
     text("Cat", 360, 360);
-    text("$50", 360, 385);
+    if (catUse) text("(Using)", 360, 385);
+    else if (catBought) text("(Owned)", 360, 385);
+    else text("$50", 360, 385);
     
     //dog
     //INCREASES WAITING TIME FOR BOTH CUST BY 20 SECS
@@ -228,6 +231,31 @@ public class Store {
         }
       }
     }
+    
+    //buy or use cat
+    if (mouseX > 350 && mouseX < 450 && mouseY > 310 && mouseY < 410) {
+      if (!catBought) {
+        if (fooderia.totalMoney >= 50) {
+          fooderia.totalMoney -= 50;
+          fooderia.totalMoney = (double) Math.round(fooderia.totalMoney*100)/100;
+          catBought = true;
+        } else {
+          catShowFirst = false;
+          catNotEnough = true;
+        }
+      } else {
+        //TOGGLE DOG USE SO ONLY ONE CAN BE USED AT A TIME
+        if (fooderia.lvlEnd) {
+          if (dogBought && dogUse && !catUse) {
+            dogUse = false;
+            catUse = true;
+          } else {
+            catUse = !catUse;
+          }
+        }
+      }
+    }
+    
     
   }
   
