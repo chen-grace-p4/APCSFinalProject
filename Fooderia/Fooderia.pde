@@ -35,6 +35,8 @@ void draw() {
 
   customerRight.timeleft = (customerRight.sec- millis()/1000);
   customerLeft.timeleft = (customerLeft.sec- millis()/1000);
+  
+  
   ///////////////////////////////////////////Code below is responsible for customers coming in:
   if (customerRight.moveIn()==true) {
     if (customerRight.getX()>600) {

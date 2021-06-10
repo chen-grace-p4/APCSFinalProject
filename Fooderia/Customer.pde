@@ -193,15 +193,20 @@ public class Customer {
       rect(x-120, y-100, 20, 100);
       strokeWeight(1);
      }
-  
-      
+     
+     float ang = (float)(1-(timeleft/totalTime))*4.5;
+     strokeWeight (5);
+     line(x+15,y-105,x+25+ang, y-(2*ang)-103);    
+     line(x-15,y-105,x-25-ang, y-(2*ang)-103);    
+
+     strokeWeight(1); 
       if (moveOut) {
         if (getLocation()=="right")text("$" + price, x+50, y-150);
         if (getLocation()=="left")text("$"+price, x-100, y-150);
       } else {
         if (getLocation()=="right") {
-          text(order[0], x-50, y-150);
-          text(""+(timeleft), x-50, y-200);
+          text(order[0], x-100, y-150);
+          text(""+(timeleft), x-100, y-200);
         }
         if (getLocation()=="left") {
           text(order[0], x-100, y-150);
