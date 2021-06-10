@@ -5,7 +5,7 @@ Customer customerRight;
 Customer customerLeft;
 Oven oven = new Oven();
 Notepad notepad = new Notepad();
-Store store = new Store();
+Store store;
 
 //for testing purposes
 int mousex, mousey;
@@ -20,6 +20,7 @@ void setup() {
   customerRight = new Customer("right");
   customerLeft = new Customer("left");
   pizza = new Pizza();
+  store = new Store();
 }
 
 void draw() {
@@ -172,6 +173,7 @@ void mousePressed() {
         
         //total money resets here since previous mode was master
         fooderia.totalMoney = 0.0;
+        fooderia.mode = "normal";
         store = new Store();
         fooderia.lvlEnd = true;
         fooderia.resetLevel();
@@ -197,6 +199,7 @@ void mousePressed() {
       fooderia.lvlThreeUnlocked = true;
       fooderia.masterClicked = true;
       fooderia.mode = "master";
+      store = new Store();
       fooderia.changeScreen("selectLevels");
     }
     //tutorial button

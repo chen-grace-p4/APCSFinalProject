@@ -22,14 +22,12 @@ public class Store {
   boolean dogShowFirst;
   
   Store() {
-    //FOR TESTING ONLY
-    //cactusBought = true;
-    //flowerBought = true;
-    //cactusUse = true;
-    //flowerUse = true;
-    //catBought = true;
-    //dogBought = true;
-    /////////////////////////////////////////
+    if (fooderia.mode.equals("master")) {
+      cactusBought = true;
+      flowerBought = true;
+      catBought = true;
+      dogBought = true;
+    }
   }
   
   void show() {
