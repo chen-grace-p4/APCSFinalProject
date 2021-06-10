@@ -227,7 +227,8 @@ public class Game {
       fill(#800505);
       rect(10, 170, 100, 100);
       fill(255);
-      text("Tomato Sauce", 20, 200);
+      text("Marinara", 20, 200);
+      text("Sauce", 20, 215);
       
       //pesto sauce IF DAY 2 UNLOCKED
       if (level >= 2) {
