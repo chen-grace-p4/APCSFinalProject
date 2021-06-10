@@ -22,6 +22,7 @@ public class Game {
   boolean help;
   
   PImage cactus;
+  PImage flower;
   
   Game() {
     //things = new ArrayList<Things>();
@@ -37,6 +38,7 @@ public class Game {
     lvlEnd = true; //starts out as true in actual game
     //IN ACTUAL GAME, when level becomes 1 after you select in the menu, lvlEnd = false
     cactus = loadImage("cactus.png");
+    flower = loadImage("flower.png");
   }
 
   String getScreen() {
@@ -133,6 +135,11 @@ public class Game {
       if (store.cactusUse) {
         imageMode(CENTER);
         image(cactus, 440, 600);
+      }
+      
+      if (store.flowerUse) {
+        imageMode(CENTER);
+        image(flower, 440, 575);
       }
       
       customerRight.show();
