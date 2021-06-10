@@ -5,6 +5,7 @@ Customer customerRight;
 Customer customerLeft;
 Oven oven = new Oven();
 Notepad notepad = new Notepad();
+Store store = new Store();
 
 //for testing purposes
 int mousex, mousey;
@@ -214,6 +215,15 @@ void mousePressed() {
       fooderia.resetLevel();
       fooderia.level = currentLvl;
     }
+    //store button
+    if (mouseX > 310 && mouseX < 460 && mouseY > 200 && mouseY < 275) {
+      store.toggleShow = true;
+    }
+    //store clicking when window is shown
+    if (store.toggleShow) {
+      store.clicked();
+    }
+    
     //*****ADDITIONAL FEATURE?
     //MAYBE MAKE IT SO THAT IF UR CLICKING THE LEVEL UR PLAYING RIGHT NOW, THE GAME ASKS IF U WANT TO 
     //^^RESET THE DAY AND IF THE PLAYER CLICKS YES, THEN IT RESETS THE LEVEL FOR THE SAME DAY
@@ -257,7 +267,7 @@ void mousePressed() {
   }
 
 
-  if (mouseX > width-300 && mouseY <100) fooderia.checkScreen();
+  //if (mouseX > width-300 && mouseY <100) fooderia.checkScreen();
 
   //toppings station/sauce screen
   if (fooderia.getScreen().equals("cashier")) { 

@@ -53,6 +53,7 @@ public class Game {
   }
   void checkScreen() {
     //basic testing of changing screen below, will add more for each screen later
+    if (!screen.equals("selectLevels")) store.toggleShow = false;
     if (screen.equals("mainMenu")) {
       //sky
       background(#b8eaff);
@@ -442,6 +443,12 @@ public class Game {
       if (lvlThreeUnlocked) text("Level 3", 518, 380);
       else text("Locked", 518, 380);
       
+      //store button
+      fill(255);
+      rect(310, 200, 150, 75);
+      fill(0);
+      textSize(40);
+      text("Store", 328, 250);
       
       textSize(15);
     }
@@ -478,6 +485,9 @@ public class Game {
       text("- Earn more money by making orders faster.", 170, 490);
       text("- Bake only after you place all toppings", 170, 510);
     }
+    
+    //store
+    if (store.toggleShow) store.show();
     
   }
 
