@@ -287,8 +287,8 @@ public class Store {
     //buy or use dog
     if (mouseX > 350 && mouseX < 450 && mouseY > 440 && mouseY < 540) {
       if (!dogBought) {
-        if (fooderia.totalMoney >= 50) {
-          fooderia.totalMoney -= 50;
+        if (fooderia.totalMoney >= 75) {
+          fooderia.totalMoney -= 75;
           fooderia.totalMoney = (double) Math.round(fooderia.totalMoney*100)/100;
           dogBought = true;
         } else {
