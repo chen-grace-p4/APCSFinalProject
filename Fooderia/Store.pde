@@ -1,21 +1,25 @@
 public class Store { 
   boolean toggleShow;
   
+  boolean cactusBought;
+  boolean flowerBought;
   boolean catBought;
   boolean dogBought;
+  
+  boolean cactusUse;
+  boolean flowerUse;
   boolean catUse;
   boolean dogUse;
   
-  boolean cactusBought;
-  boolean flowerBought;
-  boolean cactusUse;
-  boolean flowerUse;
-  
   boolean cactusNotEnough;
   boolean flowerNotEnough;
+  boolean catNotEnough;
+  boolean dogNotEnough;
   
   boolean cactusShowFirst;
   boolean flowerShowFirst;
+  boolean catShowFirst;
+  boolean dogShowFirst;
   
   Store() {
     //FOR TESTING ONLY

@@ -24,6 +24,7 @@ public class Game {
   PImage cactus;
   PImage flower;
   PImage cat;
+  PImage dog;
   
   Game() {
     //things = new ArrayList<Things>();
@@ -41,6 +42,7 @@ public class Game {
     cactus = loadImage("cactus.png");
     flower = loadImage("flower.png");
     cat = loadImage("cat.png");
+    dog = loadImage("dog.png");
   }
 
   String getScreen() {
@@ -137,6 +139,11 @@ public class Game {
       if (store.catUse) {
         imageMode(CENTER);
         image(cat, 360, 550);
+      }
+
+      if (store.dogUse) {
+        imageMode(CENTER);
+        image(dog, 360, 550);
       }
       
       if (store.cactusUse) {
