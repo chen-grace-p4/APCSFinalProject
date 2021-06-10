@@ -19,8 +19,8 @@ public class Store {
   
   Store() {
     //FOR TESTING ONLY
-    cactusBought = true;
-    flowerBought = true;
+    //cactusBought = true;
+    //flowerBought = true;
     //cactusUse = true;
     //flowerUse = true;
     /////////////////////////////////////////
