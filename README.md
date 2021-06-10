@@ -48,4 +48,6 @@ Our project will be a food-making game inspired by a combination of cooking feve
 
 6-7(home) Grace C: Added alerts for new level unlocked or how much more money is needed to unlock next level. Added a tutorial button and screen but didn't add instructions yet.
 
-6-9(home-bc of AP) Shriya A: Worked on presentation for the demo and ran through it. Added eyebrows to the characters that furrow as the timer goes down to indicate irration.
+6-9(home-bc of AP) Shriya A: Worked on presentation for the demo and ran through it. Added eyebrows to the characters that furrow as the timer goes down to indicate irritation.
+
+6-9 (class + home): Finished instructions on tutorial window. Fixed bugs regarding mousePressed when tutorial/store window is open. Made new store class and a way to store totalMoney and reset totalMoney.
