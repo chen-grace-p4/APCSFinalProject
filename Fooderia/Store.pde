@@ -27,7 +27,8 @@ public class Store {
     //flowerBought = true;
     //cactusUse = true;
     //flowerUse = true;
-    catBought = true;
+    //catBought = true;
+    //dogBought = true;
     /////////////////////////////////////////
   }
   
@@ -93,7 +94,9 @@ public class Store {
     fill(0);
     textSize(20);
     text("Dog", 360, 490);
-    text("$75", 360, 515);
+    if (dogUse) text("(Using)", 360, 515);
+    else if (dogBought) text("(Owned)", 360, 515);
+    else text("$75", 360, 515);
     
     //DETAILS THAT SHOW WHEN HOVERED
     //cactus details
@@ -177,6 +180,32 @@ public class Store {
       catNotEnough = false;
     }
     
+    //dog details
+    if (mouseX > 350 && mouseX < 450 && mouseY > 440 && mouseY < 540) {
+      fill(#bdb19d);
+      stroke(#826739);
+      rect(mouseX, mouseY, 150, 100);
+      fill(0);
+      if(dogBought) {
+        textSize(15);
+        if (fooderia.lvlEnd) text("Click to toggle use", mouseX + 10, mouseY + 50);
+        else {
+          text("Can't Toggle", mouseX + 10, mouseY + 25);
+          text("Level in progress", mouseX + 10, mouseY + 50);
+        }
+      } else {
+        if (!dogShowFirst && dogNotEnough){
+          textSize(15);
+          text("Not Enough Money", mouseX+10, mouseY+50);
+        } else text("A playful pet!", mouseX + 10, mouseY + 50);
+      }
+      textSize(15);
+      text("Wait Time +20s", mouseX + 15, mouseY + 75);
+      noStroke();
+    } else {
+      dogShowFirst = true;
+      dogNotEnough = false;
+    }
     
   }
   
@@ -251,6 +280,29 @@ public class Store {
             catUse = true;
           } else {
             catUse = !catUse;
+          }
+        }
+      }
+    }
+    //buy or use dog
+    if (mouseX > 350 && mouseX < 450 && mouseY > 440 && mouseY < 540) {
+      if (!dogBought) {
+        if (fooderia.totalMoney >= 50) {
+          fooderia.totalMoney -= 50;
+          fooderia.totalMoney = (double) Math.round(fooderia.totalMoney*100)/100;
+          dogBought = true;
+        } else {
+          dogShowFirst = false;
+         dogNotEnough = true;
+        }
+      } else {
+        //TOGGLE CAT USE SO ONLY ONE CAN BE USED AT A TIME
+        if (fooderia.lvlEnd) {
+          if (catBought && catUse && !dogUse) {
+            catUse = false;
+            dogUse = true;
+          } else {
+            dogUse = !dogUse;
           }
         }
       }
