@@ -190,8 +190,9 @@ void mousePressed() {
       fooderia.resetLevel();
       if (fooderia.mode.equals("normal")) {
         fooderia.totalMoney = 0.0;
+        fooderia.mode = "master";
         store = new Store();
-      }
+      } 
       //if mode previously normal, totalmoney resets otherwise don't
       //also make all store bought items false if previously normal
       
@@ -199,7 +200,6 @@ void mousePressed() {
       fooderia.lvlThreeUnlocked = true;
       fooderia.masterClicked = true;
       fooderia.mode = "master";
-      store = new Store();
       fooderia.changeScreen("selectLevels");
     }
     //tutorial button
