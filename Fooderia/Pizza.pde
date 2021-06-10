@@ -1,4 +1,4 @@
-public class Pizza implements Things { 
+public class Pizza { 
   int mainX, mainY;
   PImage pep;
   PImage bakedpep;
@@ -338,14 +338,6 @@ public class Pizza implements Things {
       customerLeft.customerLeaves(toppingList);
     }
     fooderia.newPizza();
-  }
-
-  boolean holding;
-  //if holding, then drop pizza and set holding false
-  //if not holding, hold pizza and set holding true
-  //hold refers to attach pizza and its toppingsto cursor
-  void holdPizza() {
-    //REQUIRES X AND Y INSTANCE VARIABLES + FIXED SHOW  
   }
 
   //returns toppingList

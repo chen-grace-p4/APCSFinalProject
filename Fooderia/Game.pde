@@ -1,5 +1,4 @@
 public class Game {
-  //ArrayList<Things> things;
   double totalMoney; 
   
   String screen;
