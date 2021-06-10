@@ -11,7 +11,8 @@ public class Store {
   boolean cactusUse;
   boolean flowerUse;
   
-  boolean buyCactus;
+  boolean notEnough;
+  boolean cactusShowFirst;
   
   void show() {
     fill(255);
@@ -82,13 +83,22 @@ public class Store {
       fill(0);
       if(cactusBought) {
         textSize(15);
-        text("Click to toggle use", mouseX + 10, mouseY + 50);
+        if (fooderia.lvlEnd) text("Click to toggle use", mouseX + 10, mouseY + 50);
+        else {
+          text("Can't Toggle", mouseX + 10, mouseY + 25);
+          text("Level in progress", mouseX + 10, mouseY + 50);
+        }
       } else {
-        text("Spiky plant...", mouseX + 10, mouseY + 50);
+        if (!cactusShowFirst && notEnough){
+          textSize(15);
+          text("Not Enough Money", mouseX+10, mouseY+50);
+        } else text("Spiky plant...", mouseX + 10, mouseY + 50);
       }
       textSize(15);
       text("Wait Time +5s", mouseX + 15, mouseY + 75);
       noStroke();
+    } else {
+      cactusShowFirst = true;
     }
     
   }
@@ -105,11 +115,14 @@ public class Store {
           fooderia.totalMoney -= 10;
           fooderia.totalMoney = (double) Math.round(fooderia.totalMoney*100)/100;
           cactusBought = true;
+        } else {
+          cactusShowFirst = false;
+          notEnough = true;
         }
       } else {
         //TOGGLE FLOWER USE SO ONLY ONE CAN BE USED AT A TIME
         // if (flowerBought && flowerUse)...
-        cactusUse = !cactusUse;
+        if (fooderia.lvlEnd) cactusUse = !cactusUse;
       }
     }
     
