@@ -97,7 +97,8 @@ void draw() {
       customerRight.move("right");
     } else {
       customerRight.stopMoving();
-      if (fooderia.getCustomerNum() < 10) {
+      //SHOULD BE  <10
+      if (fooderia.getCustomerNum() < 3) {
         //println(fooderia.getCustomerNum()); //DEBUG
         customerRight = new Customer("right");
       } else {
@@ -117,7 +118,8 @@ void draw() {
       customerLeft.move("left");
     } else {
       customerLeft.stopMoving();
-      if (fooderia.getCustomerNum() < 10) {
+      //SHOULD BE  <10
+      if (fooderia.getCustomerNum() < 3) {
         customerLeft = new Customer("left");
       } else {
         if (fooderia.customerThere == false) {
@@ -158,12 +160,14 @@ void mousePressed() {
   if (fooderia.screen.equals("mainMenu")) {
     boolean prevTwo = fooderia.lvlTwoUnlocked;
     boolean prevThree = fooderia.lvlThreeUnlocked;
+    //normal mode
     if (mouseX > 40 && mouseX < 380 && mouseY > 630 && mouseY < 770) {
       if (fooderia.masterClicked) {
         fooderia.lvlTwoUnlocked = false;
         fooderia.lvlThreeUnlocked = false;
         fooderia.masterClicked = false;
         
+        //total money resets here since previous mode was master
         fooderia.lvlEnd = true;
         fooderia.resetLevel();
       } else {
@@ -173,9 +177,11 @@ void mousePressed() {
       fooderia.mode = "normal";
       fooderia.changeScreen("selectLevels");
     } 
+    //master mode
     if (mouseX > 420 && mouseX < 760 && mouseY > 630 && mouseY < 770) {
       fooderia.lvlEnd = true;
       fooderia.resetLevel();
+      //if mode previously normal, totalmoney resets otherwise don't
       
       fooderia.lvlTwoUnlocked = true;
       fooderia.lvlThreeUnlocked = true;

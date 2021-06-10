@@ -453,6 +453,9 @@ public class Game {
       textSize(40);
       text("Store", 328, 250);
       
+      //displays total money
+      text("Total Money: $" + totalMoney, 170, 525);
+      
       textSize(15);
     }
     
@@ -522,6 +525,10 @@ public class Game {
   void levelEnds() {
     //if moneyEarned >= some threshold for next level then set boolean for next level to true,
     //println("level end is called");
+    //MONEY ONLY ADDED TO TOTAL MONEY WHEN DAY ENDS
+    moneyEarned = (double) Math.round(moneyEarned*100)/100;
+    totalMoney += moneyEarned;
+    
     lvlEnd = true;
     if (level == 1) {
       //  SHOULD BE >=35
