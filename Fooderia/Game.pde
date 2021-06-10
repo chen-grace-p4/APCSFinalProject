@@ -23,6 +23,7 @@ public class Game {
   
   PImage cactus;
   PImage flower;
+  PImage cat;
   
   Game() {
     //things = new ArrayList<Things>();
@@ -39,6 +40,7 @@ public class Game {
     //IN ACTUAL GAME, when level becomes 1 after you select in the menu, lvlEnd = false
     cactus = loadImage("cactus.png");
     flower = loadImage("flower.png");
+    cat = loadImage("cat.png");
   }
 
   String getScreen() {
@@ -132,6 +134,11 @@ public class Game {
     if (screen.equals("cashier")) {
       background(#edfbff);
       
+      if (store.catUse) {
+        imageMode(CENTER);
+        image(cat, 360, 550);
+      }
+      
       if (store.cactusUse) {
         imageMode(CENTER);
         image(cactus, 440, 600);
@@ -141,7 +148,7 @@ public class Game {
         imageMode(CENTER);
         image(flower, 440, 575);
       }
-      
+     
       customerRight.show();
       customerLeft.show();
       notepad.show();
