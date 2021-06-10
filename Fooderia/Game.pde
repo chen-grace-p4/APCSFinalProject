@@ -42,6 +42,7 @@ public class Game {
 
   void changeScreen(String screenName) {
     // to change the background/which items are hidden or visible (call hide() method for each object) based on button pressed
+    help = false;
     screen = screenName;
     if (screenName.equals("oven")) {
       if (oven.moveOn) {

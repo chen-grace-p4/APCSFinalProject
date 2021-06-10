@@ -156,7 +156,6 @@ void mousePressed() {
   }
 
   if (fooderia.screen.equals("mainMenu")) {
-    fooderia.help = false;
     boolean prevTwo = fooderia.lvlTwoUnlocked;
     boolean prevThree = fooderia.lvlThreeUnlocked;
     if (mouseX > 40 && mouseX < 380 && mouseY > 630 && mouseY < 770) {
@@ -273,7 +272,6 @@ void mousePressed() {
 
   //toppings station/sauce screen
   if (fooderia.getScreen().equals("cashier")) { 
-    fooderia.help = false;
     if (mouseX > 525 && mouseX < 675 && mouseY > 375 && mouseY < 625) {
       //JUST FOR TESTING PURPOSES
       //customerRight.customerLeaves(customerRight.getOrder());
