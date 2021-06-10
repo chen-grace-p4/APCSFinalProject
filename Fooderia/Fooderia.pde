@@ -98,7 +98,7 @@ void draw() {
     } else {
       customerRight.stopMoving();
       //SHOULD BE  <10
-      if (fooderia.getCustomerNum() < 3) {
+      if (fooderia.getCustomerNum() < 1) {
         //println(fooderia.getCustomerNum()); //DEBUG
         customerRight = new Customer("right");
       } else {
@@ -119,7 +119,7 @@ void draw() {
     } else {
       customerLeft.stopMoving();
       //SHOULD BE  <10
-      if (fooderia.getCustomerNum() < 3) {
+      if (fooderia.getCustomerNum() < 1) {
         customerLeft = new Customer("left");
       } else {
         if (fooderia.customerThere == false) {
@@ -292,12 +292,12 @@ void mousePressed() {
       fooderia.changeScreen("selectLevels");
     }
     
-    if (mouseX > 110 && mouseX < 290 && mouseY < 100) {
+    if (!fooderia.lvlEnd && mouseX > 110 && mouseX < 290 && mouseY < 100) {
       fooderia.help = true;
     }
 
     if (fooderia.lvlEnd) {
-      if (mouseX > 250 && mouseX < 550 && mouseY > 325 && mouseY < 525) {
+      if (mouseX > 400 && mouseX < 700 && mouseY > 425 && mouseY < 525) {
         fooderia.resetLevel();
         fooderia.changeScreen("selectLevels");
       }
@@ -306,7 +306,7 @@ void mousePressed() {
 
   if (fooderia.getScreen().equals("sauce")) {
     if (fooderia.lvlEnd) {
-      if (mouseX > 250 && mouseX < 550 && mouseY > 325 && mouseY < 525) {
+      if (mouseX > 250 && mouseX < 550 && mouseY > 425 && mouseY < 525) {
         fooderia.resetLevel();
         fooderia.changeScreen("selectLevels");
       }
@@ -342,7 +342,7 @@ void mousePressed() {
 
   if (fooderia.getScreen().equals("oven")) {
     if (fooderia.lvlEnd) {
-      if (mouseX > 250 && mouseX < 550 && mouseY > 325 && mouseY < 525) {
+      if (mouseX > 250 && mouseX < 550 && mouseY > 425 && mouseY < 525) {
         fooderia.resetLevel();
         fooderia.changeScreen("selectLevels");
       }

@@ -140,13 +140,16 @@ public class Game {
       noStroke();
       
       //tutorial help
-      fill(200);
-      rect(110, 0, 180, 100);
-      fill(100);
-      rect(120, 10, 160, 80);
-      fill(255);
-      textSize(30);
-      text("Tutorial", 140, 60);
+      if (!lvlEnd) {
+        fill(200);
+        rect(110, 0, 180, 100);
+        fill(100);
+        rect(120, 10, 160, 80);
+        fill(255);
+        textSize(30);
+        text("Tutorial", 140, 60);
+      }
+      
       
       if (lvlEnd) {
         rectMode(CENTER);
@@ -173,20 +176,24 @@ public class Game {
           //greater than 35
           if (moneyEarned >= 35) {
             fill(255, 0, 0);
+            textSize(25);
             text("**Level Two Unlocked**", 260, 525);
           } else {
             fill(255, 0, 0);
-            text("Earn $35 or more to unlock Level Two", 175, 525);
+            textSize(20);
+            text("Earn atleast $35 in one day to unlock Level Two", 175, 525);
           }
         }
         else if (level == 2 && firstUnlockThree) {
           //greater than 40
           if (moneyEarned >= 40) {
             fill(255, 0, 0);
+            textSize(25);
             text("**Level Three Unlocked**", 250, 525);
           } else {
             fill(255, 0, 0);
-            text("Earn $40 or more to unlock Level Three", 165, 525);
+            textSize(20);
+            text("Earn atleast $40 in one day to unlock Level Three", 165, 525);
           }
         }
         
@@ -294,20 +301,24 @@ public class Game {
           //greater than 35
           if (moneyEarned >= 35) {
             fill(255, 0, 0);
+            textSize(25);
             text("**Level Two Unlocked**", 260, 525);
           } else {
             fill(255, 0, 0);
-            text("Earn $35 or more to unlock Level Two", 175, 525);
+            textSize(20);
+            text("Earn atleast $35 in one day to unlock Level Two", 175, 525);
           }
         }
         else if (level == 2 && firstUnlockThree) {
           //greater than 40
           if (moneyEarned >= 40) {
             fill(255, 0, 0);
+            textSize(25);
             text("**Level Three Unlocked**", 250, 525);
           } else {
             fill(255, 0, 0);
-            text("Earn $40 or more to unlock Level Three", 165, 525);
+            textSize(20);
+            text("Earn atleast $40 in one day to unlock Level Three", 165, 525);
           }
         }
         
@@ -356,20 +367,24 @@ public class Game {
           //greater than 35
           if (moneyEarned >= 35) {
             fill(255, 0, 0);
+            textSize(25);
             text("**Level Two Unlocked**", 260, 525);
           } else {
             fill(255, 0, 0);
-            text("Earn $35 or more to unlock Level Two", 175, 525);
+            textSize(15);
+            text("Earn atleast $35 in one day to unlock Level Two", 175, 525);
           }
         }
         else if (level == 2 && firstUnlockThree) {
           //greater than 40
           if (moneyEarned >= 40) {
             fill(255, 0, 0);
+            textSize(25);
             text("**Level Three Unlocked**", 250, 525);
           } else {
             fill(255, 0, 0);
-            text("Earn $40 or more to unlock Level Three", 165, 525);
+            textSize(15);
+            text("Earn atleast $40 in one day to unlock Level Three", 165, 525);
           }
         }
         

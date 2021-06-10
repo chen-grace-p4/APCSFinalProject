@@ -8,11 +8,13 @@ public class Notepad {
   }
   
   void takeOrder(Customer customer){
-    customerRight.selectedFalse();
-    customerLeft.selectedFalse();
-    customer.selectedTrue();
-    order = customer.getOrder();
-    this.customer = customer;
+    if (!fooderia.lvlEnd) {
+      customerRight.selectedFalse();
+      customerLeft.selectedFalse();
+      customer.selectedTrue();
+      order = customer.getOrder();
+      this.customer = customer;
+    }
   }
   //both customers selectedFalse(), custName.selectedTrue(), update notepad with
   //custName's order and call customer.changeSelected()
