@@ -147,6 +147,34 @@ public class Store {
       flowerNotEnough = false;
     }
     
+    //cat details
+    if (mouseX > 350 && mouseX < 450 && mouseY > 310 && mouseY < 410) {
+      fill(#f2f2f2);
+      stroke(#d1d1d1);
+      rect(mouseX, mouseY, 150, 100);
+      fill(0);
+      if(catBought) {
+        textSize(15);
+        if (fooderia.lvlEnd) text("Click to toggle use", mouseX + 10, mouseY + 50);
+        else {
+          text("Can't Toggle", mouseX + 10, mouseY + 25);
+          text("Level in progress", mouseX + 10, mouseY + 50);
+        }
+      } else {
+        if (!catShowFirst && catNotEnough){
+          textSize(15);
+          text("Not Enough Money", mouseX+10, mouseY+50);
+        } else text("A quiet pet...", mouseX + 10, mouseY + 50);
+      }
+      textSize(15);
+      text("Wait Time +15s", mouseX + 15, mouseY + 75);
+      noStroke();
+    } else {
+      catShowFirst = true;
+      catNotEnough = false;
+    }
+    
+    
   }
   
   void clicked() {
