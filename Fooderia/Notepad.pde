@@ -2,9 +2,10 @@ public class Notepad {
   ArrayList<String> order;
   Customer customer;
   color c;
+  int orderNum;
   Notepad(){
   c = color(245,245,220);
-  
+  orderNum = 1;
   }
   
   void takeOrder(Customer customer){
@@ -42,7 +43,7 @@ public class Notepad {
     line(0,660+10*i,800,660+10*i);
   }
   textSize(30);
-  text("Order" + (fooderia.customerCounter - 1) + ":", 50,700);
+  text("Order" + (orderNum) + ":", 50,700);
   if(order!=null){
     int totalsize = 6;
     for (int i = 0; i<order.size(); i++){

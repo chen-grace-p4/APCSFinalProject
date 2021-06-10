@@ -293,12 +293,12 @@ void mousePressed() {
 
   //toppings station/sauce screen
   if (fooderia.getScreen().equals("cashier")) { 
-    if (mouseX > 525 && mouseX < 675 && mouseY > 375 && mouseY < 625) {
+    if (mouseX > 525 && mouseX < 675 && mouseY > 375 && mouseY < 625 && customerRight.x == 600) {
       //JUST FOR TESTING PURPOSES
       //customerRight.customerLeaves(customerRight.getOrder());
       notepad.takeOrder(customerRight);
     }
-    if (mouseX > 125 && mouseX < 275 && mouseY > 375 && mouseY < 625) {
+    if (mouseX > 125 && mouseX < 275 && mouseY > 375 && mouseY < 625 && customerLeft.x == 200) {
       //JUST FOR TESTING PURPOSES
       //customerLeft.customerLeaves(customerLeft.getOrder());
       notepad.takeOrder(customerLeft);
