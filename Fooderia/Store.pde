@@ -11,8 +11,11 @@ public class Store {
   boolean cactusUse;
   boolean flowerUse;
   
-  boolean notEnough;
+  boolean cactusNotEnough;
+  boolean flowerNotEnough;
+  
   boolean cactusShowFirst;
+  boolean flowerShowFirst;
   
   void show() {
     fill(255);
@@ -54,7 +57,9 @@ public class Store {
     fill(0);
     textSize(20);
     text("Flower", 175, 490);
-    text("$20", 175, 515);
+    if (flowerUse) text("(Using)", 175, 515);
+    else if (flowerBought) text("(Owned)", 175, 515);
+    else text("$20", 175, 515);
     
     //cat
     //INCREASES WAITING TIME FOR BOTH CUST BY 15 SECS
@@ -89,7 +94,7 @@ public class Store {
           text("Level in progress", mouseX + 10, mouseY + 50);
         }
       } else {
-        if (!cactusShowFirst && notEnough){
+        if (!cactusShowFirst && cactusNotEnough){
           textSize(15);
           text("Not Enough Money", mouseX+10, mouseY+50);
         } else text("Spiky plant...", mouseX + 10, mouseY + 50);
@@ -99,7 +104,34 @@ public class Store {
       noStroke();
     } else {
       cactusShowFirst = true;
-      notEnough = false;
+      cactusNotEnough = false;
+    }
+    
+    //flower details
+    if (mouseX > 165 && mouseX < 265 && mouseY > 440 && mouseY < 540) {
+      fill(#ffe6fc);
+      stroke(#fc88ed);
+      rect(mouseX, mouseY, 150, 100);
+      fill(0);
+      if(flowerBought) {
+        textSize(15);
+        if (fooderia.lvlEnd) text("Click to toggle use", mouseX + 10, mouseY + 50);
+        else {
+          text("Can't Toggle", mouseX + 10, mouseY + 25);
+          text("Level in progress", mouseX + 10, mouseY + 50);
+        }
+      } else {
+        if (!flowerShowFirst && flowerNotEnough){
+          textSize(15);
+          text("Not Enough Money", mouseX+10, mouseY+50);
+        } else text("Pretty plant!", mouseX + 10, mouseY + 50);
+      }
+      textSize(15);
+      text("Wait Time +10s", mouseX + 15, mouseY + 75);
+      noStroke();
+    } else {
+      flowerShowFirst = true;
+      flowerNotEnough = false;
     }
     
   }
@@ -118,12 +150,29 @@ public class Store {
           cactusBought = true;
         } else {
           cactusShowFirst = false;
-          notEnough = true;
+          cactusNotEnough = true;
         }
       } else {
         //TOGGLE FLOWER USE SO ONLY ONE CAN BE USED AT A TIME
         // if (flowerBought && flowerUse)...
         if (fooderia.lvlEnd) cactusUse = !cactusUse;
+      }
+    }
+    //buy or use flower
+    if (mouseX > 165 && mouseX < 265 && mouseY > 440 && mouseY < 540) {
+      if (!flowerBought) {
+        if (fooderia.totalMoney >= 20) {
+          fooderia.totalMoney -= 20;
+          fooderia.totalMoney = (double) Math.round(fooderia.totalMoney*100)/100;
+          flowerBought = true;
+        } else {
+          flowerShowFirst = false;
+          flowerNotEnough = true;
+        }
+      } else {
+        //TOGGLE FLOWER USE SO ONLY ONE CAN BE USED AT A TIME
+        // if (flowerBought && flowerUse)...
+        if (fooderia.lvlEnd) flowerUse = !flowerUse;
       }
     }
     
