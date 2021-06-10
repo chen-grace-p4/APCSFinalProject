@@ -168,6 +168,7 @@ void mousePressed() {
         fooderia.masterClicked = false;
         
         //total money resets here since previous mode was master
+        fooderia.totalMoney = 0.0;
         fooderia.lvlEnd = true;
         fooderia.resetLevel();
       } else {
@@ -181,6 +182,7 @@ void mousePressed() {
     if (mouseX > 420 && mouseX < 760 && mouseY > 630 && mouseY < 770) {
       fooderia.lvlEnd = true;
       fooderia.resetLevel();
+      if (fooderia.mode.equals("normal")) fooderia.totalMoney = 0.0;
       //if mode previously normal, totalmoney resets otherwise don't
       
       fooderia.lvlTwoUnlocked = true;
@@ -297,7 +299,7 @@ void mousePressed() {
     }
 
     if (fooderia.lvlEnd) {
-      if (mouseX > 400 && mouseX < 700 && mouseY > 425 && mouseY < 525) {
+      if (mouseX > 250 && mouseX < 550 && mouseY > 375 && mouseY < 475) {
         fooderia.resetLevel();
         fooderia.changeScreen("selectLevels");
       }
