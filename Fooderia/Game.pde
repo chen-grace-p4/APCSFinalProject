@@ -484,7 +484,7 @@ public class Game {
       fill(0);
       textSize(30);
       if (lvlTwoUnlocked) {
-        if (!lvlEnd && level == 2) text("Current", 138, 380);
+        if (!lvlEnd && level == 2) text("Current", 328, 380);
         else text("Level 2", 328, 380);
       }
       else text("Locked", 328, 380);
@@ -497,7 +497,7 @@ public class Game {
       fill(0);
       textSize(30);
       if (lvlThreeUnlocked){
-        if (!lvlEnd && level == 3) text("Current", 138, 380);
+        if (!lvlEnd && level == 3) text("Current", 518, 380);
         else text("Level 3", 518, 380);
       }
       else text("Locked", 518, 380);
