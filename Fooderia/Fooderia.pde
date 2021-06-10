@@ -215,6 +215,7 @@ void mousePressed() {
         fooderia.lvlThreeUnlocked = false;
         
         fooderia.lvlEnd = true;
+        fooderia.totalMoney = 0.0;
         fooderia.resetLevel();
         //SHOULD ALSO MAKE TOTALMONEY = 0 AND ALL STORE BOUGHT THINGS FALSE
       }
