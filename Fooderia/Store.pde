@@ -17,6 +17,15 @@ public class Store {
   boolean cactusShowFirst;
   boolean flowerShowFirst;
   
+  Store() {
+    //FOR TESTING ONLY
+    cactusBought = true;
+    flowerBought = true;
+    //cactusUse = true;
+    //flowerUse = true;
+    /////////////////////////////////////////
+  }
+  
   void show() {
     fill(255);
     stroke(0);
@@ -154,8 +163,14 @@ public class Store {
         }
       } else {
         //TOGGLE FLOWER USE SO ONLY ONE CAN BE USED AT A TIME
-        // if (flowerBought && flowerUse)...
-        if (fooderia.lvlEnd) cactusUse = !cactusUse;
+        if (fooderia.lvlEnd) {
+          if (flowerBought && flowerUse && !cactusUse) {
+            flowerUse = false;
+            cactusUse = true;
+          } else {
+            cactusUse = !cactusUse;
+          }
+        }
       }
     }
     //buy or use flower
@@ -170,9 +185,15 @@ public class Store {
           flowerNotEnough = true;
         }
       } else {
-        //TOGGLE FLOWER USE SO ONLY ONE CAN BE USED AT A TIME
-        // if (flowerBought && flowerUse)...
-        if (fooderia.lvlEnd) flowerUse = !flowerUse;
+        //TOGGLE CACTUS USE SO ONLY ONE CAN BE USED AT A TIME
+        if (fooderia.lvlEnd) {
+          if (cactusBought && cactusUse && !flowerUse) {
+            cactusUse = false;
+            flowerUse = true;
+          } else {
+            flowerUse = !flowerUse;
+          }
+        }
       }
     }
     
