@@ -99,6 +99,8 @@ public class Game {
       fill(#004d6e);
       textSize(45);
       text("Normal Mode", 60, 700);
+      textSize(16);
+      text("**Resets Master Mode Progress**", 70, 730);
       
       
       //master mode

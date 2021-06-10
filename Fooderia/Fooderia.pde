@@ -184,6 +184,7 @@ void mousePressed() {
       fooderia.resetLevel();
       if (fooderia.mode.equals("normal")) fooderia.totalMoney = 0.0;
       //if mode previously normal, totalmoney resets otherwise don't
+      //also make all store bought items false if previously normal
       
       fooderia.lvlTwoUnlocked = true;
       fooderia.lvlThreeUnlocked = true;
