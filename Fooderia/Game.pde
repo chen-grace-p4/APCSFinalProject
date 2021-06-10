@@ -475,15 +475,20 @@ public class Game {
       rect(120,300,150,150);
       fill(0);
       textSize(30);
-      text("Level 1", 138, 380);
+      if (!lvlEnd && level == 1) text("Current", 138, 380);
+      else text("Level 1", 138, 380);
       
       //level 2 box
       fill(200);
       rect(310,300,150,150);
       fill(0);
       textSize(30);
-      if (lvlTwoUnlocked) text("Level 2", 328, 380);
+      if (lvlTwoUnlocked) {
+        if (!lvlEnd && level == 2) text("Current", 138, 380);
+        else text("Level 2", 328, 380);
+      }
       else text("Locked", 328, 380);
+      
       
       
       //level 3 box
@@ -491,7 +496,10 @@ public class Game {
       rect(500,300,150,150);
       fill(0);
       textSize(30);
-      if (lvlThreeUnlocked) text("Level 3", 518, 380);
+      if (lvlThreeUnlocked){
+        if (!lvlEnd && level == 3) text("Current", 138, 380);
+        else text("Level 3", 518, 380);
+      }
       else text("Locked", 518, 380);
       
       //store button

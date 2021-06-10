@@ -103,7 +103,7 @@ void draw() {
     } else {
       customerRight.stopMoving();
       //SHOULD BE  <10
-      if (fooderia.getCustomerNum() < 1) {
+      if (fooderia.getCustomerNum() < 10) {
         //println(fooderia.getCustomerNum()); //DEBUG
         customerRight = new Customer("right");
       } else {
@@ -124,7 +124,7 @@ void draw() {
     } else {
       customerLeft.stopMoving();
       //SHOULD BE  <10
-      if (fooderia.getCustomerNum() < 1) {
+      if (fooderia.getCustomerNum() < 10) {
         customerLeft = new Customer("left");
       } else {
         if (fooderia.customerThere == false) {
