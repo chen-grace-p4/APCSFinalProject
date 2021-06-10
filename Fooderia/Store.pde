@@ -99,6 +99,7 @@ public class Store {
       noStroke();
     } else {
       cactusShowFirst = true;
+      notEnough = false;
     }
     
   }
