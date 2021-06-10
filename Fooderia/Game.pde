@@ -1,5 +1,7 @@
 public class Game {
   //ArrayList<Things> things;
+  double totalMoney; 
+  
   String screen;
   double moneyEarned;
   int customerCounter;
@@ -40,6 +42,7 @@ public class Game {
 
   void changeScreen(String screenName) {
     // to change the background/which items are hidden or visible (call hide() method for each object) based on button pressed
+    help = false;
     screen = screenName;
     if (screenName.equals("oven")) {
       if (oven.moveOn) {
@@ -53,6 +56,7 @@ public class Game {
   }
   void checkScreen() {
     //basic testing of changing screen below, will add more for each screen later
+    if (!screen.equals("selectLevels")) store.toggleShow = false;
     if (screen.equals("mainMenu")) {
       //sky
       background(#b8eaff);
@@ -95,6 +99,8 @@ public class Game {
       fill(#004d6e);
       textSize(45);
       text("Normal Mode", 60, 700);
+      textSize(16);
+      text("**Resets Master Mode Progress**", 70, 730);
       
       
       //master mode
@@ -136,13 +142,16 @@ public class Game {
       noStroke();
       
       //tutorial help
-      fill(200);
-      rect(110, 0, 180, 100);
-      fill(100);
-      rect(120, 10, 160, 80);
-      fill(255);
-      textSize(30);
-      text("Tutorial", 140, 60);
+      if (!lvlEnd) {
+        fill(200);
+        rect(110, 0, 180, 100);
+        fill(100);
+        rect(120, 10, 160, 80);
+        fill(255);
+        textSize(30);
+        text("Tutorial", 140, 60);
+      }
+      
       
       if (lvlEnd) {
         rectMode(CENTER);
@@ -169,20 +178,24 @@ public class Game {
           //greater than 35
           if (moneyEarned >= 35) {
             fill(255, 0, 0);
+            textSize(25);
             text("**Level Two Unlocked**", 260, 525);
           } else {
             fill(255, 0, 0);
-            text("Earn $35 or more to unlock Level Two", 175, 525);
+            textSize(20);
+            text("Earn atleast $35 in one day to unlock Level Two", 175, 525);
           }
         }
         else if (level == 2 && firstUnlockThree) {
           //greater than 40
           if (moneyEarned >= 40) {
             fill(255, 0, 0);
+            textSize(25);
             text("**Level Three Unlocked**", 250, 525);
           } else {
             fill(255, 0, 0);
-            text("Earn $40 or more to unlock Level Three", 165, 525);
+            textSize(20);
+            text("Earn atleast $40 in one day to unlock Level Three", 165, 525);
           }
         }
         
@@ -290,20 +303,24 @@ public class Game {
           //greater than 35
           if (moneyEarned >= 35) {
             fill(255, 0, 0);
+            textSize(25);
             text("**Level Two Unlocked**", 260, 525);
           } else {
             fill(255, 0, 0);
-            text("Earn $35 or more to unlock Level Two", 175, 525);
+            textSize(20);
+            text("Earn atleast $35 in one day to unlock Level Two", 175, 525);
           }
         }
         else if (level == 2 && firstUnlockThree) {
           //greater than 40
           if (moneyEarned >= 40) {
             fill(255, 0, 0);
+            textSize(25);
             text("**Level Three Unlocked**", 250, 525);
           } else {
             fill(255, 0, 0);
-            text("Earn $40 or more to unlock Level Three", 165, 525);
+            textSize(20);
+            text("Earn atleast $40 in one day to unlock Level Three", 165, 525);
           }
         }
         
@@ -352,20 +369,24 @@ public class Game {
           //greater than 35
           if (moneyEarned >= 35) {
             fill(255, 0, 0);
+            textSize(25);
             text("**Level Two Unlocked**", 260, 525);
           } else {
             fill(255, 0, 0);
-            text("Earn $35 or more to unlock Level Two", 175, 525);
+            textSize(15);
+            text("Earn atleast $35 in one day to unlock Level Two", 175, 525);
           }
         }
         else if (level == 2 && firstUnlockThree) {
           //greater than 40
           if (moneyEarned >= 40) {
             fill(255, 0, 0);
+            textSize(25);
             text("**Level Three Unlocked**", 250, 525);
           } else {
             fill(255, 0, 0);
-            text("Earn $40 or more to unlock Level Three", 165, 525);
+            textSize(15);
+            text("Earn atleast $40 in one day to unlock Level Three", 165, 525);
           }
         }
         
@@ -442,6 +463,15 @@ public class Game {
       if (lvlThreeUnlocked) text("Level 3", 518, 380);
       else text("Locked", 518, 380);
       
+      //store button
+      fill(255);
+      rect(310, 200, 150, 75);
+      fill(0);
+      textSize(40);
+      text("Store", 328, 250);
+      
+      //displays total money
+      text("Total Money: $" + totalMoney, 170, 525);
       
       textSize(15);
     }
@@ -449,7 +479,7 @@ public class Game {
     if (!lvlEnd && !screen.equals("selectLevels") && !screen.equals("mainMenu")) screenButtons.show();
     
     //tutorial instructions 
-    if (help) {
+    if (help && (screen.equals("mainMenu") || screen.equals("cashier"))) {
       fill(255);
       stroke(0);
       rect(120, 210, 550, 400);
@@ -478,6 +508,9 @@ public class Game {
       text("- Earn more money by making orders faster.", 170, 490);
       text("- Bake only after you place all toppings", 170, 510);
     }
+    
+    //store
+    if (store.toggleShow) store.show();
     
   }
 
@@ -509,6 +542,10 @@ public class Game {
   void levelEnds() {
     //if moneyEarned >= some threshold for next level then set boolean for next level to true,
     //println("level end is called");
+    //MONEY ONLY ADDED TO TOTAL MONEY WHEN DAY ENDS
+    moneyEarned = (double) Math.round(moneyEarned*100)/100;
+    totalMoney += moneyEarned;
+    
     lvlEnd = true;
     if (level == 1) {
       //  SHOULD BE >=35

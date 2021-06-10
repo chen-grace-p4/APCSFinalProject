@@ -5,6 +5,7 @@ Customer customerRight;
 Customer customerLeft;
 Oven oven = new Oven();
 Notepad notepad = new Notepad();
+Store store = new Store();
 
 //for testing purposes
 int mousex, mousey;
@@ -98,7 +99,8 @@ void draw() {
       customerRight.move("right");
     } else {
       customerRight.stopMoving();
-      if (fooderia.getCustomerNum() < 10) {
+      //SHOULD BE  <10
+      if (fooderia.getCustomerNum() < 1) {
         //println(fooderia.getCustomerNum()); //DEBUG
         customerRight = new Customer("right");
       } else {
@@ -118,7 +120,8 @@ void draw() {
       customerLeft.move("left");
     } else {
       customerLeft.stopMoving();
-      if (fooderia.getCustomerNum() < 10) {
+      //SHOULD BE  <10
+      if (fooderia.getCustomerNum() < 1) {
         customerLeft = new Customer("left");
       } else {
         if (fooderia.customerThere == false) {
@@ -149,7 +152,7 @@ void mousePressed() {
     }
   }
   
-  if (fooderia.help) {
+  if (fooderia.help && (fooderia.screen.equals("mainMenu") || fooderia.screen.equals("cashier"))) {
     //X button
     if (mouseX > 130 && mouseX < 160 && mouseY > 220 && mouseY < 250) {
       fooderia.help = false;
@@ -159,12 +162,15 @@ void mousePressed() {
   if (fooderia.screen.equals("mainMenu")) {
     boolean prevTwo = fooderia.lvlTwoUnlocked;
     boolean prevThree = fooderia.lvlThreeUnlocked;
+    //normal mode
     if (mouseX > 40 && mouseX < 380 && mouseY > 630 && mouseY < 770) {
       if (fooderia.masterClicked) {
         fooderia.lvlTwoUnlocked = false;
         fooderia.lvlThreeUnlocked = false;
         fooderia.masterClicked = false;
         
+        //total money resets here since previous mode was master
+        fooderia.totalMoney = 0.0;
         fooderia.lvlEnd = true;
         fooderia.resetLevel();
       } else {
@@ -174,9 +180,13 @@ void mousePressed() {
       fooderia.mode = "normal";
       fooderia.changeScreen("selectLevels");
     } 
+    //master mode
     if (mouseX > 420 && mouseX < 760 && mouseY > 630 && mouseY < 770) {
       fooderia.lvlEnd = true;
       fooderia.resetLevel();
+      if (fooderia.mode.equals("normal")) fooderia.totalMoney = 0.0;
+      //if mode previously normal, totalmoney resets otherwise don't
+      //also make all store bought items false if previously normal
       
       fooderia.lvlTwoUnlocked = true;
       fooderia.lvlThreeUnlocked = true;
@@ -207,7 +217,9 @@ void mousePressed() {
         fooderia.lvlThreeUnlocked = false;
         
         fooderia.lvlEnd = true;
+        fooderia.totalMoney = 0.0;
         fooderia.resetLevel();
+        //SHOULD ALSO MAKE TOTALMONEY = 0 AND ALL STORE BOUGHT THINGS FALSE
       }
     }
     //to reset current level
@@ -216,12 +228,21 @@ void mousePressed() {
       fooderia.resetLevel();
       fooderia.level = currentLvl;
     }
+    //store button
+    if (mouseX > 310 && mouseX < 460 && mouseY > 200 && mouseY < 275) {
+      store.toggleShow = true;
+    }
+    //store clicking when window is shown
+    if (store.toggleShow) {
+      store.clicked();
+    }
+    
     //*****ADDITIONAL FEATURE?
     //MAYBE MAKE IT SO THAT IF UR CLICKING THE LEVEL UR PLAYING RIGHT NOW, THE GAME ASKS IF U WANT TO 
     //^^RESET THE DAY AND IF THE PLAYER CLICKS YES, THEN IT RESETS THE LEVEL FOR THE SAME DAY
 
     //level 1 button
-    if (mouseX > 120 && mouseX < 270 && mouseY > 300 && mouseY < 450) {
+    if (!store.toggleShow && mouseX > 120 && mouseX < 270 && mouseY > 300 && mouseY < 450) {
       //if a level is played but level is not 1 or if level is not being played and level = 0
       if (fooderia.level != 1) {
         fooderia.level = 1;
@@ -232,7 +253,7 @@ void mousePressed() {
       }
     }
     //level 2 button
-    if (mouseX > 310 && mouseX < 460 && mouseY > 300 && mouseY < 450) {
+    if (!store.toggleShow && mouseX > 310 && mouseX < 460 && mouseY > 300 && mouseY < 450) {
       if (fooderia.lvlTwoUnlocked) {
         if (fooderia.level != 2) {
           fooderia.level = 2;
@@ -245,7 +266,7 @@ void mousePressed() {
     }
 
     //level 3 button
-    if (mouseX > 500 && mouseX < 650 && mouseY > 300 && mouseY < 450) {
+    if (!store.toggleShow && mouseX > 500 && mouseX < 650 && mouseY > 300 && mouseY < 450) {
       if (fooderia.lvlThreeUnlocked) {
         if (fooderia.level != 3) {
           fooderia.level = 3;
@@ -259,7 +280,7 @@ void mousePressed() {
   }
 
 
-  if (mouseX > width-300 && mouseY <100) fooderia.checkScreen();
+  //if (mouseX > width-300 && mouseY <100) fooderia.checkScreen();
 
   //toppings station/sauce screen
   if (fooderia.getScreen().equals("cashier")) { 
@@ -277,12 +298,12 @@ void mousePressed() {
       fooderia.changeScreen("selectLevels");
     }
     
-    if (mouseX > 110 && mouseX < 290 && mouseY < 100) {
+    if (!fooderia.lvlEnd && mouseX > 110 && mouseX < 290 && mouseY < 100) {
       fooderia.help = true;
     }
 
     if (fooderia.lvlEnd) {
-      if (mouseX > 250 && mouseX < 550 && mouseY > 325 && mouseY < 525) {
+      if (mouseX > 250 && mouseX < 550 && mouseY > 375 && mouseY < 475) {
         fooderia.resetLevel();
         fooderia.changeScreen("selectLevels");
       }
@@ -291,7 +312,7 @@ void mousePressed() {
 
   if (fooderia.getScreen().equals("sauce")) {
     if (fooderia.lvlEnd) {
-      if (mouseX > 250 && mouseX < 550 && mouseY > 325 && mouseY < 525) {
+      if (mouseX > 250 && mouseX < 550 && mouseY > 425 && mouseY < 525) {
         fooderia.resetLevel();
         fooderia.changeScreen("selectLevels");
       }
@@ -327,7 +348,7 @@ void mousePressed() {
 
   if (fooderia.getScreen().equals("oven")) {
     if (fooderia.lvlEnd) {
-      if (mouseX > 250 && mouseX < 550 && mouseY > 325 && mouseY < 525) {
+      if (mouseX > 250 && mouseX < 550 && mouseY > 425 && mouseY < 525) {
         fooderia.resetLevel();
         fooderia.changeScreen("selectLevels");
       }
