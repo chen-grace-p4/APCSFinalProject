@@ -11,6 +11,8 @@ public class Store {
   boolean cactusUse;
   boolean flowerUse;
   
+  boolean buyCactus;
+  
   void show() {
     fill(255);
     stroke(0);
@@ -40,8 +42,9 @@ public class Store {
     fill(0);
     textSize(20);
     text("Cactus", 175, 360);
-    text("$10", 175, 385);
-    //cactus details
+    if (cactusUse) text("(Using)", 175, 385);
+    else if (cactusBought) text("(Owned)", 175, 385);
+    else text("$10", 175, 385);
     
     //flower
     //INCREASES WAITING TIME FOR BOTH CUST BY 10 SECS
@@ -69,6 +72,25 @@ public class Store {
     textSize(20);
     text("Dog", 360, 490);
     text("$75", 360, 515);
+    
+    //DETAILS THAT SHOW WHEN HOVERED
+    //cactus details
+    if (mouseX > 165 && mouseX < 265 && mouseY > 310 && mouseY < 410) {
+      fill(#c6ffc2);
+      stroke(#77d96f);
+      rect(mouseX, mouseY, 150, 100);
+      fill(0);
+      if(cactusBought) {
+        textSize(15);
+        text("Click to toggle use", mouseX + 10, mouseY + 50);
+      } else {
+        text("Spiky plant...", mouseX + 10, mouseY + 50);
+      }
+      textSize(15);
+      text("Wait Time +5s", mouseX + 15, mouseY + 75);
+      noStroke();
+    }
+    
   }
   
   void clicked() {
@@ -76,6 +98,21 @@ public class Store {
     if (mouseX > 130 && mouseX < 160 && mouseY > 220 && mouseY < 250) {
       store.toggleShow = false;
     }
+    //buy or use cactus
+    if (mouseX > 165 && mouseX < 265 && mouseY > 310 && mouseY < 410) {
+      if (!cactusBought) {
+        if (fooderia.totalMoney >= 10) {
+          fooderia.totalMoney -= 10;
+          fooderia.totalMoney = (double) Math.round(fooderia.totalMoney*100)/100;
+          cactusBought = true;
+        }
+      } else {
+        //TOGGLE FLOWER USE SO ONLY ONE CAN BE USED AT A TIME
+        // if (flowerBought && flowerUse)...
+        cactusUse = !cactusUse;
+      }
+    }
     
   }
+  
 }
