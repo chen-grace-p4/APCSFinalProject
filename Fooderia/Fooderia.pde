@@ -1,4 +1,4 @@
-Game fooderia = new Game();
+Game fooderia;
 Buttons screenButtons = new Buttons();
 Pizza pizza;
 Customer customerRight;
@@ -15,7 +15,8 @@ void setup() {
   size(800, 800);
   background(255);
   screenButtons.show();
-
+  
+  fooderia = new Game();
   customerRight = new Customer("right");
   customerLeft = new Customer("left");
   pizza = new Pizza();
@@ -171,6 +172,7 @@ void mousePressed() {
         
         //total money resets here since previous mode was master
         fooderia.totalMoney = 0.0;
+        store = new Store();
         fooderia.lvlEnd = true;
         fooderia.resetLevel();
       } else {
@@ -184,7 +186,10 @@ void mousePressed() {
     if (mouseX > 420 && mouseX < 760 && mouseY > 630 && mouseY < 770) {
       fooderia.lvlEnd = true;
       fooderia.resetLevel();
-      if (fooderia.mode.equals("normal")) fooderia.totalMoney = 0.0;
+      if (fooderia.mode.equals("normal")) {
+        fooderia.totalMoney = 0.0;
+        store = new Store();
+      }
       //if mode previously normal, totalmoney resets otherwise don't
       //also make all store bought items false if previously normal
       
@@ -218,6 +223,7 @@ void mousePressed() {
         
         fooderia.lvlEnd = true;
         fooderia.totalMoney = 0.0;
+        store = new Store();
         fooderia.resetLevel();
         //SHOULD ALSO MAKE TOTALMONEY = 0 AND ALL STORE BOUGHT THINGS FALSE
       }

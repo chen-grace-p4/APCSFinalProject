@@ -21,6 +21,8 @@ public class Game {
   
   boolean help;
   
+  PImage cactus;
+  
   Game() {
     //things = new ArrayList<Things>();
     //screen = "cashier"; //CHANGE TO MAIN MENU LATER ON
@@ -34,6 +36,7 @@ public class Game {
     level = 0; //starts out as this in actual game
     lvlEnd = true; //starts out as true in actual game
     //IN ACTUAL GAME, when level becomes 1 after you select in the menu, lvlEnd = false
+    cactus = loadImage("cactus.png");
   }
 
   String getScreen() {
@@ -126,6 +129,12 @@ public class Game {
     }
     if (screen.equals("cashier")) {
       background(#edfbff);
+      
+      if (store.cactusUse) {
+        imageMode(CENTER);
+        image(cactus, 440, 600);
+      }
+      
       customerRight.show();
       customerLeft.show();
       notepad.show();
