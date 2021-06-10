@@ -502,6 +502,7 @@ public class Game {
       text("Store", 328, 250);
       
       //displays total money
+      totalMoney = (double) Math.round(totalMoney*100)/100;
       text("Total Money: $" + totalMoney, 170, 525);
       
       textSize(15);
