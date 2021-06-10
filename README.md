@@ -47,3 +47,5 @@ Our project will be a food-making game inspired by a combination of cooking feve
 6-3(home) Grace C: Deleted all things for the sole purpose of testing, fixed money needed to be earned to advance to next level, completed all sprites, and other small finishing touches. Also fixed dropping toppings on the pizza.
 
 6-7(home) Grace C: Added alerts for new level unlocked or how much more money is needed to unlock next level. Added a tutorial button and screen but didn't add instructions yet.
+
+6-9(home-bc of AP) Shriya A: Worked on presentation for the demo and ran through it. Added eyebrows to the characters that furrow as the timer goes down to indicate irration.
