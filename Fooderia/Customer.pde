@@ -64,6 +64,19 @@ public class Customer {
       y = 500;
     }
     totalTime = (int)(Math.random()*30) + 60;
+    if (store!=null && store.cactusUse==true){
+    totalTime += 5;
+    }
+    if (store != null && store.flowerUse==true){
+    totalTime+=10;
+    }
+    if (store != null && store.catUse==true){
+    totalTime+=15;
+    }
+    if (store != null && store.dogUse==true){
+    totalTime+=20;
+    }
+    
     sec = (millis()/1000)+totalTime;
     moveIn = false;
     moveOut = false;

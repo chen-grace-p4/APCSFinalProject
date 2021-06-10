@@ -1,11 +1,12 @@
 Game fooderia;
 Buttons screenButtons = new Buttons();
 Pizza pizza;
+Store store;
 Customer customerRight;
 Customer customerLeft;
 Oven oven = new Oven();
 Notepad notepad = new Notepad();
-Store store;
+
 
 //for testing purposes
 int mousex, mousey;
