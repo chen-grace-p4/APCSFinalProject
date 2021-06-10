@@ -5,7 +5,7 @@ Group Members - Shriya Anand, Grace Chen
 
 Prototype - https://docs.google.com/document/d/1b2osotSTCKECF9ko4jVFnmKhODuhoFFuMdUleYN6Fjs/edit?usp=sharing
 
-Updated UML Diagram - https://drive.google.com/file/d/13U5wW_xfgc07Kc-qtxLV0wO3Z3ET8yZZ/view?usp=sharing
+Updated UML Diagram - https://drive.google.com/file/d/1O11jY1Uk06fN8sawUfl5YnR9if1uIIXK/view?usp=sharing
 
 Running Instructions: Run using Processing, Click Master Mode to quickly test levels
 
