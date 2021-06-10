@@ -148,7 +148,7 @@ void mousePressed() {
     }
   }
   
-  if (fooderia.help) {
+  if (fooderia.help && (fooderia.screen.equals("mainMenu") || fooderia.screen.equals("cashier"))) {
     //X button
     if (mouseX > 130 && mouseX < 160 && mouseY > 220 && mouseY < 250) {
       fooderia.help = false;
@@ -156,6 +156,7 @@ void mousePressed() {
   }
 
   if (fooderia.screen.equals("mainMenu")) {
+    fooderia.help = false;
     boolean prevTwo = fooderia.lvlTwoUnlocked;
     boolean prevThree = fooderia.lvlThreeUnlocked;
     if (mouseX > 40 && mouseX < 380 && mouseY > 630 && mouseY < 770) {
@@ -207,6 +208,7 @@ void mousePressed() {
         
         fooderia.lvlEnd = true;
         fooderia.resetLevel();
+        //SHOULD ALSO MAKE TOTALMONEY = 0 AND ALL STORE BOUGHT THINGS FALSE
       }
     }
     //to reset current level
@@ -229,7 +231,7 @@ void mousePressed() {
     //^^RESET THE DAY AND IF THE PLAYER CLICKS YES, THEN IT RESETS THE LEVEL FOR THE SAME DAY
 
     //level 1 button
-    if (mouseX > 120 && mouseX < 270 && mouseY > 300 && mouseY < 450) {
+    if (!store.toggleShow && mouseX > 120 && mouseX < 270 && mouseY > 300 && mouseY < 450) {
       //if a level is played but level is not 1 or if level is not being played and level = 0
       if (fooderia.level != 1) {
         fooderia.level = 1;
@@ -240,7 +242,7 @@ void mousePressed() {
       }
     }
     //level 2 button
-    if (mouseX > 310 && mouseX < 460 && mouseY > 300 && mouseY < 450) {
+    if (!store.toggleShow && mouseX > 310 && mouseX < 460 && mouseY > 300 && mouseY < 450) {
       if (fooderia.lvlTwoUnlocked) {
         if (fooderia.level != 2) {
           fooderia.level = 2;
@@ -253,7 +255,7 @@ void mousePressed() {
     }
 
     //level 3 button
-    if (mouseX > 500 && mouseX < 650 && mouseY > 300 && mouseY < 450) {
+    if (!store.toggleShow && mouseX > 500 && mouseX < 650 && mouseY > 300 && mouseY < 450) {
       if (fooderia.lvlThreeUnlocked) {
         if (fooderia.level != 3) {
           fooderia.level = 3;
@@ -271,6 +273,7 @@ void mousePressed() {
 
   //toppings station/sauce screen
   if (fooderia.getScreen().equals("cashier")) { 
+    fooderia.help = false;
     if (mouseX > 525 && mouseX < 675 && mouseY > 375 && mouseY < 625) {
       //JUST FOR TESTING PURPOSES
       //customerRight.customerLeaves(customerRight.getOrder());

@@ -1,5 +1,7 @@
 public class Game {
   //ArrayList<Things> things;
+  double totalMoney; 
+  
   String screen;
   double moneyEarned;
   int customerCounter;
@@ -456,7 +458,7 @@ public class Game {
     if (!lvlEnd && !screen.equals("selectLevels") && !screen.equals("mainMenu")) screenButtons.show();
     
     //tutorial instructions 
-    if (help) {
+    if (help && (screen.equals("mainMenu") || screen.equals("cashier"))) {
       fill(255);
       stroke(0);
       rect(120, 210, 550, 400);
