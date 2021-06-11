@@ -519,7 +519,16 @@ public class Game {
       textSize(15);
     }
     
-    if (!lvlEnd && !screen.equals("selectLevels") && !screen.equals("mainMenu")) screenButtons.show();
+    if (!lvlEnd && !screen.equals("selectLevels") && !screen.equals("mainMenu")) {
+      screenButtons.show();
+      
+      //display money earned
+      textSize(15);
+      moneyEarned = (double) Math.round(moneyEarned*100)/100;
+      text("Money Earned Today: $" + moneyEarned, 550, 115);
+      if (mode.equals("normal") && level == 1) text("Earn atleast $35 in this level to unlock level 2", 465, 130);
+      if (mode.equals("normal") && level == 2) text("Earn atleast $40 in this level to unlock level 3", 465, 130);
+    }
     
     //tutorial instructions 
     if (help && (screen.equals("mainMenu") || screen.equals("cashier"))) {
