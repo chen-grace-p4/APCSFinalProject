@@ -7,7 +7,7 @@
 
 **Updated UML Diagram** - https://drive.google.com/file/d/1O11jY1Uk06fN8sawUfl5YnR9if1uIIXK/view?usp=sharing
 
-**Running Instructions:** Run using Processing, Click Master Mode to quickly test all levels and items
+**Running Instructions:** Run/compile using Processing, Click Master Mode to quickly test all levels and items
 
 # **Brief Project Description:**
 Our project will be a food-making game inspired by a combination of cooking fever, papa’s pizzeria, and good pizza great pizza. It will consist of a minimum three levels of playing, each level with customers that come in and order food, a waiting time limit for each customer while the player makes the food, different stages for the food-making process, and finally giving the food to the customer. As the game progresses, more ingredients will be unlocked for cooking. A goal for money made must be reached each level to reach the next level. There will be a decreased money earned per order if the customer waits for too long, or the order is made incorrectly. Ideally, there will be multiple foods but for now we are focused on just making a pizzeria.
