@@ -312,6 +312,13 @@ public class Game {
       notepad.show();
       pizza.show();
       
+      if (pizza.baked) {
+        textSize(15);
+        fill(0);
+        text("Can't put toppings on", 600, 400);
+        text("after pizza is baked!", 600, 420);
+      }
+      
       if (lvlEnd) {
         rectMode(CENTER);
         //window
