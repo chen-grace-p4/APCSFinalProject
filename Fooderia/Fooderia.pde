@@ -421,6 +421,7 @@ void mousePressed() {
         if (mouseX > 630 && mouseX < 780 && mouseY > 510 && mouseY < 560) {
           fooderia.changeScreen("cashier");
           oven = new Oven();
+          notepad.deleteOrder();
           pizza.next();
         }
       }
