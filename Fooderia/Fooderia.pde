@@ -9,7 +9,7 @@ Notepad notepad = new Notepad();
 
 
 //for testing purposes
-int mousex, mousey;
+//int mousex, mousey;
 //
 
 void setup() {
@@ -27,13 +27,13 @@ void setup() {
 void draw() {
   fooderia.checkScreen();
   //TESTING PURPOSES
-  mousex = mouseX;
-  mousey = mouseY;
-  //mousex = pizza.mainX;
-  //mousey = pizza.mainY;
-  textSize(15);
-  fill(0);
-  text(mousex + ", " + mousey, width-70, 125);
+  //mousex = mouseX;
+  //mousey = mouseY;
+  ////mousex = pizza.mainX;
+  ////mousey = pizza.mainY;
+  //textSize(15);
+  //fill(0);
+  //text(mousex + ", " + mousey, width-70, 125);
   //
   if (fooderia.getScreen().equals("sauce"))pizza.toppingDrag();
 
@@ -146,6 +146,7 @@ void draw() {
       stroke(#38c4ff);
       rect(mouseX, mouseY, 150, 120);
       fill(0);  
+      textSize(15);
       text("Normal mode is ", mouseX+10, mouseY+25);
       text("for regular players;", mouseX+10, mouseY+45);
       text("only level 1 is", mouseX+10, mouseY+65);
@@ -159,6 +160,7 @@ void draw() {
       stroke(#38c4ff);
       rect(mouseX, mouseY, 150, 120);
       fill(0);  
+      textSize(15);
       text("Master mode is ", mouseX+10, mouseY+25);
       text("for Mr. K only;", mouseX+10, mouseY+45);
       text("all levels are ", mouseX+10, mouseY+65);

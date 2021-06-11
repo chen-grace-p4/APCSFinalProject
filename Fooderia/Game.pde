@@ -550,6 +550,7 @@ public class Game {
       text("- Customers will leave if you take too long!", 170, 470);
       text("- Earn more money by making orders faster.", 170, 490);
       text("- Bake only after you place all toppings", 170, 510);
+      text("- Buy store items to extend customer wait time!", 170, 530);
     }
     
     //store
