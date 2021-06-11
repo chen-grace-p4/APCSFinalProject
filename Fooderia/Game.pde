@@ -25,6 +25,7 @@ public class Game {
   PImage cat;
   PImage dog;
   
+  boolean cashierHover, sauceHover, ovenHover;
   Game() {
     //things = new ArrayList<Things>();
     //screen = "cashier"; //CHANGE TO MAIN MENU LATER ON
@@ -42,6 +43,9 @@ public class Game {
     flower = loadImage("flower.png");
     cat = loadImage("cat.png");
     dog = loadImage("dog.png");
+    cashierHover = false;
+    sauceHover = false;
+    ovenHover = false;
   }
 
   String getScreen() {

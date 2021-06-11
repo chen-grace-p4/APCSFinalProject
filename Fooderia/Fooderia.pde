@@ -169,6 +169,26 @@ void draw() {
       }
       
   }
+  if (fooderia.screen.equals("cashier") || fooderia.screen.equals("oven") || fooderia.screen.equals("sauce")){
+    if (mouseX>500 && mouseX<600 && mouseY<100){
+    fooderia.cashierHover = true;
+    }
+    else{
+    fooderia.cashierHover = false;
+    }
+    if (mouseX>600 && mouseX<700 && mouseY<100){
+    fooderia.sauceHover = true;
+    }
+    else{
+    fooderia.sauceHover = false;
+    }
+    if (mouseX>700 && mouseX<800 && mouseY<100){
+    fooderia.ovenHover = true;
+    }
+    else{
+    fooderia.ovenHover = false;
+    }
+  }
 }
 
 void mousePressed() {
