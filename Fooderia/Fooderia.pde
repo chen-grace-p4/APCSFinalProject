@@ -163,8 +163,8 @@ void draw() {
       textSize(15);
       text("Master mode is ", mouseX+10, mouseY+25);
       text("for Mr. K only;", mouseX+10, mouseY+45);
-      text("all levels are ", mouseX+10, mouseY+65);
-      text("unlocked for  ", mouseX+10, mouseY+85);
+      text("all levels + items", mouseX+10, mouseY+65);
+      text("are unlocked for  ", mouseX+10, mouseY+85);
       text("testing purposes.", mouseX+10, mouseY+105);
 
 
