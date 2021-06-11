@@ -139,6 +139,36 @@ void draw() {
   }
 
   //////////////////////////////////////////////////////////
+  
+  if (fooderia.screen.equals("mainMenu")){
+      if (mouseX<380 && mouseX>40 && mouseY>630 && mouseY<760 ){
+      fill(#baeaff);
+      stroke(#38c4ff);
+      rect(mouseX, mouseY, 150, 120);
+      fill(0);  
+      text("Normal mode is ", mouseX+10, mouseY+25);
+      text("for regular players;", mouseX+10, mouseY+45);
+      text("only level 1 is", mouseX+10, mouseY+65);
+      text("unlocked while the ", mouseX+10, mouseY+85);
+      text("rest are locked", mouseX+10, mouseY+105);
+
+
+      }
+      if (mouseX<760 && mouseX>420 && mouseY>630 && mouseY<760 ){
+      fill(#baeaff);
+      stroke(#38c4ff);
+      rect(mouseX, mouseY, 150, 120);
+      fill(0);  
+      text("Master mode is ", mouseX+10, mouseY+25);
+      text("for Mr. K only;", mouseX+10, mouseY+45);
+      text("all levels are ", mouseX+10, mouseY+65);
+      text("unlocked for  ", mouseX+10, mouseY+85);
+      text("testing purposes.", mouseX+10, mouseY+105);
+
+
+      }
+      
+  }
 }
 
 void mousePressed() {

@@ -332,10 +332,12 @@ public class Pizza {
     if (customerRight.selected) {
       //println(toppingList);
       customerRight.customerLeaves(toppingList);
+      notepad.orderNum++;
     }
     else if (customerLeft.selected) {
       //println(toppingList);
       customerLeft.customerLeaves(toppingList);
+      notepad.orderNum++;
     }
     fooderia.newPizza();
   }

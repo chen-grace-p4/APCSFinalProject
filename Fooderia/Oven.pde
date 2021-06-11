@@ -14,7 +14,7 @@ public class Oven {
       fill(0);
       text("Give to customer", 650, 540);
       notepad.deleteOrder();
-      notepad.orderNum++;
+      
     }
   }
   
