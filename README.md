@@ -53,3 +53,5 @@ Our project will be a food-making game inspired by a combination of cooking feve
 6-9 (class + home) Grace C : Finished instructions on tutorial window. Fixed bugs regarding mousePressed when tutorial/store window is open. Made new store class and a way to store totalMoney and reset totalMoney.
 
 6-10 (home) Grace C: Finished store class, all sprites relating to it, and incorporating store items into the game.
+
+6-10(home) Shriya A: Made it so customer's order only shows up if clicked on, the order number on notepad changes when customerleaves instead of comes, added a note for normal mode vs master mode when hovering over the buttons, and made the cashier, sauce, and oven button darker when hovered over
