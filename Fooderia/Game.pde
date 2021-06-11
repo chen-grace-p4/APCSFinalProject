@@ -216,7 +216,7 @@ public class Game {
           } else {
             fill(255, 0, 0);
             textSize(20);
-            text("Earn atleast $35 in one day to unlock Level Two", 175, 525);
+            if(!lvlTwoUnlocked) text("Earn atleast $35 in one day to unlock Level Two", 175, 525);
           }
         }
         else if (level == 2 && firstUnlockThree) {
@@ -228,7 +228,7 @@ public class Game {
           } else {
             fill(255, 0, 0);
             textSize(20);
-            text("Earn atleast $40 in one day to unlock Level Three", 165, 525);
+            if(!lvlThreeUnlocked) text("Earn atleast $40 in one day to unlock Level Three", 165, 525);
           }
         }
         
